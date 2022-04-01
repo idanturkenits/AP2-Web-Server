@@ -1,7 +1,7 @@
 let users = [
-    {name:'idan', password:'123456'},
-    {name:'yogev', password:'654321'},
-    {name:'ido', password:'111111'}
+    {username:'idan', nickname:'idanthemagniv',image:'',password:'123'},
+    {username:'yogev', nickname:'yogevthecool',image:'',password:'111111'},
+    {username:'ido', nickname:'idothecooshi',image:'',password:'0'}
 ]
 
 export default users;

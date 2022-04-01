@@ -11,7 +11,7 @@ function LoginForm() {
         let usernameInput = usernameRef.current.value
         let passwordInput = passwordRef.current.value
         for(const user of users){
-            if(user.name === usernameInput && user.password === passwordInput){
+            if(user.username === usernameInput && user.password === passwordInput){
                 console.log("good")
             }
         }
@@ -27,7 +27,7 @@ function LoginForm() {
               <label htmlFor="inputPassword" className="form-label">Password</label>
               <input type="password" className="form-control" ref={passwordRef}></input>
             </div>
-            <p className="form-label">Dont have a username? <Link to="/signup">click here</Link></p>
+            <p className="form-label">Dont have a username? <Link to="/signup">click here to sign up</Link></p>
             <button className="btn btn-success" onClick={doLogin}>Submit</button>
         </div>
     );
