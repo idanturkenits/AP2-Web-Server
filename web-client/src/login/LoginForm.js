@@ -13,7 +13,7 @@ function LoginForm() {
         let passwordInput = passwordRef.current.value
         for(const user of users){
             if(user.username === usernameInput && user.password === passwordInput){
-                navigate('/Chat');
+                navigate('/chat');
             }
         }
     }
