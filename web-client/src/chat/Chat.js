@@ -1,12 +1,15 @@
 import { useRef } from 'react'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import UsersList from './usersList';
 
 /*
 disc: Chat is the main window' with all the contacts and their chats
 user: is the obj represent the user data
 */
 function Chat(user) {
+  const users = [{name:'Yossi',age:"13"},{name:'Noam',age:"13"}];
+
   return (
     <div class="theme border">
     <div class="container p-5">
@@ -20,7 +23,7 @@ function Chat(user) {
       </div>
       <div class="row">
         <div class="col-3 bg-light vh-100">
-          pepole list
+          <UsersList users={users}/>
         </div>
         <div class="col-9">
           <Text />
@@ -33,22 +36,6 @@ function Chat(user) {
 
 export default Chat;
 
-class User extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      name: props.name
-    }
-  }
-
-  render () {
-    return (
-      <div> 
-        yosi
-      </div>
-    )
-  }
-}
 
 class Text extends React.Component {
   constructor(props) {
@@ -61,11 +48,13 @@ class Text extends React.Component {
   render () {
     return (
 
-        <div> 
-          <div class="Text vh-100">the actul chat </div>
-          <Messages />
+        <div class="position-relative"> 
+          <div class="vh-100 bg-warning text-dark">
+            the actul chat
+          <Messages/>
+          </div>
         </div>
-        
+
           
     )
   }
@@ -73,7 +62,7 @@ class Text extends React.Component {
 
 function Messages() {
   return (
-      <div class="row">
+    <div class="row position-absolute bottom-0">
         <div class="col-1">
           <i class="bi bi-paperclip"></i>
         </div>
@@ -83,6 +72,6 @@ function Messages() {
         <div class="col-1">
           <button class="btn btn-primary" type="button">Send</button>
         </div>
-      </div>
+    </div>
   )
 }
