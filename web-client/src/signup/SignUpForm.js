@@ -1,14 +1,18 @@
 import {useRef} from 'react'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import users from '../database/Users'
 function SignUpForm(){
+
+    let navigate = useNavigate();
+
     let usernameRef = useRef(null)
     let nicknameRef = useRef(null)
     // let imageRef = useRef(null)
     let passwordRef = useRef(null)
     let confirmPasswordRef = useRef(null)
 
-    let doSignIn = function(){
+    let doSignUp = function(){
         // get data from boxes
         let usernameInput = usernameRef.current.value
         let nicknameInput = nicknameRef.current.value
@@ -34,6 +38,8 @@ function SignUpForm(){
         nicknameRef.current.value = ''
         passwordRef.current.value = ''
         confirmPasswordRef.current.value = ''
+
+        navigate('/login')
     }
 
     return (
@@ -54,7 +60,7 @@ function SignUpForm(){
                             <label htmlFor="password2" className="form-label">Confirm password</label>
                             <input className="form-control" type="password" ref={confirmPasswordRef}></input>
                         </div>
-                        <button className="btn btn-success" onClick={doSignIn}>sign Up</button>
+                        <button className="btn btn-success" onClick={doSignUp}>Sign Up</button>
                         <p className="form-label">Already have a username? <Link to="/login">click here to log in</Link></p>
 
         </div>
