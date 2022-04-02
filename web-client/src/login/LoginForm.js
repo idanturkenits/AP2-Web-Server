@@ -1,9 +1,10 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import users from '../database/Users'
 
 function LoginForm() {
-
+    let navigate = useNavigate();
     let usernameRef = useRef(null)
     let passwordRef = useRef(null)
 
@@ -12,7 +13,7 @@ function LoginForm() {
         let passwordInput = passwordRef.current.value
         for(const user of users){
             if(user.username === usernameInput && user.password === passwordInput){
-                console.log("good")
+                navigate('/Chat');
             }
         }
     }
