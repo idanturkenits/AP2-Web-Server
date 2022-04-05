@@ -9,7 +9,7 @@ function Login() {
           <div className="col">
           </div>
           <div className="col">
-            <LoginForm/>
+            <LoginForm />
           </div>
           <div className="col">
           </div>
