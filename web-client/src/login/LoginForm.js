@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import users from '../database/Users'
-import $ from 'jquery'
-import authUser from './authUser'
 
-function LoginForm() {
+function LoginForm({setIsAuthenticatedFunc}) {
     const [error,setError] = useState(false);
 
     let navigate = useNavigate();
@@ -18,6 +16,7 @@ function LoginForm() {
         let passwordInput = passwordRef.current.value
         for(const user of users){
             if(user.username === usernameInput && user.password === passwordInput){
+                setIsAuthenticatedFunc(true)
                 navigate('/chat');
             }
             else{
