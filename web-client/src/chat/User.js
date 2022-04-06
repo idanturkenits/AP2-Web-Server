@@ -11,7 +11,7 @@ class User extends React.Component {
   
     render () {
       return (
-          <div class="card mb-3" styles="max-width: 540px;">
+          <div class="contacts card mb-3" styles="max-width: 540px;">
               <div class="row no-gutters">
                   <div class="col-md-4 my-auto">
                       <img src="logo512.png" class="card-img rounded" alt="..."></img>

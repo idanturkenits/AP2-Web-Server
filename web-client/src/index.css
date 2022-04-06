@@ -12,10 +12,48 @@ code {
     monospace;
 }
 .Text {
-  background-color: rgb(241, 219, 13);
+  background-color: rgb(34, 8, 114);
 }
 
 .theme {
-  background-color: rgb(61, 152, 226);
-  border: 2
+  background-color: rgba(105, 103, 103, 0.5);
+  border: 2;
+}
+
+.chat {
+  position: relative;
+  width: 60%;
+}
+
+.chat:nth-child(1) {
+  background-color: rgba(245, 138, 8, 1);
+}
+
+.contact:hover{
+  cursor: grab;
+  background-color:rgba(236, 151, 15, 0.5);
+}
+
+.messages {
+  background-color:rgb(255, 255, 255);
+  width: 90%;
+  left: 5%;
+}
+
+.contacts {
+  width: 90%;
+  left: 5%;
+}
+
+.send-box {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgb(59, 141, 69);
+
+  width: 100%;
+}
+
+.test {
+  height: 70%;
 }
