@@ -12,7 +12,7 @@ function Chat(user) {
 
   return (
     <div class="theme">
-      <div class="chat center rounded border border-3 border-dark container">
+      <div class="chat container center rounded border border-3 border-dark container">
         <div class="row">
           <div class="col">
             -user-
@@ -51,11 +51,12 @@ class Text extends React.Component {
         <div class="messages rounded border border-1 border-dark position-relative scrolled"> 
             <Messages/>
         </div>
+      </div>
     )
   }
 }
 
-function Messages() {
+function SendBox() {
   return (
     <div class>
       אוגוסטן קושי נולד ב־21 באוגוסט 1789 בפריז. קיבל את חינוכו מאביו, לואי פרנסואה קושי (1760–1848), שהחזיק במספר משרות ציבוריות והיה ידיד של המתמטיקאים ז'וזף-לואי לגראנז' ופייר-סימון לפלס. אוגוסטן קושי נרשם בשנת 1802 לאקול סנטראל די פנתאון (École Centrale du Panthéon) ומשם המשיך לאקול פוליטקניק ב־1805. ב־1807 עבר ללמוד באקול דה פון א שוסה (École des Ponts et Chaussées), שם הוכשר בתור מהנדס. ב־1810 הוא עזב את פריז לשרבור, אך חזר ב־1813 בגלל בעיות בריאות.
