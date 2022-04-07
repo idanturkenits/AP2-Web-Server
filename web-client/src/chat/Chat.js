@@ -50,14 +50,14 @@ class Text extends React.Component {
 
         <div class="messages rounded border border-1 border-dark position-relative"> 
           <div class="vh-100 text-dark">
-            <Messages/>
+            <SendBox/>
           </div>
         </div>
     )
   }
 }
 
-function Messages() {
+function SendBox() {
   return (
     <div>
       -chat-
