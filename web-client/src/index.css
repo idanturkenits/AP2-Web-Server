@@ -35,13 +35,6 @@ code {
   background-color:rgba(236, 151, 15, 0.5);
 }
 
-.messages {
-  background-color:rgb(255, 255, 255);
-  width: 90%;
-  left: 5%;
-  height: 90%;
-}
-
 .contacts {
   width: 90%;
   left: 5%;
@@ -55,7 +48,11 @@ code {
 }
 
 .chat-screen {
+  background-color:rgb(255, 255, 255);
+  width: 90%;
+  left: 5%;
   height: 90%;
+<<<<<<< HEAD
 }
 
 .test {
@@ -67,3 +64,6 @@ code {
   overflow-y: scroll;
   max-height: 70%;
 }
+=======
+}
+>>>>>>> 7dccbca9c946f1aacf8c0a7fd67a50318b0806fc

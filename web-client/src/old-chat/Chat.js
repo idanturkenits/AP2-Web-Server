@@ -47,8 +47,18 @@ class Text extends React.Component {
 
   render () {
     return (
+<<<<<<< HEAD:web-client/src/chat/Chat.js
 
         <div class="messages rounded border border-1 border-dark position-relative scrolled"> 
+=======
+        <div>
+          <div class="chat-screen text-dark container rounded border border-1 border-dark position-relative">
+            jkdsjllcjzlxjc  sakldddddddddddddddddddddd
+            alsdkaaaaaaaaaaaaaa
+          </div>
+        <div>
+          <SendBox/>
+>>>>>>> 7dccbca9c946f1aacf8c0a7fd67a50318b0806fc:web-client/src/old-chat/Chat.js
         </div>
     )
   }
