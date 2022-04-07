@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 code {
@@ -56,4 +57,10 @@ code {
 
 .test {
   height: 70%;
+}
+
+.scrolled {
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 70%;
 }
