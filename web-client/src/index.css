@@ -38,6 +38,7 @@ code {
   background-color:rgb(255, 255, 255);
   width: 90%;
   left: 5%;
+  height: 90%;
 }
 
 .contacts {
@@ -46,14 +47,13 @@ code {
 }
 
 .send-box {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
+  position: relative;
+  width: 90%;
+  left: 12%;
   background-color: rgb(59, 141, 69);
-
-  width: 100%;
 }
 
-.test {
-  height: 70%;
+.chat-screen {
+  height: 90%;
 }
+

@@ -12,7 +12,7 @@ function Chat(user) {
 
   return (
     <div class="theme">
-      <div class="chat center rounded border border-3 border-dark container">
+      <div class="chat container center rounded border border-3 border-dark container">
         <div class="row">
           <div class="col">
             -user-
@@ -47,31 +47,31 @@ class Text extends React.Component {
 
   render () {
     return (
-
-        <div class="messages rounded border border-1 border-dark position-relative"> 
-          <div class="vh-100 text-dark">
-            <SendBox/>
+        <div>
+          <div class="chat-screen text-dark messages container rounded border border-1 border-dark position-relative">
+            jkdsjllcjzlxjc  sakldddddddddddddddddddddd
+            alsdkaaaaaaaaaaaaaa
           </div>
+        <div>
+          <SendBox/>
         </div>
+      </div>
     )
   }
 }
 
 function SendBox() {
   return (
-    <div>
-      -chat-
-      <div class="send-box row rounded border border-1 border-dark">
-          <div class="col-1">
-            <i class="bi bi-paperclip"></i>
-          </div>
-          <div class="col-10">
-            <input placeholder="New messages here..."></input>
-          </div>
-          <div class="col-1">
-            <button class="btn btn-primary" type="button">Send</button>
-          </div>
-      </div>
+    <div class="send-box row rounded border border-1 border-dark clearfix">
+        <div class="col-1">
+          <i class="bi bi-paperclip"></i>
+        </div>
+        <div class="col-10">
+          <input placeholder="New messages here..."></input>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-primary" type="button">Send</button>
+        </div>
     </div>
   )
 }
