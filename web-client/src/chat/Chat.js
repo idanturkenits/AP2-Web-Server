@@ -49,9 +49,7 @@ class Text extends React.Component {
     return (
 
         <div class="messages rounded border border-1 border-dark position-relative scrolled"> 
-            <Messages/>
         </div>
-      </div>
     )
   }
 }
