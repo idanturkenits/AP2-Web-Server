@@ -48,7 +48,7 @@ class Text extends React.Component {
   render () {
     return (
         <div>
-          <div class="chat-screen text-dark messages container rounded border border-1 border-dark position-relative">
+          <div class="chat-screen text-dark container rounded border border-1 border-dark position-relative">
             jkdsjllcjzlxjc  sakldddddddddddddddddddddd
             alsdkaaaaaaaaaaaaaa
           </div>

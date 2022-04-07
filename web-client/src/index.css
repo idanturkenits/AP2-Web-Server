@@ -34,13 +34,6 @@ code {
   background-color:rgba(236, 151, 15, 0.5);
 }
 
-.messages {
-  background-color:rgb(255, 255, 255);
-  width: 90%;
-  left: 5%;
-  height: 90%;
-}
-
 .contacts {
   width: 90%;
   left: 5%;
@@ -54,6 +47,8 @@ code {
 }
 
 .chat-screen {
+  background-color:rgb(255, 255, 255);
+  width: 90%;
+  left: 5%;
   height: 90%;
 }
-
