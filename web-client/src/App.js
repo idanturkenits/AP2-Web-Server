@@ -3,7 +3,7 @@ import './App.css';
 import Login from "./Login";
 import Home from "./Home";
 import Signup from "./Signup";
-import Chat from "./chat/Chat";
+import ChatScreen from "./chat/ChatScreen";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
-        <Route path="chat" element={<Chat />} />
+        <Route path="chat" element={<ChatScreen />} />
 
 
     </Routes>
