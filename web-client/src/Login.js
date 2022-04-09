@@ -11,13 +11,13 @@ function Login() {
   }
 
   return (
-    <div>
+    <div class="card loginPage">
       <h1 className="text-center">Log In</h1>
       <div className="container">
         <div className="row">
           <div className="col">
           </div>
-          <div className="col">
+          <div className="col-9">
             <div className="mb-3">
               <label htmlFor="inputUsername" className="form-label">Username</label>
               <input className="form-control" ref={usernameRef}></input>

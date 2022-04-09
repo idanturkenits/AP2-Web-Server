@@ -1,4 +1,5 @@
 body {
+  background-image: linear-gradient(to right, #ff512f, #f09819);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -62,4 +63,12 @@ code {
   overflow: hidden;
   overflow-y: scroll;
   max-height: 70%;
+}
+
+.loginPage {
+  position: relative;
+  width: 20%;
+  left: 50%;
+  margin-top: 10%;
+  justify-content: center
 }
