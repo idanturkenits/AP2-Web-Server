@@ -1,9 +1,11 @@
-function Bar() {
+import AddContact from "./addContact";
+
+function Bar(changeUsers) {
     return (
         <div class="px-4 d-none d-md-block">
         <div class="d-flex align-items-center">
             <div class="flex-grow-1">
-                <button class="btn"><i class="bi bi-person-plus-fill"></i></button>
+                <AddContact />
                 <input type="text" class="form-control my-3" placeholder="Search...">
                 </input>
             </div>
