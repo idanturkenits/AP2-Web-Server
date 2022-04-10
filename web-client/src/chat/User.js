@@ -11,10 +11,10 @@ class User extends React.Component {
   
     render () {
       return (
-          <div class="contacts card mb-3" styles="max-width: 540px;">
+          <li class="contact card mb-3" styles="max-width: 540px;">
               <div class="row no-gutters">
                   <div class="col-md-4 my-auto">
-                      <img src="logo512.png" class="card-img rounded" alt="..."></img>
+                      <img src="capture1.png" class="card-img rounded-circle mr-1" alt="..."></img>
                   </div>
                   <div class="col-md-8 my-auto">
                       <div class="card-body justify-content-between d-flex">
@@ -26,7 +26,7 @@ class User extends React.Component {
                       </div>
                   </div>
               </div>
-          </div>
+          </li>
       )
     }
 }
