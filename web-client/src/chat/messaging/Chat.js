@@ -1,5 +1,5 @@
 import React from 'react'
-import ChatHistory from "./ChatHistory"
+import Message from "./Message"
 
 class Chat extends React.Component {
     constructor(props) {
@@ -10,9 +10,16 @@ class Chat extends React.Component {
     }
   
     render () {
-      return (
+      
+      const messagesHTML = this.state.chatHistory.map((msg,key) => {
+        return (
+            <Message {...msg}/>
+        );
+      });
+
+      return (        
         <div class="position-relative">
-            <ChatHistory chatHistory={this.state.chatHistory} />
+            {messagesHTML}
         </div>
       )
     }

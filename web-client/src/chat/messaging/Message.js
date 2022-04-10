@@ -9,7 +9,7 @@ class Message extends React.Component {
         time : props.time
       }
     }
-  
+    
     render () {
       return (
         <div class="chat-messages p-4">
@@ -20,8 +20,7 @@ class Message extends React.Component {
                 <div class="text-muted small text-nowrap mt-2">{this.state.time}</div>
             </div>
             <div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
-                <div class="font-weight-bold mb-1">You</div>
-                <TextMessage {...this.state.content} />
+                <TextMessage text = {this.state.content} />
             </div>
         </div>
 
