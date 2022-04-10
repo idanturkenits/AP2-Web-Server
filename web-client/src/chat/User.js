@@ -5,7 +5,8 @@ class User extends React.Component {
       super(props)
       this.state = {
         name : props.name,
-        age : props.age
+        age : props.age,
+        chatHistory : props.chatHistroy
       }
     }
   

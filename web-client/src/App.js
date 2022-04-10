@@ -3,7 +3,7 @@ import './App.css';
 import Login from "./Login";
 import Home from "./Home";
 import Signup from "./Signup";
-import ChatScreen from "./chat/ChatScreen";
+import ChatScreen from "./chat/messaging/ChatScreen";
 
 function App() {
   return (
