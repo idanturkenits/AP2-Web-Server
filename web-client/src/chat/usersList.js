@@ -1,10 +1,10 @@
 import React from 'react'
 import User from "./User"
 
-function UsersList({users}){
-    const usersList = users.map((user,key) => {
+function UsersList(props){
+    const usersList = props.users.map((user,key) => {
         return (
-            <User {...user}/>
+            <User {... {user : user, displayChatWith : props.displayChatWith} } />
         );
     });
 

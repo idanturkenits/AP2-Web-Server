@@ -1,4 +1,3 @@
-import $ from 'jquery'
 import { useRef } from 'react'
 
 function AddContact(props) {
