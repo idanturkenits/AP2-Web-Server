@@ -1,26 +1,17 @@
 import React from 'react'
 
-class User extends React.Component {
-    constructor(props) {
-      super(props)
-      this.state = {
-        user : props.user,
-        display : props.displayChatWith,
-      }
-    }
-  
-    render () {
-      return (
-          <li class="contact card mb-3" styles="max-width: 540px;" key={this.state.user}>
+function User(props) {
+    return (
+          <li class="contact card mb-3" styles="max-width: 540px;" key={props.user}>
               <div class="row no-gutters" 
-              onClick={() => this.state.display(this.state.user)}>
+              onClick={() => props.displayChatWith(props.user)}>
                   <div class="col-md-4 my-auto">
-                      <img src={this.state.user.image} class="card-img rounded-circle mr-1" alt="..."></img>
+                      <img src={props.user.image} class="card-img rounded-circle mr-1" alt="..."></img>
                   </div>
                   <div class="col-md-8 my-auto">
                       <div class="card-body justify-content-between d-flex">
                           <div class="ms-2 me-auto">
-                              <h5 class="card-title fw-bold">{this.state.user.firstName} {this.state.user.lastName}
+                              <h5 class="card-title fw-bold">{props.user.firstName} {props.user.lastName}
                               </h5>
                               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                           </div>
@@ -29,7 +20,6 @@ class User extends React.Component {
               </div>
           </li>
       )
-    }
 }
 
 export default User;

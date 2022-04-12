@@ -27,9 +27,8 @@ function ChatScreen(user) {
         var curTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         // finding the contacts to send the messaged to
         var updatesContact = uList.find((cont) => {return contact.firstName === cont.firstName && contact.lastName === cont.lastName})
-        console.log(updatesContact)
         updatesContact.chatHistory = updatesContact.chatHistory.concat({content : props.text, time : curTime})
-        displayChatWith(updatesContact);
+        setContact({...updatesContact}); //need to save
     }
 
     const addCont = function(user) {
