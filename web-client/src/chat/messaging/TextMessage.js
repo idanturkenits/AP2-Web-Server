@@ -11,9 +11,9 @@ class TextMessage extends React.Component {
     render () {
       return (
             <div>
-                <text>{this.state.text}</text>
+                {this.state.text}
             </div>
-      )
+      );
     }
 }
 

@@ -5,13 +5,13 @@ class User extends React.Component {
       super(props)
       this.state = {
         user : props.user,
-        display : props.displayChatWith
+        display : props.displayChatWith,
       }
     }
   
     render () {
       return (
-          <li class="contact card mb-3" styles="max-width: 540px;">
+          <li class="contact card mb-3" styles="max-width: 540px;" key={this.state.user}>
               <div class="row no-gutters" 
               onClick={() => this.state.display(this.state.user)}>
                   <div class="col-md-4 my-auto">

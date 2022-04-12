@@ -5,7 +5,7 @@ class Chat extends React.Component {
     constructor(props) {
       super(props)
       this.state = {
-        chatHistory : props.contact.chatHistory,
+        chatHistory : props.dispContact.chatHistory,
       }
     }
   

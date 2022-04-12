@@ -15,26 +15,21 @@ function ChatScreen(user) {
     const messages1 = [{content:'Yossi',time:"12"}];
     const messages2 = [{content:'It works!!!!',time:"5:47"},{content:'Yossi',time:"12"}];
     const [uList,setUList] = useState([{firstName:'Haim',lastName:"Cohen",image:"logo192.png",chatHistory:messages1},{firstName:'Noam',lastName:"Katz",image:"Capture1.PNG",chatHistory:messages2}]);
-    const [contact, setContact] = useState(uList[0])
+    const [contact, setContact] = useState(uList[0]);
     
     const displayChatWith = function(user) {
-        console.log(user);
         setContact(user);
-        console.log(contact);
     }
 
-    const addTextMessage = function(text) {
-        console.log("tring to add: " + text)
+    const addTextMessage = function(props) {
         // getting the current time
         var today = new Date();
-        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var curTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         // finding the contacts to send the messaged to
         var updatesContact = uList.find((cont) => {return contact.firstName === cont.firstName && contact.lastName === cont.lastName})
-        console.log("contact: " + updatesContact.firstName)
-        updatesContact.chatHistory.push({content : text, time : time})
-        console.log("chat: ")
-        updatesContact.chatHistory = updatesContact.chatHistory.forEach((msg) => console.log(msg))
-        setContact(updatesContact);
+        console.log(updatesContact)
+        updatesContact.chatHistory = updatesContact.chatHistory.concat({content : props.text, time : curTime})
+        displayChatWith(updatesContact);
     }
 
     const addCont = function(user) {
@@ -55,19 +50,19 @@ function ChatScreen(user) {
                         {/*the user that the chat with him */}
                         <div class="py-2 px-4 border-bottom d-none d-lg-block">
                             <div class="d-flex align-items-center py-1">
-                                <User {... {user:contact, displayChatWith:displayChatWith} }/>
+                                <User user={contact} displayChatWith={displayChatWith}/>
                             </div>
                         </div>
 
                         {/*the chat*/}
                         <div>
-                        <Chat contact={contact}/>
+                        <Chat dispContact={contact}/>
                         <InputToolBar {...{addTextMessage : addTextMessage}}/>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-  )
+  );
 }
 export default ChatScreen;
