@@ -19,8 +19,15 @@ function ChatScreen(user) {
 
     
     const displayChatWith = function(user) {
-        user['chatHistory']=messages2;
+        console.log(user);
         setContact(user);
+        console.log();
+    }
+
+    const addTextMessage = function(text) {
+        var today = new Date();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        contact.chatHistory.concat({content : text, time : time});
     }
 
     const addCont = function(user) {
