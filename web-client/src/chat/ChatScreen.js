@@ -16,18 +16,25 @@ function ChatScreen(user) {
     const messages2 = [{content:'It works!!!!',time:"5:47"},{content:'Yossi',time:"12"}];
     const [uList,setUList] = useState([{firstName:'Haim',lastName:"Cohen",image:"logo192.png",chatHistory:messages1},{firstName:'Noam',lastName:"Katz",image:"Capture1.PNG",chatHistory:messages2}]);
     const [contact, setContact] = useState(uList[0])
-
     
     const displayChatWith = function(user) {
         console.log(user);
         setContact(user);
-        console.log();
+        console.log(contact);
     }
 
     const addTextMessage = function(text) {
+        console.log("tring to add: " + text)
+        // getting the current time
         var today = new Date();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        contact.chatHistory.concat({content : text, time : time});
+        // finding the contacts to send the messaged to
+        var updatesContact = uList.find((cont) => {return contact.firstName === cont.firstName && contact.lastName === cont.lastName})
+        console.log("contact: " + updatesContact.firstName)
+        updatesContact.chatHistory.push({content : text, time : time})
+        console.log("chat: ")
+        updatesContact.chatHistory = updatesContact.chatHistory.forEach((msg) => console.log(msg))
+        setContact(updatesContact);
     }
 
     const addCont = function(user) {
@@ -55,7 +62,7 @@ function ChatScreen(user) {
                         {/*the chat*/}
                         <div>
                         <Chat contact={contact}/>
-                        <InputToolBar />
+                        <InputToolBar {...{addTextMessage : addTextMessage}}/>
                         </div>
                     </div>
                 </div>
