@@ -4,12 +4,12 @@ function SignUp() {
         <div>
             <div className="container">
                 <div className="row">
-                    <div className="col">
+                    <div className="col-lg-4 col-md-2 col-sm-0 col-xs-0">
                     </div>
                     <div className="col-lg-4 col-md-10 col-sm-12 col-xs-12">
                         <SignUpForm/>
                     </div>
-                    <div className="col">
+                    <div className="col-lg-4 col-md-2 col-sm-0 col-xs-0">
                     </div>
                 </div>
             </div>
