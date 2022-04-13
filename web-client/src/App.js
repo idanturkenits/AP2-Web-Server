@@ -2,8 +2,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import './App.css';
 import Login from "./login/Login";
 import Home from "./Home";
-import Signup from "./Signup";
+import SignUp from "./signup/SignUp";
 import ChatScreen from "./chat/ChatScreen";
+import {useState} from "react"
 
 function App() {
   let [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -19,7 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login setIsAuthenticatedFunc={setIsAuthenticatedFunc} />} />
         <Route path="signup" element={<SignUp />} />
-        <Route path="chat" element={isAuthenticated ? <Chat /> : notFound} />
+        <Route path="chat" element={isAuthenticated ? <ChatScreen /> : notFound} />
         <Route path="*" element={notFound} />
       </Routes>
     </BrowserRouter>

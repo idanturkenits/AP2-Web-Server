@@ -1,10 +1,10 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import users from '../database/Users'
 import User from '../classes/User'
 function SignUpForm() {
-
+    const [error, setError] = useState('');
     let navigate = useNavigate();
 
     let usernameRef = useRef(null)
@@ -20,22 +20,21 @@ function SignUpForm() {
         let passwordInput = passwordRef.current.value
         let confirmPasswordInput = confirmPasswordRef.current.value
 
+        // check if one of the fields is empty
+        if (usernameInput === '' || passwordInput === '' || nicknameInput === '') {
+            setError('Please fill in all fields')
+            return
+        }
         // check if username is already taken
         for (const user of users) {
             if (user.username === usernameInput) {
-                alert('Username is already taken')
+                setError('Username is already taken')
                 return
             }
         }
-
         // check if passwords match
         if (passwordInput !== confirmPasswordInput) {
-            alert("Passwords do not match")
-            return
-        }
-        // check if one of the fields is empty
-        if (usernameInput === '' || passwordInput === '' || nicknameInput === '') {
-            alert("Please fill in all fields")
+            setError('Passwords do not match')
             return
         }
 
@@ -50,32 +49,32 @@ function SignUpForm() {
 
         navigate('/login')
     }
-
     return (
-        <div>
-            <div className="mb-3">
-                <label htmlFor="inputUsername" className="form-label">Username</label>
-                <input className="form-control" ref={usernameRef}></input>
+        <div className="card mt-5" style={{ borderRadius: 2 + '%' }}>
+            <div className="card-header text-center">
+                <h1>Sign Up</h1>
             </div>
-            <div className="mb-3">
-                <label htmlFor="inputUsername" className="form-label">Nickname</label>
-                <input className="form-control" ref={nicknameRef}></input>
+            <div className="card-body">
+                <div className="form-group mt-2">
+                    <input type="text" className="form-control" id="username" ref={usernameRef} placeholder="username" />
+                </div>
+                <div className="form-group mt-4">
+                    <input type="text" className="form-control" id="username" ref={nicknameRef} placeholder="nickname" />
+                </div>
+                <div className="form-group mt-4">
+                    <input type="password" className="form-control" id="password" ref={passwordRef} placeholder="password" />
+                </div>
+                <div className="form-group mt-4">
+                    <input type="password" className="form-control" id="password" ref={confirmPasswordRef} placeholder="confirm password" />
+                </div>
+                <p className="form-label mt-2 mb-5 text-danger">{error}</p>
+                <div className="mt-5 d-flex justify-content-center">
+                    <button id="login_btn" type="button" className="btn btn-dark btn-block w-100" onClick={doSignUp}>Sign Up</button>
+                </div>
+                <div className="mt-5 d-flex justify-content-center">
+                    <p className="form-label mt-2 mb-5">Already a member? <Link to="/login" className="text-decoration-none">Login</Link></p>
+                </div>
             </div>
-            <div class="mb-3">
-                <label htmlFor="inputUsername" className="form-label">Image</label>
-                <input className="form-control" type="file" accept="image/*" id="imgInp"></input>
-            </div>
-            <div className="mb-3">
-                <label htmlFor="inputPassword" className="form-label">Password</label>
-                <input type="password" className="form-control" ref={passwordRef}></input>
-            </div>
-            <div className="mb-3">
-                <label htmlFor="password2" className="form-label">Confirm password</label>
-                <input className="form-control" type="password" ref={confirmPasswordRef}></input>
-            </div>
-            <button className="btn btn-success" onClick={doSignUp}>Sign Up</button>
-            <p className="form-label">Already have a username? <Link to="/login">click here to log in</Link></p>
-
         </div>
     );
 }

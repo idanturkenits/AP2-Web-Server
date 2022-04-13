@@ -11,13 +11,13 @@ function AddContact(props) {
                 <i class="bi bi-person-plus-fill"></i>
             </button>
             <div class="modal fade" id="addContact" tabIndex="-1" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add Contact</h5>
-                    <button type="button" id="closeAddContact" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add Contact</h5>
+                            <button type="button" id="closeAddContact" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
                             <form id="addContactForm">
                                 <div class="form-row">
                                     <div class="form-group mb-2">
@@ -31,20 +31,20 @@ function AddContact(props) {
                                     </div>
                                 </div>
                             </form>
+                        </div>
+                        <div class="modal-footer justify-content-start">
+                            <button type="button" class="btn btn-primary" onClick={() => addData(props.addUser, firstName.current.value, lastName.current.value, image)} data-bs-toggle="modal" data-bs-target="#addContact">Save changes</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer justify-content-start">
-                    <button type="button" class="btn btn-primary" onClick={() => addData(props.addUser,firstName.current.value,lastName.current.value,image)} data-bs-toggle="modal" data-bs-target="#addContact">Save changes</button>
-                </div>
-                </div>
-            </div>
             </div>
         </div>
     );
 }
 
-function addData(func,fName,lName) {
+function addData(func, fName, lName) {
     let profileImage = getImgData();
-    func({firstName:fName,lastName:lName,image:profileImage});
+    func({ firstName: fName, lastName: lName, image: profileImage, chatHistory: [] });
 }
 
 function getImgData() {
