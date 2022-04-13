@@ -2,10 +2,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import './App.css';
 import Login from "./login/Login";
 import Home from "./Home";
-import SignUp from "./signup/SignUp";
-import Chat from "./chat/Chat";
-import { useState } from "react";
-
+import Signup from "./Signup";
+import ChatScreen from "./chat/ChatScreen";
 
 function App() {
   let [isAuthenticated, setIsAuthenticated] = useState(false)
