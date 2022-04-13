@@ -11,7 +11,7 @@ function UsersList(props){
 
     return (
         <div>
-            <ul className='noBullet'>
+            <ul id="user-list" className='noBullet'>
                 {usersList}
             </ul>
         </div>

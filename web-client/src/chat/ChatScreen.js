@@ -13,26 +13,26 @@ disc: Chat is the main window' with all the contacts and their chats
 user: is the obj represent the user data
 */
 function ChatScreen(user) {
-    const messages1 = [{content:'Yossi',time:"12"}];
-    const messages2 = [{content:'It works!!!!',time:"5:47"},{content:'Yossi',time:"12"}];
-    const [uList,setUList] = useState([{firstName:'Haim',lastName:"Cohen",image:"logo192.png",chatHistory:messages1},{firstName:'Noam',lastName:"Katz",image:"Capture1.PNG",chatHistory:messages2}]);
+    const messages1 = [{ content: 'Yossi', time: "12" }];
+    const messages2 = [{ content: 'It works!!!!', time: "5:47" }, { content: 'Yossi', time: "12" }];
+    const [uList, setUList] = useState([{ firstName: 'Haim', lastName: "Cohen", image: "logo192.png", chatHistory: messages1 }, { firstName: 'Noam', lastName: "Katz", image: "Capture1.PNG", chatHistory: messages2 }]);
     const [contact, setContact] = useState(uList[0]);
-    
-    const displayChatWith = function(user) {
+
+    const displayChatWith = function (user) {
         setContact(user);
     }
 
-    const addTextMessage = function(props) {
+    const addTextMessage = function (props) {
         // getting the current time
         var today = new Date();
         var curTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         // finding the contacts to send the messaged to
-        var updatesContact = uList.find((cont) => {return contact.firstName === cont.firstName && contact.lastName === cont.lastName})
-        updatesContact.chatHistory = updatesContact.chatHistory.concat({content : props.text, time : curTime})
-        setContact({...updatesContact}); //need to save
+        var updatesContact = uList.find((cont) => { return contact.firstName === cont.firstName && contact.lastName === cont.lastName })
+        updatesContact.chatHistory = updatesContact.chatHistory.concat({ content: props.text, time: curTime })
+        setContact({ ...updatesContact }); //need to save
     }
 
-    const addCont = function(user) {
+    const addCont = function (user) {
         let newArr = uList.concat(user);
         setUList(newArr);
     }
@@ -40,29 +40,29 @@ function ChatScreen(user) {
     return (
         /*the entire page*/
         <div className="container">
-            <div  id="chatScreen" className="card">
-            <div className="row">
+            <div id="chatScreen" className="card">
+                <div className="row">
                     <div className="col-3 col-lg-3 col-xl-3">
-                    <Bar changeState={addCont}/>
-                    <UsersList users={uList} displayChatWith={displayChatWith} />
+                        <Bar changeState={addCont} />
+                        <UsersList users={uList} displayChatWith={displayChatWith} />
                     </div>
                     <div className="col-9 col-lg-9 col-xl-9 border-start">
                         {/*the user that the chat with him */}
                         <div className="py-2 px-4 border-bottom d-none d-lg-block ">
                             <div className="d-flex align-items-center py-1">
-                                <User user={contact} displayChatWith={displayChatWith}/>
+                                <User user={contact} displayChatWith={displayChatWith} />
                             </div>
                         </div>
 
                         {/*the chat*/}
                         <div>
-                        <Chat dispContact={contact}/>
-                        <InputToolBar {...{addTextMessage : addTextMessage}}/>
+                            <Chat dispContact={contact} />
+                            <InputToolBar {...{ addTextMessage: addTextMessage }} />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-  );
+    );
 }
 export default ChatScreen;

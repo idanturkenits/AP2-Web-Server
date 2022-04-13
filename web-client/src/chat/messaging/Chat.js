@@ -10,7 +10,7 @@ function Chat(props) {
   });
 
   return (
-    <div id="chat" className="position-relative">
+    <div className="position-relative scroll-area">
       {messagesHTML}
     </div>
   );

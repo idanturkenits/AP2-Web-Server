@@ -44,7 +44,7 @@ body{margin-top:20px;}
     border-top: 1px solid #dee2e6!important;
 }
 
-#chat {
+.scroll-area {
     height: 60vh;
     overflow-y: scroll;
 }
@@ -56,4 +56,9 @@ body{margin-top:20px;}
 #userImage{
     width:100px;
     height:100px;
+}
+
+#user-list{
+    height: 68vh;
+    overflow-y: scroll;
 }
