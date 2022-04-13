@@ -10,7 +10,7 @@ function Chat(props) {
   });
 
   return (
-    <div class="position-relative">
+    <div id="chat" className="position-relative">
       {messagesHTML}
     </div>
   );

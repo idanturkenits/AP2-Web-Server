@@ -20,7 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login setIsAuthenticatedFunc={setIsAuthenticatedFunc} />} />
         <Route path="signup" element={<SignUp />} />
-        <Route path="chat" element={isAuthenticated ? <ChatScreen /> : notFound} />
+        <Route path="chat" element={<ChatScreen />} />
         <Route path="*" element={notFound} />
       </Routes>
     </BrowserRouter>

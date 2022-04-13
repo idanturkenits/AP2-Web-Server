@@ -6,7 +6,7 @@ function User(props) {
               <div class="row no-gutters" 
               onClick={() => props.displayChatWith(props.user)}>
                   <div class="col-md-4 my-auto">
-                      <img src={props.user.image} class="card-img rounded-circle mr-1" alt="..."></img>
+                      <img id="userImage" src={props.user.image} class="card-img mr-1" alt="..."></img>
                   </div>
                   <div class="col-md-8 my-auto">
                       <div class="card-body justify-content-between d-flex">

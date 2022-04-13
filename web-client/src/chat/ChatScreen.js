@@ -6,6 +6,7 @@ import { useRef, useState } from 'react'
 import User from "./User"
 import InputToolBar from "./InputToolBar"
 import Chat from "./messaging/Chat"
+import './Chat.css'
 
 /*
 disc: Chat is the main window' with all the contacts and their chats
@@ -38,17 +39,17 @@ function ChatScreen(user) {
 
     return (
         /*the entire page*/
-        <div class="container">
-            <div class="card">
-            <div class="row">
-                    <div class="col-3 col-lg-3 col-xl-3">
+        <div className="container">
+            <div  id="chatScreen" className="card">
+            <div className="row">
+                    <div className="col-3 col-lg-3 col-xl-3">
                     <Bar changeState={addCont}/>
                     <UsersList users={uList} displayChatWith={displayChatWith} />
                     </div>
-                    <div class="col-9 col-lg-9 col-xl-9 border-start">
+                    <div className="col-9 col-lg-9 col-xl-9 border-start">
                         {/*the user that the chat with him */}
-                        <div class="py-2 px-4 border-bottom d-none d-lg-block">
-                            <div class="d-flex align-items-center py-1">
+                        <div className="py-2 px-4 border-bottom d-none d-lg-block ">
+                            <div className="d-flex align-items-center py-1">
                                 <User user={contact} displayChatWith={displayChatWith}/>
                             </div>
                         </div>
