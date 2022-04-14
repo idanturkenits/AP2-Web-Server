@@ -22,12 +22,12 @@ body{margin-top:20px;}
 }
 
 .chat-message-left {
-    margin-right: auto
+    margin-right: auto;
 }
 
 .chat-message-right {
     flex-direction: row-reverse;
-    margin-left: auto
+    margin-left: auto;
 }
 .py-3 {
     padding-top: 1rem!important;
@@ -47,6 +47,10 @@ body{margin-top:20px;}
 .scroll-area {
     height: 60vh;
     overflow-y: scroll;
+}
+
+.msg-green{
+    background-color: aquamarine;
 }
 
 #chatScreen{
