@@ -2,6 +2,9 @@ import React from 'react'
 
 function ChatCard({currentUser, chat, displayChat}) {
     // the chat might be a group chat, if it is not a group chat we need to set the name of the chat to the name of the other user (same as the picture)
+    if(chat === null){
+        return;
+    }
     if(chat.users.length  == 2){
         // find the user who is not me
         let other_user = chat.users.find(temp => currentUser.id != temp.id)

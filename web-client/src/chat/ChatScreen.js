@@ -19,8 +19,9 @@ function ChatScreen({ user }) {
 
     const handler = new LocalDBHandler();
     let chats = handler.getChatsOfUser(user.id);
+    
     const [chatList, setChatList] = useState(chats);
-    const [activeChat, setActiveChat] = useState(chats[0]);
+    const [activeChat, setActiveChat] = useState(null);
 
     const displayChat = function (chat) {
         setActiveChat(chat);

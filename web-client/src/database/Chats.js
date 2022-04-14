@@ -26,7 +26,7 @@ let chats = [
         [
             new Message('text', 'Hi??', users[2], new Date()),
         ],
-        'group'
+        'מתקדמים...'
     )
 
 ]
