@@ -1,4 +1,4 @@
-import AddContact from "./AddContact";
+import AddContact from "./addContact";
 
 function Bar({addContact}) {
     return (
