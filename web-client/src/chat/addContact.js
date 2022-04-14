@@ -1,9 +1,25 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
+import LocalDBHandler from '../db_handlers/LocalDBHandler'
 
 function AddContact(props) {
-    let firstName = useRef(null)
-    let lastName = useRef(null)
-    let image = useRef(null)
+    let [error, setError] = useState('');
+    let usernameRef = useRef(null)
+
+    function addUser() {
+        let handler = new LocalDBHandler();
+        // get the username whos username is the same as input
+        let user = handler.getUserByUserName(usernameRef.current.value);
+        // if the user is not found
+        if (user === null) {
+            setError('username does not exist');
+        }else{
+            console.log("UserFound")
+            props.addUser(user);
+        }
+
+        // empty the input
+        usernameRef.current.value = ''
+    }
 
     return (
         <div>
@@ -21,19 +37,14 @@ function AddContact(props) {
                             <form id="addContactForm">
                                 <div class="form-row">
                                     <div class="form-group mb-2">
-                                        <input type="text" class="form-control" ref={firstName} placeholder="First name"></input>
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <input type="text" class="form-control" ref={lastName} placeholder="Last name"></input>
-                                    </div>
-                                    <div class="form-group mb-2">
-                                        <input class="form-control" type="file" accept="image/*" ref={image} id="imgInp"></input>
+                                        <input type="text" class="form-control" ref={usernameRef} placeholder="Username"></input>
                                     </div>
                                 </div>
                             </form>
                         </div>
+                        <p className="form-label ms-2 mt-2 mb-5 text-danger">{error}</p>
                         <div class="modal-footer justify-content-start">
-                            <button type="button" class="btn btn-primary" onClick={() => addData(props.addUser, firstName.current.value, lastName.current.value, image)} data-bs-toggle="modal" data-bs-target="#addContact">Save changes</button>
+                            <button type="button" class="btn btn-primary" onClick={addUser}>Save Changes</button>
                         </div>
                     </div>
                 </div>
@@ -42,10 +53,6 @@ function AddContact(props) {
     );
 }
 
-function addData(func, fName, lName) {
-    let profileImage = getImgData();
-    func({ firstName: fName, lastName: lName, image: profileImage, chatHistory: [] });
-}
 
 function getImgData() {
     const chooseFile = document.getElementById("imgInp");
