@@ -7,20 +7,16 @@ import ChatScreen from "./chat/ChatScreen";
 import {useState} from "react"
 
 function App() {
-  let [isAuthenticated, setIsAuthenticated] = useState(false)
+  let [connectedUser, setConnectedUser] = useState(null)
   const notFound = <h1 class="d-flex justify-content-center">404 Page NOT FOUND!</h1>;
-
-  let setIsAuthenticatedFunc = function(a){
-    setIsAuthenticated(a)
-  }
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="login" element={<Login setIsAuthenticatedFunc={setIsAuthenticatedFunc} />} />
+        <Route path="login" element={<Login setConnectedUser={setConnectedUser} />} />
         <Route path="signup" element={<SignUp />} />
-        <Route path="chat" element={<ChatScreen />} />
+        <Route path="chat" element={<ChatScreen user={connectedUser}/>} />
         <Route path="*" element={notFound} />
       </Routes>
     </BrowserRouter>
