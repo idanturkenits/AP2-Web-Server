@@ -37,6 +37,11 @@ function SignUpForm() {
             setError('Passwords do not match')
             return
         }
+        // check if password is at least 6 characters long and contains at least one number anad one Capital letter
+        if (passwordInput.length < 6 || !/\d/.test(passwordInput) || !/[A-Z]/.test(passwordInput)) {
+            setError('Password must be at least 6 characters long, contain at least one number and one capital letter')
+            return
+        }
 
         // add the user to the user list
         users.push(new User(usernameInput, nicknameInput, passwordInput, ''))

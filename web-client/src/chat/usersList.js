@@ -1,11 +1,11 @@
 import { keyboard } from '@testing-library/user-event/dist/keyboard';
 import React from 'react'
-import User from "./User"
+import ChatCard from "./ChatCard"
 
-function UsersList(props){
-    const usersList = props.users.map((user,key) => {
+function UsersList({currentUser, chats, displayChat}){
+    const usersList = chats.map((chat,key) => {
         return (
-            <User {... {user : user, displayChatWith : props.displayChatWith} } />
+            <ChatCard currentUser={currentUser} chat={chat} displayChat={displayChat}/>
         );
     });
 

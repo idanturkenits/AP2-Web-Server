@@ -3,20 +3,22 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import users from '../database/Users'
+import LocalDBHandler from '../db_handlers/LocalDBHandler'
 
-function LoginForm({ setIsAuthenticatedFunc }) {
-    const [error, setError] = useState(false);
+function LoginForm({ setConnectedUser }) {
+    const [error, setError] = useState('');
 
     let navigate = useNavigate();
     let usernameRef = useRef(null)
     let passwordRef = useRef(null)
 
     let doLogin = function () {
+        const handler = new LocalDBHandler();
         let usernameInput = usernameRef.current.value
         let passwordInput = passwordRef.current.value
         for (const user of users) {
             if (user.username === usernameInput && user.password === passwordInput) {
-                setIsAuthenticatedFunc(true)
+                setConnectedUser(handler.getUserByUserName(usernameInput))
                 navigate('/chat');
             }
             else {

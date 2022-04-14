@@ -1,11 +1,11 @@
-import AddContact from "./addContact";
+import AddContact from "./AddContact";
 
-function Bar(props) {
+function Bar({addContact}) {
     return (
         <div class="px-4 d-none d-md-block">
         <div class="d-flex align-items-center">
             <div class="flex-grow-1">
-                <AddContact addUser={props.changeState}/>
+                <AddContact addUser={addContact}/>
                 <input type="text" class="form-control my-3" placeholder="Search...">
                 </input>
             </div>
