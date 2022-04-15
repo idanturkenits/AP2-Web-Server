@@ -44,7 +44,7 @@ function ChatScreen({ user }) {
         <div className="container">
             <div id="chatScreen" className="card">
                 <div className="row">
-                    <div className="col-3 col-lg-3 col-xl-3">
+                    <div className="col-3 col-lg-3 col-xl-3 pe-0">
                         <Bar addContact={addCont} currentUser={user}/>
                         <UsersList currentUser={user} chats={chats} displayChat={displayChat} />
                     </div>
