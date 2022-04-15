@@ -11,9 +11,9 @@ function UsersList({currentUser, chats, displayChat}){
 
     return (
         <div>
-            <ul id="user-list" className='noBullet'>
+            <div id="user-list" className='xlist-group'>
                 {usersList}
-            </ul>
+            </div>
         </div>
     );
 }
