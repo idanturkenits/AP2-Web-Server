@@ -16,7 +16,6 @@ disc: Chat is the main window' with all the contacts and their chats
 user: is the obj represent the user data
 */
 function ChatScreen({ user }) {
-
     const handler = new LocalDBHandler();
     let chats = handler.getChatsOfUser(user.id);
     
