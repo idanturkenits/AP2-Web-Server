@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import LocalDBHandler from '../db_handlers/LocalDBHandler'
 
-function AddContact(props) {
+function AddContact({addContact, currentUser}) {
     let [error, setError] = useState('');
     let usernameRef = useRef(null);
     let sendByEnter = function(event) {
@@ -28,8 +28,27 @@ function AddContact(props) {
             setError('username does not exists');
             return
         }
-        console.log("UserFound")
-        props.addUser(user);
+        // if the user tries to add himself
+        if(user.username === currentUser.username) {
+            setError('you cannot add yourself');
+            return
+        }
+
+        // check if the user is already in the contact list
+        let directContacts = handler.getDirectsOfUser(currentUser.id);
+        let isInContactList = false;
+        directContacts.forEach(function(contact) {
+            if (contact.id === user.id) {
+                isInContactList = true;
+            }
+        });
+        if(isInContactList) {
+            setError('user is already in your contact list');
+            return
+        }
+
+        // if the user is not in the contact list
+        addContact(user);
 
         // empty the input
         usernameRef.current.value = ''

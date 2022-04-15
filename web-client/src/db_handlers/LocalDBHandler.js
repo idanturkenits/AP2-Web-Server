@@ -41,6 +41,21 @@ class LocalDBHandler {
     addMessageToChat(chat, messege){
         chat.messages.push(messege);
     }
+
+    getDirectsOfUser(userId){
+        let directs = [];
+        for (let chat of chats){
+            if (chat.users.length === 2){
+                if (chat.users[0].id === userId){
+                    directs.push(chat.users[1]);
+                }
+                else if (chat.users[1].id === userId){
+                    directs.push(chat.users[0]);
+                }
+            }
+        }
+        return directs;
+    }
 }
 
 export default LocalDBHandler
