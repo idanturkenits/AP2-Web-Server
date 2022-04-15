@@ -22,7 +22,7 @@ function ChatCard({currentUser, chat, displayChat}) {
                     <div className="card-body justify-content-between d-flex">
                         <div className="ms-2 me-auto">
                             <h5 className="card-title fw-bold">{chat.name}</h5>
-                            <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+                            <p className="card-text"><small className="text-muted">{chat.messages[chat.messages.length - 1].content}</small></p>
                         </div>
                     </div>
                 </div>
