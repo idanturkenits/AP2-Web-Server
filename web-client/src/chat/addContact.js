@@ -3,22 +3,37 @@ import LocalDBHandler from '../db_handlers/LocalDBHandler'
 
 function AddContact(props) {
     let [error, setError] = useState('');
-    let usernameRef = useRef(null)
+    let usernameRef = useRef(null);
+    let sendByEnter = function(event) {
+        if (event.keyCode === 13) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            document.getElementById("addContactBtn").click();
+          }
+    }
 
-    function addUser() {
+    let addUser = function() {
+        console.log(usernameRef.current.value);
+        if (usernameRef.current.value=="") {
+            setError('username is required');
+            return
+        }
+
         let handler = new LocalDBHandler();
         // get the username whos username is the same as input
         let user = handler.getUserByUserName(usernameRef.current.value);
         // if the user is not found
         if (user === null) {
-            setError('username does not exist');
-        }else{
-            console.log("UserFound")
-            props.addUser(user);
+            setError('username does not exists');
+            return
         }
+        console.log("UserFound")
+        props.addUser(user);
 
         // empty the input
         usernameRef.current.value = ''
+        document.getElementById("closeAddContact").click();
     }
 
     return (
@@ -37,14 +52,14 @@ function AddContact(props) {
                             <form id="addContactForm">
                                 <div class="form-row">
                                     <div class="form-group mb-2">
-                                        <input type="text" class="form-control" ref={usernameRef} placeholder="Username"></input>
+                                        <input type="text" onKeyUp={sendByEnter} class="form-control" ref={usernameRef} placeholder="Username"></input>
                                     </div>
                                 </div>
                             </form>
                         </div>
                         <p className="form-label ms-2 mt-2 mb-5 text-danger">{error}</p>
                         <div class="modal-footer justify-content-start">
-                            <button type="button" class="btn btn-primary" onClick={addUser}>Save Changes</button>
+                            <button type="button" id="addContactBtn" class="btn btn-primary" onClick={()=>addUser()}>Save Changes</button>
                         </div>
                     </div>
                 </div>
