@@ -64,4 +64,5 @@ body{margin-top:20px;}
 #user-list{
     height: 68vh;
     overflow-y: scroll;
+    overflow-x:hidden;
 }
