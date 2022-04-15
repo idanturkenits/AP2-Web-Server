@@ -9,7 +9,6 @@ function SignUpForm() {
 
     let usernameRef = useRef(null)
     let nicknameRef = useRef(null)
-    // let imageRef = useRef(null)
     let passwordRef = useRef(null)
     let confirmPasswordRef = useRef(null)
 
@@ -44,7 +43,7 @@ function SignUpForm() {
         }
 
         // add the user to the user list
-        users.push(new User(usernameInput, nicknameInput, passwordInput, ''))
+        users.push(new User(usernameInput, nicknameInput, passwordInput, getImgData()))
 
         // clear the text boxes
         usernameRef.current.value = ''
@@ -61,16 +60,19 @@ function SignUpForm() {
             </div>
             <div className="card-body">
                 <div className="form-group mt-2">
-                    <input type="text" className="form-control" id="username" ref={usernameRef} placeholder="username" />
+                    <input type="text" className="form-control" id="username" ref={usernameRef} placeholder="username" required/>
                 </div>
                 <div className="form-group mt-4">
-                    <input type="text" className="form-control" id="username" ref={nicknameRef} placeholder="nickname" />
+                    <input type="text" className="form-control" id="username" ref={nicknameRef} placeholder="nickname" required/>
                 </div>
                 <div className="form-group mt-4">
-                    <input type="password" className="form-control" id="password" ref={passwordRef} placeholder="password" />
+                    <input type="password" className="form-control" id="password" ref={passwordRef} placeholder="password" required/>
                 </div>
                 <div className="form-group mt-4">
-                    <input type="password" className="form-control" id="password" ref={confirmPasswordRef} placeholder="confirm password" />
+                    <input type="password" className="form-control" id="password" ref={confirmPasswordRef} placeholder="confirm password" required/>
+                </div>
+                <div className="form-group mt-4">
+                    <input type="file" className="form-control" id="imgInp" placeholder="upload image" required/>
                 </div>
                 <p className="form-label mt-2 mb-5 text-danger">{error}</p>
                 <div className="mt-5 d-flex justify-content-center">
@@ -83,4 +85,11 @@ function SignUpForm() {
         </div>
     );
 }
+
+function getImgData() {
+    const chooseFile = document.getElementById("imgInp");
+    var src = URL.createObjectURL(chooseFile.files[0]);
+    return src;
+}
+
 export default SignUpForm;

@@ -54,10 +54,4 @@ function AddContact(props) {
 }
 
 
-function getImgData() {
-    const chooseFile = document.getElementById("imgInp");
-    var src = URL.createObjectURL(chooseFile.files[0]);
-    return src;
-}
-
 export default AddContact;
