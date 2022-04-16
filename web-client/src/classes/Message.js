@@ -1,10 +1,11 @@
 // create a Messege class
 class MessageClass {
-    constructor(type, content, sender, date) {
+    constructor(type, content, sender, date, name='') {
         this.type = type;
         this.content = content;
         this.sender = sender;
         this.date = date;
+        this.name = name;
     }
 
     dateToString() {
