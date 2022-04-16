@@ -68,6 +68,14 @@ body{margin-top:20px;}
     overflow-x:hidden;
 }
 
-#attachBtn {
-    display: inline;
+.div_inline{
+    float:left;
+}
+
+.input_hidden{
+    display:none;
+}
+
+.upload{
+    display: block;
 }

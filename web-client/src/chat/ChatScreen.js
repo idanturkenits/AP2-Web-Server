@@ -5,12 +5,11 @@ import { useRef, useState } from 'react'
 import ChatCard from "./ChatCard"
 import InputToolBar from "./InputToolBar"
 import ChatArea from "./messaging/ChatArea"
-import Chat from "../classes/Chat"
 import LocalDBHandler from '../db_handlers/LocalDBHandler';
 import './Chat.css'
 import Message from '../classes/Message';
 import { Link } from 'react-router-dom'
-
+import TopUserInfo from './TopUserInfo';
 /*
 disc: Chat is the main window' with all the contacts and their chats
 user: is the obj represent the user data
@@ -26,12 +25,9 @@ function ChatScreen({ user }) {
         setActiveChat(chat);
     }
 
-    const addTextMessage = function (text) {
-        // getting the current time
-        let curTime = new Date();
-        let msg = new Message('text', text, user, curTime);
-        // adding the message to the chat
-        handler.addMessageToChat(activeChat, msg);
+    const addMessage = function (type, content, name='') {
+        let message = new Message(type, content, user, new Date(), name);
+        handler.addMessageToChat(activeChat, message);
         setChatList(handler.getChatsOfUser(user.id));
     }
 
@@ -52,14 +48,14 @@ function ChatScreen({ user }) {
                         {/*the user that the chat with him */}
                         <div className="py-2 px-4 border-bottom d-none d-lg-block ">
                             <div className="d-flex align-items-center py-1">
-                                <ChatCard currentUser={user} chat={activeChat} />
+                                <TopUserInfo currentUser={user} chat={activeChat} />
                             </div>
                         </div>
 
                         {/*the chat*/}
                         <div>
                             <ChatArea currentUser={user} chat={activeChat}/>
-                            <InputToolBar {...{ addTextMessage: addTextMessage }} />
+                            <InputToolBar addMessage={addMessage} />
                             <p className="form-label"><Link to="/login" className="text-decoration-none">Log Out</Link></p>
                         </div>
                     </div>

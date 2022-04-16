@@ -15,10 +15,15 @@ function ChatCard({ currentUser, chat, displayChat }) {
     let lastMessageDate = "";
     let nickName = "";
     let content = "";
+    let lastMessage = chat.messages[chat.messages.length - 1];
     if (chat.messages.length>0) {
-        lastMessageDate = chat.messages[chat.messages.length - 1].dateToString();
-        nickName = chat.messages[chat.messages.length - 1].sender.nickname;
-        content = chat.messages[chat.messages.length - 1].content;
+        lastMessageDate = lastMessage.dateToString();
+        nickName = lastMessage.sender.nickname;
+        if(lastMessage.type === 'text'){
+            content = lastMessage.content;
+        }else{
+            content = lastMessage.name;
+        }
     }
     
     return (

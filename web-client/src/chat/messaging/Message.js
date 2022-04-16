@@ -1,9 +1,9 @@
 import React from 'react'
-import MessageClass from '../../classes/Message';
 import TextMessage from './TextMessage';
 import ImageMessage from './ImageMessage';
 import VideoMessage from './VideoMessage';
 import FileMessage from './FileMessage';
+import AudioMessage from './AudioMessage';
 
 function Message({ msg, currentUser }) {
   if (currentUser.id === msg.sender.id) {
@@ -42,16 +42,14 @@ function toComponent({message}) {
   switch (message.type) {
       case 'text':
           return <TextMessage text={message.content} />
-          break;
       case 'image':
           return <ImageMessage src={message.content} />
-          break;
       case 'video':
           return <VideoMessage src={message.content} />
-          break;
       case 'file':
-          return <FileMessage content={message.content} />
-          break;
+          return <FileMessage message={message} />
+      case 'audio':
+          return <AudioMessage message={message} />
   }
 }
 

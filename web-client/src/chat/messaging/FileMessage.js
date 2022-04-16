@@ -1,14 +1,16 @@
 import React from 'react'
 
-function FileMessage(props) {
-      return (
-            <div>
-                <a download={props.content}
-                    href={props.content}>
-                    Download FILE
-                </a>
-            </div>
-      );
+function FileMessage({message}) {
+    console.log("message:", message)
+    return (
+        <div>
+            <i class="bi bi-box-arrow-down me-2"></i>
+            <a download={message.content}
+                href={message.content}>
+                {message.name}
+            </a>
+        </div>
+    );
 }
 
 export default FileMessage;
