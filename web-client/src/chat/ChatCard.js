@@ -12,6 +12,15 @@ function ChatCard({ currentUser, chat, displayChat }) {
         chat.name = other_user.nickname
         chat.image = other_user.image
     }
+    let lastMessageDate = "";
+    let nickName = "";
+    let content = "";
+    if (chat.messages.length>0) {
+        lastMessageDate = chat.messages[chat.messages.length - 1].dateToString();
+        nickName = chat.messages[chat.messages.length - 1].sender.nickname;
+        content = chat.messages[chat.messages.length - 1].content;
+    }
+    
     return (
 
         <div class="list-group-item list-group-item-action flex-column align-items-start"
@@ -19,9 +28,9 @@ function ChatCard({ currentUser, chat, displayChat }) {
             <div class="d-flex w-100 justify-content-between">
                 <img id="userImage" src={chat.image} className="card-img mr-1" alt="..."></img>
                 <h5 class="mb-1">{chat.name}</h5>
-                <small>{chat.messages[chat.messages.length - 1].dateToString()}</small>
+                <small>{lastMessageDate}</small>
             </div>
-            <p class="mb-1">{chat.messages[chat.messages.length - 1].sender.nickname + ": " + chat.messages[chat.messages.length - 1].content}</p>
+            <p class="mb-1">{nickName + (nickName!=""?": ":"") + content}</p>
         </div>
     );
 
