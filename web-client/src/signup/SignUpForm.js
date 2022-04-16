@@ -91,7 +91,7 @@ function SignUpForm() {
                 </div>
                 <p className="form-label mt-2 mb-5 text-danger">{error}</p>
                 <div className="mt-5 d-flex justify-content-center">
-                    <button id="signUp_btn" type="button" className="btn btn-dark btn-block w-100" onClick={doSignUp}>Sign Up</button>
+                    <button id="signUp_btn" type="button" className="btn-hover color-1 w-100" onClick={doSignUp}>Sign Up</button>
                 </div>
                 <div className="mt-5 d-flex justify-content-center">
                     <p className="form-label mt-2 mb-5">Already a member? <Link to="/login" className="text-decoration-none">Login</Link></p>

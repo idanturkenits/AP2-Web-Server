@@ -49,7 +49,7 @@ function LoginForm({ setConnectedUser }) {
                 </div>
                 <p className="form-label mt-2 mb-5 text-danger">{error}</p>
                 <div className="mt-5 d-flex justify-content-center">
-                    <button id="login_btn" type="button" className="btn btn-dark btn-block w-100" onClick={doLogin}>Login</button>
+                    <button id="login_btn" type="button" className="btn-hover color-1" onClick={doLogin}>Login</button>
                 </div>
 
                 <div className="mt-5 d-flex justify-content-center">
