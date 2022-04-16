@@ -3,6 +3,7 @@ import MessageClass from '../../classes/Message';
 import TextMessage from './TextMessage';
 import ImageMessage from './ImageMessage';
 import VideoMessage from './VideoMessage';
+import FileMessage from './FileMessage';
 
 function Message({ msg, currentUser }) {
   if (currentUser.id === msg.sender.id) {
@@ -47,6 +48,9 @@ function toComponent({message}) {
           break;
       case 'video':
           return <VideoMessage src={message.content} />
+          break;
+      case 'file':
+          return <FileMessage content={message.content} />
           break;
   }
 }
