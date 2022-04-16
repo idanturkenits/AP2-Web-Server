@@ -11,7 +11,8 @@ let chats = [
             new Message('text', 'Hello', users[1], new Date()),
             new Message('text', 'Howasdasd are you?', users[0], new Date()),
             new Message('text', 'I am fine', users[1], new Date()),
-            new Message('image','logo192.png',users[0],new Date())
+            new Message('image','logo192.png',users[0],new Date()),
+            new Message('video','vid.mp4',users[1],new Date())
         ]
     ),
 
