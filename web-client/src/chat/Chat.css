@@ -67,3 +67,7 @@ body{margin-top:20px;}
     overflow-y: scroll;
     overflow-x:hidden;
 }
+
+#attachBtn {
+    display: inline;
+}
