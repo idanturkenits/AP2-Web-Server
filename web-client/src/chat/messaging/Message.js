@@ -8,8 +8,8 @@ import AudioMessage from './AudioMessage';
 function Message({ msg, currentUser }) {
   if (currentUser.id === msg.sender.id) {
     return (
-      <div class="chat-messages p-4">
-        <div class="chat-message-left pb-4">
+      <div class="chat-messages">
+        <div class="chat-message-left pt-2 pb-2">
           <div>
             <img src={msg.sender.image} class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40"></img>
           </div>
@@ -23,8 +23,8 @@ function Message({ msg, currentUser }) {
   }
 
   return (
-    <div class="chat-messages p-4">
-      <div class="chat-message-right pb-4">
+    <div class="chat-messages">
+      <div class="chat-message-right pt-2 pb-2">
         <div>
           <img src={msg.sender.image} class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40"></img>
         </div>

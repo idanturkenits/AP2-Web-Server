@@ -55,7 +55,7 @@ function InputToolBar({ addMessage }) {
     }
 
     return (
-        <div class="flex-grow-0 py-3 px-4 border-top">
+        <div class="d-flex justify-content-between">
             <span class="btn-group dropup">
                 <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-paperclip"></i>

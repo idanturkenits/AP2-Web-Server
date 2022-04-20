@@ -9,7 +9,7 @@ import LocalDBHandler from '../db_handlers/LocalDBHandler';
 import './Chat.css'
 import Message from '../classes/Message';
 import { Link } from 'react-router-dom'
-import TopUserInfo from './TopUserInfo';
+import TopUserInfo from './TopChatInfo';
 /*
 disc: Chat is the main window' with all the contacts and their chats
 user: is the obj represent the user data
@@ -56,7 +56,6 @@ function ChatScreen({ user }) {
                         <div>
                             <ChatArea currentUser={user} chat={activeChat}/>
                             <InputToolBar addMessage={addMessage} />
-                            <p className="form-label"><Link to="/login" className="text-decoration-none">Log Out</Link></p>
                         </div>
                     </div>
                 </div>
