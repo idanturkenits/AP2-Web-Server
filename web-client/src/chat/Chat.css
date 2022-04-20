@@ -55,10 +55,7 @@ body{
 }
 
 #chatScreen{
-    top: 6vh;
     padding:0;
-    margin-left: auto;
-    margin-right: auto;
     border-width: 3px;    
     border-style: solid;
     border-radius: 0.25rem;
