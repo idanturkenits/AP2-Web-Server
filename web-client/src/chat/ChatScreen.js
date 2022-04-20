@@ -37,8 +37,8 @@ function ChatScreen({ user }) {
     }
     return (
         /*the entire page*/
-        <div className="container">
-            <div id="chatScreen" className="card">
+        <div id="chatScreen" className="container">
+            <div className="card">
                 <div className="row">
                     <div className="col-3 col-lg-3 col-xl-3 pe-0">
                         <Bar addContact={addCont} currentUser={user}/>

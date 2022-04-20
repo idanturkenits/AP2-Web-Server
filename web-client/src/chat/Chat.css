@@ -1,4 +1,6 @@
-body{margin-top:20px;}
+body{
+    padding: 0;
+}
 
 .chat-online {
     color: #34ce57
@@ -44,7 +46,7 @@ body{margin-top:20px;}
 }
 
 .scroll-area {
-    height: 74vh;
+    height: 75vh;
     overflow-y: scroll;
 }
 
@@ -53,7 +55,14 @@ body{margin-top:20px;}
 }
 
 #chatScreen{
-    border:black solid 3px;
+    top: 6vh;
+    padding:0;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 3px;    
+    border-style: solid;
+    border-radius: 0.25rem;
+    border-color: #000000;
 }
 
 #userImage{
@@ -63,7 +72,7 @@ body{margin-top:20px;}
 }
 
 #user-list{
-    height: 68vh;
+    height: 67vh;
     overflow-y: scroll;
     overflow-x:hidden;
 }
