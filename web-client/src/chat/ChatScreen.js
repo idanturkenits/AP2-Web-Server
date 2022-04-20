@@ -26,14 +26,16 @@ function ChatScreen({ user }) {
     }
 
     const addMessage = function (type, content, name='') {
+        let filter = document.getElementById("searchBoxInput").value;
         let message = new Message(type, content, user, new Date(), name);
         handler.addMessageToChat(activeChat, message);
-        setChatList(handler.getChatsOfUser(user.id));
+        setChatList(handler.getChatsOfUserFiltered(user.id,filter));
     }
 
     const addCont = function (added_user) {
+        let filter = document.getElementById("searchBoxInput").value;
         handler.addChat([user, added_user]);
-        setChatList(handler.getChatsOfUser(user.id));
+        setChatList(handler.getChatsOfUserFiltered(user.id,filter));
     }
 
     const updateCont = function(filter) {
