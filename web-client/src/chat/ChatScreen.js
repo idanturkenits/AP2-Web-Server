@@ -35,14 +35,19 @@ function ChatScreen({ user }) {
         handler.addChat([user, added_user]);
         setChatList(handler.getChatsOfUser(user.id));
     }
+
+    const updateCont = function(filter) {
+        setChatList(handler.getChatsOfUserFiltered(user.id,filter));
+    }
+    
     return (
         /*the entire page*/
-        <div id="chatScreen" className="container">
+        <div id="chatScreen" className="container centerCard">
             <div className="card">
                 <div className="row">
                     <div className="col-3 col-lg-3 col-xl-3 pe-0">
-                        <Bar addContact={addCont} currentUser={user}/>
-                        <UsersList currentUser={user} chats={chats} displayChat={displayChat} />
+                        <Bar addContact={addCont} currentUser={user} updateCont={updateCont} />
+                        <UsersList currentUser={user} chats={chatList} displayChat={displayChat} />
                     </div>
                     <div className="col-9 col-lg-9 col-xl-9 border-start">
                         {/*the user that the chat with him */}

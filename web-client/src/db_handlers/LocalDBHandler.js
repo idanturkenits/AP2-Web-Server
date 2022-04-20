@@ -34,6 +34,25 @@ class LocalDBHandler {
         return user_chats
     }
 
+    getChatsOfUserFiltered(userId,filter) {
+        // returns a list with the users that has a chat with the given user
+        let user_chats = []
+        for (let chat of chats) {
+            let isIn = false;
+            for (let user_in_chat of chat.users) {
+                if (user_in_chat.nickname.includes(filter))
+                    isIn = true;
+                if (user_in_chat.id === userId) {
+                    user_chats.push(chat)
+                }
+            }
+            if (!isIn) {
+                user_chats.pop();
+            }
+        }
+        return user_chats
+    }
+
     addChat(users){
         chats.push(new Chat(users, []));
     }
