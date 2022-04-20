@@ -40,7 +40,7 @@ class LocalDBHandler {
         for (let chat of chats) {
             let isIn = false;
             for (let user_in_chat of chat.users) {
-                if (user_in_chat.nickname.includes(filter))
+                if (user_in_chat.nickname.toLowerCase().includes(filter.toLowerCase()))
                     isIn = true;
                 if (user_in_chat.id === userId) {
                     user_chats.push(chat)
