@@ -44,7 +44,7 @@ function ChatScreen({ user }) {
     
     return (
         /*the entire page*/
-        <div id="chatScreen" className="container centerCard">
+        <div id="chatScreen" className="container box-shadow">
             <div className="card">
                 <div className="row">
                     <div className="col-3 col-lg-3 col-xl-3 pe-0">

@@ -36,7 +36,7 @@ function LoginForm({ setConnectedUser }) {
         }
     }
     return (
-        <div className="card mt-5" style={{borderRadius: 2 + '%'}}>
+        <div className="card mt-5 box-shadow" style={{borderRadius: 2 + '%'}}>
             <div className="card-header text-center">
                 <h1>Login</h1>
             </div>

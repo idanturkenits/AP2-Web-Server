@@ -69,7 +69,7 @@ function SignUpForm() {
         navigate('/login')
     }
     return (
-        <div className="card mt-5" style={{ borderRadius: 2 + '%' }}>
+        <div className="card mt-5 box-shadow" style={{ borderRadius: 2 + '%' }}>
             <div className="card-header text-center">
                 <h1>Sign Up</h1>
             </div>
