@@ -25,7 +25,6 @@ let chats = [
     ),
 
     new Chat(
-        [users[0], users[2], users[1]],
         [
             new Message('text', 'Hi??', users[2], new Date()),
         ],
