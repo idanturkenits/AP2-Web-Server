@@ -51,6 +51,7 @@ function InputToolBar({ addMessage }) {
                     const audioBlob = new Blob(audioChunks);
                     const audioUrl = URL.createObjectURL(audioBlob);
                     addMessage('audio', audioUrl, 'audio');
+                    stream.getTracks().forEach( track => track.stop() );
                 });
             }
             );
