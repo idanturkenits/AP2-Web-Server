@@ -29,11 +29,17 @@ function InputToolBar({ addMessage }) {
         addMessage('file', src, chooseFile.files[0].name);
     }
 
+    var mediaRecorder = null;
+    let stopRecording = () => {
+        if (mediaRecorder!=null)
+            mediaRecorder.stop();
+        document.getElementById('closeRecordingBtn').click();
+    };
 
     let startRecording = function () {
         navigator.mediaDevices.getUserMedia({ audio: true })
             .then(stream => {
-                const mediaRecorder = new MediaRecorder(stream);
+                mediaRecorder = new MediaRecorder(stream)
                 mediaRecorder.start();
 
                 const audioChunks = [];
@@ -46,10 +52,6 @@ function InputToolBar({ addMessage }) {
                     const audioUrl = URL.createObjectURL(audioBlob);
                     addMessage('audio', audioUrl, 'audio');
                 });
-
-                setTimeout(() => {
-                    mediaRecorder.stop();
-                }, 10000);
             }
             );
     }
@@ -111,11 +113,11 @@ function InputToolBar({ addMessage }) {
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Upload Recording</h5>
-                            <button type="button" id="closeAddContact" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" id="closeRecordingBtn" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-footer justify-content-start">
-                            <button type="button" id="addContactBtn" class="btn btn-success" onClick={startRecording}>Start</button>
-                            <button type="button" id="addContactBtn" class="btn btn-danger">Stop</button>
+                            <button type="button" id="startRecordingBtn" class="btn btn-success" onClick={startRecording}>Start</button>
+                            <button type="button" id="stopRecordingBtn" class="btn btn-danger" onClick={stopRecording}>Stop</button>
                         </div>
                     </div>
                 </div>
