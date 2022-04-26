@@ -1,7 +1,8 @@
+import User from '../classes/User.js'
 let users = [
-    {username:'idan', nickname:'idanthemagniv',image:'',password:'123'},
-    {username:'yogev', nickname:'yogevthecool',image:'',password:'111111'},
-    {username:'ido', nickname:'idothecooshi',image:'',password:'0'}
+    new User('idan', 'Idan Turkenits', '123', 'Capture1.png'),
+    new User('yogev', 'Yogev Abarbanel', '111111', 'logo192.png'),
+    new User('ido', 'Ido Brakai😏', '0', 'logo512.png')
 ]
 
 export default users;
