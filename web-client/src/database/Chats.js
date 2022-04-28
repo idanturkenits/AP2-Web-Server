@@ -44,7 +44,17 @@ let chats = [
     new Chat(
         [users[0], users[3]],
         [
-            new Message('text', 'איך אתה?', users[2], new Date()),
+            new Message('text', 'איך אתה?', users[3], new Date()),
+        ],
+    ),
+
+
+    new Chat(
+        [users[0], users[4]],
+        [
+            new Message('text', 'חמי תגיד רגע אפשר להביא להם יותר מ 100?', users[0], new Date()),
+            new Message('text', 'אם הם עשו ממש מושקע אז כן', users[4], new Date()),
+
         ],
     ),
 
