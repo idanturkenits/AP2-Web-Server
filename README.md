@@ -51,7 +51,7 @@ $ npm start
 ## Sample Pictures
 ![login](https://user-images.githubusercontent.com/84286628/165820445-188c76c6-b226-41b4-8595-3d131abbbaa3.jpg)
 ![chatPage](https://user-images.githubusercontent.com/84286628/165820458-01ca4f88-683d-4c77-b9fa-bf065f0607d7.jpg)
-![liveChat](https://user-images.githubusercontent.com/84286628/165820478-8638f5cd-c10e-45dc-9e98-1f47c7d4edef.jpg)
+![liveChat](https://user-images.githubusercontent.com/84286628/165821849-afa1a4d2-a5fd-46b5-a1ab-b8e5e8428846.jpg)
 
 ## Authors
 
