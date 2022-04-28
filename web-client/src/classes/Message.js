@@ -5,7 +5,7 @@ class MessageClass {
         this.content = content;
         this.sender = sender;
         this.date = date;
-        this.name = name;
+        this.name = this.type;
     }
 
     dateToString() {
