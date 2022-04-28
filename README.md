@@ -44,9 +44,9 @@ $ npm start
 
 ## Features
 - **Live Communication** - If you sign out and then sign back in as another user, you will see the new messages.
-- Search - Search for a chat involving a specific user using the serachbox.
-- Online Updates - The user list will be updated in real time as new notifications are received.
-- Groups - The chat supports group chats with more than two users.
+- **Search** - Search for a chat involving a specific user using the serachbox.
+- **Online Updates** - The user list will be updated in real time as new notifications are received.
+- **Groups** - The chat supports group chats with more than two users.
 
 ## Sample Pictures
 ![login](https://user-images.githubusercontent.com/84286628/165820445-188c76c6-b226-41b4-8595-3d131abbbaa3.jpg)
