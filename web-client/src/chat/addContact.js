@@ -56,8 +56,8 @@ function AddContact({addContact, currentUser}) {
 
     return (
         <div>
-            <lable>Add Contact</lable>
-            <button type="button" className="btn" data-bs-toggle="modal" data-bs-target="#addContact">
+            <label htmlFor='adddCnBtn'>Add Contact</label>
+            <button type="button" id="adddCnBtn" className="btn" data-bs-toggle="modal" data-bs-target="#addContact">
                 <i className="bi bi-person-plus-fill"></i>
             </button>
             <div className="modal fade" id="addContact" tabIndex="-1" aria-hidden="true">
