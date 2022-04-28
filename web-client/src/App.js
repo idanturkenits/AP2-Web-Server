@@ -8,12 +8,12 @@ import {useState} from "react"
 
 function App() {
   let [connectedUser, setConnectedUser] = useState(null)
-  const notFound = <h1 class="d-flex justify-content-center">404 Page NOT FOUND!</h1>;
+  const notFound = <h1 className="d-flex justify-content-center">404 Page NOT FOUND!</h1>;
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login setConnectedUser={setConnectedUser} />} />
         <Route path="login" element={<Login setConnectedUser={setConnectedUser} />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="chat" element={<ChatScreen user={connectedUser}/>} />

@@ -8,7 +8,6 @@ function ChatCard({ currentUser, chat, displayChat }) {
     if (chat.users.length == 2) {
         // find the user who is not me
         let other_user = chat.users.find(temp => currentUser.id != temp.id)
-        console.log("otherUser:", other_user)
         chat.name = other_user.nickname
         chat.image = other_user.image
     }
@@ -28,14 +27,14 @@ function ChatCard({ currentUser, chat, displayChat }) {
     
     return (
 
-        <div class="list-group-item list-group-item-action flex-column align-items-start"
+        <div className="list-group-item list-group-item-action flex-column align-items-start"
             onClick={() => displayChat(chat)}>
-            <div class="d-flex w-100 justify-content-between">
+            <div className="d-flex w-100 justify-content-between">
                 <img id="userImage" src={chat.image} className="card-img mr-1" alt="..."></img>
-                <h5 class="mb-1">{chat.name}</h5>
+                <h5 className="mb-1">{chat.name}</h5>
                 <small>{lastMessageDate}</small>
             </div>
-            <p class="mb-1">{nickName + (nickName!=""?": ":"") + content}</p>
+            <p className="mb-1">{nickName + (nickName!=""?": ":"") + content}</p>
         </div>
     );
 

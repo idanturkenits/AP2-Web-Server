@@ -11,7 +11,7 @@ class Message extends React.Component {
   
     render () {
       return (
-          <div class="">
+          <div className="">
               <div>{this.state.date}</div>
               <div>{this.state.date}</div>
           </div>

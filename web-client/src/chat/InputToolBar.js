@@ -58,44 +58,44 @@ function InputToolBar({ addMessage }) {
     }
 
     return (
-        <div class="d-flex justify-content-between">
-            <span class="btn-group dropup">
-                <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-paperclip"></i>
+        <div className="d-flex justify-content-between">
+            <span className="btn-group dropup">
+                <button type="button" className="btn" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i className="bi bi-paperclip"></i>
                 </button>
-                <ul class="dropdown-menu">
+                <ul className="dropdown-menu">
                     <li>
-                        <label class="upload">
-                            <div class="dropdown-item">
-                                <i class="bi bi-card-image me-2"></i>
+                        <label className="upload">
+                            <div className="dropdown-item">
+                                <i className="bi bi-card-image me-2"></i>
                                 Image
                                 <input id="image_upload_btn" type="file" className="me-2 input_hidden" onChange={() => addImageMessage()} accept="image/*"></input>
                             </div>
                         </label>
                     </li>
                     <li>
-                        <label class="upload">
-                            <div class="dropdown-item">
-                                <i class="bi bi-file-earmark-play me-2"></i>
+                        <label className="upload">
+                            <div className="dropdown-item">
+                                <i className="bi bi-file-earmark-play me-2"></i>
                                 Video
                                 <input id="video_upload_btn" type="file" className="me-2 input_hidden" onChange={() => addVideoMessage()} accept="video/*"></input>
                             </div>
                         </label>
                     </li>
                     <li>
-                        <label class="upload">
-                            <div class="dropdown-item">
-                                <i class="bi bi-file-earmark me-2"></i>
+                        <label className="upload">
+                            <div className="dropdown-item">
+                                <i className="bi bi-file-earmark me-2"></i>
                                 File
                                 <input id="file_upload_btn" type="file" className="me-2 input_hidden" onChange={() => addFileMessage()} accept="file/*"></input>
                             </div>
                         </label>
                     </li>
                     <li>
-                        <label class="upload">
-                            <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#uploadRecording">
+                        <label className="upload">
+                            <div className="dropdown-item" data-bs-toggle="modal" data-bs-target="#uploadRecording">
                                 <label>
-                                    <i class="bi bi-mic me-2"></i>
+                                    <i className="bi bi-mic me-2"></i>
                                     Recording
                                 </label>
                             </div>
@@ -103,22 +103,22 @@ function InputToolBar({ addMessage }) {
                     </li>
                 </ul>
             </span>
-            <span class="input-group">
-                <input type="text" class="form-control" onKeyUp={sendByEnter} ref={messageInputRef} placeholder="Type your message"></input>
-                <button class="btn btn-primary" id="sendBtn" onClick={() => { addMessage('text', messageInputRef.current.value); messageInputRef.current.value = ''; }}>Send</button>
+            <span className="input-group">
+                <input type="text" className="form-control" onKeyUp={sendByEnter} ref={messageInputRef} placeholder="Type your message"></input>
+                <button className="btn btn-primary" id="sendBtn" onClick={() => { addMessage('text', messageInputRef.current.value); messageInputRef.current.value = ''; }}>Send</button>
             </span>
 
             {/* This is the recording pop-up*/}
-            <div class="modal fade" id="uploadRecording" tabIndex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Upload Recording</h5>
-                            <button type="button" id="closeRecordingBtn" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div className="modal fade" id="uploadRecording" tabIndex="-1" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title">Upload Recording</h5>
+                            <button type="button" id="closeRecordingBtn" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-footer justify-content-start">
-                            <button type="button" id="startRecordingBtn" class="btn btn-success" onClick={startRecording}>Start</button>
-                            <button type="button" id="stopRecordingBtn" class="btn btn-danger" onClick={stopRecording}>Stop</button>
+                        <div className="modal-footer justify-content-start">
+                            <button type="button" id="startRecordingBtn" className="btn btn-success" onClick={startRecording}>Start</button>
+                            <button type="button" id="stopRecordingBtn" className="btn btn-danger" onClick={stopRecording}>Stop</button>
                         </div>
                     </div>
                 </div>

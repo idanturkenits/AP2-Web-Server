@@ -6,8 +6,7 @@ function Login() {
   let passwordRef = useRef(null)
 
   let doLogin = function () {
-    console.log(usernameRef.current.value)
-    console.log(passwordRef.current.value)
+    return;
   }
 
   return (

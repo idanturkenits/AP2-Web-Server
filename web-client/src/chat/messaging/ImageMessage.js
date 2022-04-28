@@ -2,7 +2,7 @@ import React from 'react'
 
 function ImageMessage(props) {
       return (
-            <img class="w-50" src={props.src}></img>
+            <img className="w-50" src={props.src}></img>
       );
 }
 

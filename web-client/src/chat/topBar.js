@@ -10,13 +10,13 @@ function Bar({ addContact, currentUser, updateCont}) {
     }
 
     return (
-        <div class="px-4 d-none d-md-block">
-            <div class="d-flex align-items-center">
-                <div class="flex-grow-1">
+        <div className="px-4 d-none d-md-block">
+            <div className="d-flex align-items-center">
+                <div className="flex-grow-1">
                     <CurrentUserInfo currentUser={currentUser} />
                     <AddContact addContact={addContact} currentUser={currentUser} />
-                    <p className="form-label"><Link to="/login" className="text-decoration-none"><i class="bi bi-box-arrow-left"></i></Link></p>
-                    <input type="text" id="searchBoxInput" class="form-control my-3" placeholder="Search..." onKeyUp={() => updateSearch()}>
+                    <p className="form-label"><Link to="/login" className="text-decoration-none"><i className="bi bi-box-arrow-left"></i></Link></p>
+                    <input type="text" id="searchBoxInput" className="form-control my-3" placeholder="Search..." onKeyUp={() => updateSearch()}>
                     </input>
                 </div>
             </div>

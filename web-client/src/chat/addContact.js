@@ -14,7 +14,6 @@ function AddContact({addContact, currentUser}) {
     }
 
     let addUser = function() {
-        console.log(usernameRef.current.value);
         if (usernameRef.current.value=="") {
             setError('username is required');
             return
@@ -57,28 +56,28 @@ function AddContact({addContact, currentUser}) {
 
     return (
         <div>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#addContact">
-                <i class="bi bi-person-plus-fill"></i>
+            <button type="button" className="btn" data-bs-toggle="modal" data-bs-target="#addContact">
+                <i className="bi bi-person-plus-fill"></i>
             </button>
-            <div class="modal fade" id="addContact" tabIndex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Add Contact</h5>
-                            <button type="button" id="closeAddContact" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div className="modal fade" id="addContact" tabIndex="-1" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title">Add Contact</h5>
+                            <button type="button" id="closeAddContact" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div className="modal-body">
                             <div id="addContactForm">
-                                <div class="form-row">
-                                    <div class="form-group mb-2">
-                                        <input type="text" onKeyUp={sendByEnter} class="form-control" ref={usernameRef} placeholder="Username"></input>
+                                <div className="form-row">
+                                    <div className="form-group mb-2">
+                                        <input type="text" onKeyUp={sendByEnter} className="form-control" ref={usernameRef} placeholder="Username"></input>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <p className="form-label ms-2 mt-2 mb-5 text-danger">{error}</p>
-                        <div class="modal-footer justify-content-start">
-                            <button type="button" id="addContactBtn" class="btn btn-primary" onClick={()=>addUser()}>Save Changes</button>
+                        <div className="modal-footer justify-content-start">
+                            <button type="button" id="addContactBtn" className="btn btn-primary" onClick={()=>addUser()}>Save Changes</button>
                         </div>
                     </div>
                 </div>

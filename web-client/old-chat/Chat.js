@@ -11,21 +11,21 @@ function Chat(user) {
   const users = [{name:'Yossi',age:"13"},{name:'Noam',age:"13"}];
 
   return (
-    <div class="theme">
-      <div class="chat container center rounded border border-3 border-dark container">
-        <div class="row">
-          <div class="col">
+    <div className="theme">
+      <div className="chat container center rounded border border-3 border-dark container">
+        <div className="row">
+          <div className="col">
             -user-
           </div>
-          <div class="col">
+          <div className="col">
             contact
           </div>
         </div>
-        <div class="row">
-          <div class="col-3 rounded border border-1 border-dark bg-light vh-100">
+        <div className="row">
+          <div className="col-3 rounded border border-1 border-dark bg-light vh-100">
             <UsersList users={users}/>
           </div>
-          <div class="col-9">
+          <div className="col-9">
             <Text />
           </div>
         </div>
@@ -49,10 +49,10 @@ class Text extends React.Component {
     return (
 <<<<<<< HEAD:web-client/src/chat/Chat.js
 
-        <div class="messages rounded border border-1 border-dark position-relative scrolled"> 
+        <div className="messages rounded border border-1 border-dark position-relative scrolled"> 
 =======
         <div>
-          <div class="chat-screen text-dark container rounded border border-1 border-dark position-relative">
+          <div className="chat-screen text-dark container rounded border border-1 border-dark position-relative">
             jkdsjllcjzlxjc  sakldddddddddddddddddddddd
             alsdkaaaaaaaaaaaaaa
           </div>
@@ -78,15 +78,15 @@ function SendBox() {
 ב־1848, אחרי שהשבועה הושעתה במוסדות ההשכלה הגבוהה של צרפת, הסכים קושי לקבל משרת הוראה באקול פוליטקניק ואחרי שהוחזרה השבועה ב־1851 קיבל קושי פטור ממנה.
 
 לקושי היו שני אחים, אלכסנדר לורן קושי (1792-1857), נשיא בית המשפט לערעורים ואחר כך שופט, והאח השני, אז'ן פרנסואה קושי (1802–1877), פובליציסט ומתמטיקאי זוטר.
-      <div class="send-box row rounded border border-1 border-dark">
-          <div class="col-1">
-            <i class="bi bi-paperclip"></i>
+      <div className="send-box row rounded border border-1 border-dark">
+          <div className="col-1">
+            <i className="bi bi-paperclip"></i>
           </div>
-          <div class="col-10">
+          <div className="col-10">
             <input placeholder="New messages here..."></input>
           </div>
-          <div class="col-1">
-            <button class="btn btn-primary" type="button">Send</button>
+          <div className="col-1">
+            <button className="btn btn-primary" type="button">Send</button>
           </div>
       </div>
     </div>

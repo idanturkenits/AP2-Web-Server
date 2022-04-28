@@ -10,7 +10,6 @@ function ChatArea({ currentUser, chat }) {
   });
 
   if (chat === null) {
-    console.log("chat is null");
     return (
       <div className="position-relative scroll-area">
       </div>
