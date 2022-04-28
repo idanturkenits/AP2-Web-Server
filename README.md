@@ -1,5 +1,6 @@
 # AP2 Web Client
 First exercise in course "Advanced Programming 2" - Web Client
+![SamesKvar Logo](https://user-images.githubusercontent.com/84286628/165817467-77ee218e-da91-4d19-9544-a1626b1c6aec.png)
 
 ## Prerequisites
 This project requires NodeJS (version 8 or later) and NPM.
@@ -39,6 +40,6 @@ $ npm start
 
 ## Authors
 
-* **Ido Barkai** - [IdoBarkai](https://github.com/idob10)
-* **Idan Turkenits** - [IdanTurkenits](https://github.com/idanturkenits)
-* **Yogev Abarbanel** - [YogevAbarbanel](https://github.com/Yogev173)
+* **Ido Barkai** - [Ido Barkai](https://github.com/idob10)
+* **Idan Turkenits** - [Idan Turkenits](https://github.com/idanturkenits)
+* **Yogev Abarbanel** - [Yogev Abarbanel](https://github.com/Yogev173)
