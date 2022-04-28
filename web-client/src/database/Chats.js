@@ -5,23 +5,11 @@ import Chat from '../classes/Chat';
 let chats = [
     
     new Chat(
-        [users[0], users[1]],
+        [users[0], users[4]],
         [
-            new Message('text', 'Hi Idan Im the Bodek', users[0], new Date()),
-            new Message('text', 'Hello', users[1], new Date()),
-            new Message('text', 'How are you?', users[0], new Date()),
-            new Message('text', 'I am fine', users[1], new Date()),
-            new Message('image','logo192.png',users[0],new Date()),
-            new Message('video','vid.mp4',users[1],new Date()),
-            new Message('text', 'can you send audio only version on this masterpiece?', users[0], new Date()),
-            new Message('audio', 'RickRollAudio.mp3', users[1], new Date()),
-        ]
-    ),
+            new Message('text', 'חמי תגיד רגע אפשר להביא להם יותר מ 100?', users[0], new Date()),
+            new Message('text', 'אם הם עשו ממש מושקע אז כן', users[4], new Date()),
 
-    new Chat(
-        [users[0], users[2]],
-        [
-            new Message('text', 'Hi??', users[2], new Date()),
         ],
     ),
 
@@ -42,21 +30,34 @@ let chats = [
     ),
 
     new Chat(
+        [users[0], users[1]],
+        [
+            new Message('text', 'Hi Idan Im the Bodek', users[0], new Date()),
+            new Message('text', 'Hello', users[1], new Date()),
+            new Message('text', 'How are you?', users[0], new Date()),
+            new Message('text', 'I am fine', users[1], new Date()),
+            new Message('image','logo192.png',users[0],new Date()),
+            new Message('video','vid.mp4',users[1],new Date()),
+            new Message('text', 'can you send audio only version on this masterpiece?', users[0], new Date()),
+            new Message('audio', 'RickRollAudio.mp3', users[1], new Date()),
+        ]
+    ),
+
+    new Chat(
+        [users[0], users[2]],
+        [
+            new Message('text', 'Hi??', users[2], new Date()),
+        ],
+    ),
+
+
+    new Chat(
         [users[0], users[3]],
         [
             new Message('text', 'איך אתה?', users[3], new Date()),
         ],
     ),
 
-
-    new Chat(
-        [users[0], users[4]],
-        [
-            new Message('text', 'חמי תגיד רגע אפשר להביא להם יותר מ 100?', users[0], new Date()),
-            new Message('text', 'אם הם עשו ממש מושקע אז כן', users[4], new Date()),
-
-        ],
-    ),
 
 ]
 
