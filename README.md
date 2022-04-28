@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Installation
 
-**BEFORE YOU INSTALL:** please read the [prerequisites](#prerequisites)
+**BEFORE YOU INSTALL : ** please read the [prerequisites](#prerequisites)
 
 Start with cloning this repo on your local machine:
 
@@ -37,3 +37,8 @@ $ npm start
 - Live Communication
 - Groups
 
+## Authors
+
+* **Ido Barkai** - [IdoBarkai](https://github.com/idob10)
+* **Idan Turkenits** - [IdanTurkenits](https://github.com/idanturkenits)
+* **Yogev Abarbanel** - [YogevAbarbanel](https://github.com/Yogev173)
