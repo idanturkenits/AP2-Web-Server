@@ -1,6 +1,6 @@
 # AP2 Web Client 
-<img src="https://user-images.githubusercontent.com/84286628/165817467-77ee218e-da91-4d19-9544-a1626b1c6aec.png" width="100" height="100">
 First exercise in course "Advanced Programming 2" - Web Client
+<img src="https://user-images.githubusercontent.com/84286628/165817467-77ee218e-da91-4d19-9544-a1626b1c6aec.png" width="100" height="100">
 
 ## Prerequisites
 This project requires NodeJS (version 8 or later) and NPM.
@@ -32,6 +32,15 @@ $ npm install
 ```sh
 $ npm start
 ```
+
+## Sample Users
+| username | password |
+| --- | --- |
+| bodek111 | 111 |
+| ido | 0 |
+| idan | 123 |
+| yogev | 111111 |
+| hemi123 | hemithemen123 |
 
 ## Features
 - Online Updates
