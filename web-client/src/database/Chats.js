@@ -16,10 +16,11 @@ let chats = [
     new Chat(
         [users[0], users[1], users[2], users[3]],
         [
-            new Message('text', 'צריך להתחיל לעשות את מתקדם', users[2], new Date()),
+            new Message('text', 'צריך להתחיל לעשות את מתקדם', users[3], new Date()),
             new Message('text', 'דחוף!! זה להיום', users[1], new Date()),
-            new Message('text', 'עזבו תחפפו משהו אני בטוח שהבודק לא ישים לב', users[3], new Date()),
+            new Message('text', 'עזבו תחפפו משהו אני בטוח שהבודק לא ישים לב', users[1], new Date()),
             new Message('text', 'לאלא לא נחפף עושים עיצוב יפה שיתן בונוס', users[2], new Date()),
+            new Message('text', 'צודק', users[1], new Date()),
             new Message('text', 'היי.....', users[0], new Date()),
             new Message('text', 'שיט הבודק בקבוצה!!', users[1], new Date()),
 
