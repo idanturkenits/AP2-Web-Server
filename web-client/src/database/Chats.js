@@ -51,7 +51,6 @@ let chats = [
         ],
     ),
 
-
     new Chat(
         [users[0], users[3]],
         [
