@@ -23,19 +23,21 @@ namespace RatingPage.Controllers
         // GET: Ratings
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Rating.ToListAsync());
+            List<Rating> lRating = await _context.Rating.ToListAsync();
+            lRating.Sort((x, y) => y.SubmissionDate.CompareTo(x.SubmissionDate));
+            return View(lRating);
         }
 
         // GET: Ratings/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return NotFound();
             }
 
             var rating = await _context.Rating
-                .FirstOrDefaultAsync(m => m.RaterName == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (rating == null)
             {
                 return NotFound();
@@ -59,6 +61,9 @@ namespace RatingPage.Controllers
         {
             if (ModelState.IsValid)
             {
+                //List<Rating> lRating = await _context.Rating.ToListAsync();
+                rating.SubmissionDate = DateTime.Now;
+                //rating.Id = lRating.Max(x => x.Id) + 1;
                 _context.Add(rating);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -67,9 +72,9 @@ namespace RatingPage.Controllers
         }
 
         // GET: Ratings/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return NotFound();
             }
@@ -87,9 +92,9 @@ namespace RatingPage.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("RaterName,Explanation,Rate")] Rating rating)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,RaterName,Explanation,Rate")] Rating rating)
         {
-            if (id != rating.RaterName)
+            if (id != rating.Id)
             {
                 return NotFound();
             }
@@ -98,12 +103,13 @@ namespace RatingPage.Controllers
             {
                 try
                 {
+                    rating.SubmissionDate = DateTime.Now;
                     _context.Update(rating);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RatingExists(rating.RaterName))
+                    if (!RatingExists(rating.Id))
                     {
                         return NotFound();
                     }
@@ -118,15 +124,15 @@ namespace RatingPage.Controllers
         }
 
         // GET: Ratings/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return NotFound();
             }
 
             var rating = await _context.Rating
-                .FirstOrDefaultAsync(m => m.RaterName == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (rating == null)
             {
                 return NotFound();
@@ -138,7 +144,7 @@ namespace RatingPage.Controllers
         // POST: Ratings/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var rating = await _context.Rating.FindAsync(id);
             _context.Rating.Remove(rating);
@@ -146,9 +152,9 @@ namespace RatingPage.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RatingExists(string id)
+        private bool RatingExists(int id)
         {
-            return _context.Rating.Any(e => e.RaterName == id);
+            return _context.Rating.Any(e => e.Id == id);
         }
     }
 }

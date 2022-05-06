@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aHEt8ODNETBVYmEFWerSMXNDrXyuA2jNV/e2NW6eBrc=",
+  "Hash": "3jOgFJW8dKtqXwQs8CvnB/EdhnRKrLYep9EhU2hy3sE=",
   "Source": "RatingPage",
   "BasePath": "_content/RatingPage",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Ido\\Documents\\AP2-Web-Client\\serverSide\\chatReact\\RatingPage\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\RatingPage.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Ido\\Documents\\AP2-Web-Client\\serverSide\\chatReact\\RatingPage\\wwwroot\\css\\rating.css",
+      "SourceId": "RatingPage",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ido\\Documents\\AP2-Web-Client\\serverSide\\chatReact\\RatingPage\\wwwroot\\",
+      "BasePath": "_content/RatingPage",
+      "RelativePath": "css/rating.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\rating.css"
     },
     {
       "Identity": "C:\\Users\\Ido\\Documents\\AP2-Web-Client\\serverSide\\chatReact\\RatingPage\\wwwroot\\css\\site.css",

@@ -4,38 +4,34 @@
     ViewData["Title"] = "Index";
 }
 
+<link href="~/css/rating.css" rel="stylesheet" />
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-block btn-primary btn-warning">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Explanation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rate)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Explanation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.RaterName">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.RaterName">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.RaterName">Delete</a>
-            </td>
-        </tr>
+
+@foreach (var item in Model)
+{
+    <div class="container d-flex justify-content-center mt-5">
+        <div class="card text-center mb-5">
+            <span class="name mb-1 fw-500">@item.RaterName</span>
+            <small class="text-black-50">@item.SubmissionDate</small>
+            <p>@item.Explanation</p>
+            <div class="rate bg-success py-3 text-white mt-3">
+                <h6 class="mb-0">Rating Scale</h6>
+                <div class="rating">
+                    @for(int i=0;i<@item.Rate;i++)
+                    {
+                        <label>★</label>
+                    }
+                </div>
+                <div class="buttons px-4 mt-0">
+                    <a class="btn btn-secondary btn-block rating-submit" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-secondary btn-block rating-submit" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-secondary btn-block rating-submit" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
 }
-    </tbody>
-</table>

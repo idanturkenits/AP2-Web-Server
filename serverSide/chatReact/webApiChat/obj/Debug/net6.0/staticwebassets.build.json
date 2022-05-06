@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ec2AFM7OM1E+cjk2LvbVH0VX7vFgfHU+bnoCRm6xGDs=",
+  "Source": "webApiChat",
+  "BasePath": "_content/webApiChat",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
