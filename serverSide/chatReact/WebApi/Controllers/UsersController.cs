@@ -72,7 +72,7 @@ namespace WebApi.Controllers
         /*[ValidateAntiForgeryToken]*/
         public async Task<IActionResult> Login(string id, string password)
         {
-            User x = _context.User.Find(id);
+            User x = _context.User.Where(x => x.Id == id).FirstOrDefault();
             if (x == null)
             {
                 return NotFound();
@@ -81,8 +81,7 @@ namespace WebApi.Controllers
             {
                 return NotFound();
             }
-
-            return Ok();
+            return Ok(x.Name);
         }
 
         /*// GET: Users/Delete/5
