@@ -1,0 +1,497 @@
+﻿++Solution 'chatReact' ‎(2 of 2 projects)
+++RatingPage
+i:{00000000-0000-0000-0000-000000000000}:RatingPage
+++Connected Services 
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:>1340
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:>1342
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:>1431
+++Dependencies
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:>1339
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:>1338
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:>1430
+++Properties
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\properties\
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\properties\
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\webapichat\properties\
+++wwwroot
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\
+++css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\css\
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\css\
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\static\css\
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\
+++site.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\css\site.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\css\site.css
+++js
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\js\
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\js\
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\js\
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\static\js\
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\js\
+++lib
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\
+++favicon.ico
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\favicon.ico
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\favicon.ico
+++Controllers
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\controllers\
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\webapichat\controllers\
+++HomeController.cs
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\controllers\homecontroller.cs
+++RatingsController.cs
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\controllers\ratingscontroller.cs
+++Data
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\data\
+++Migrations
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\migrations\
+++20220506115929_Init.cs
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\migrations\20220506115929_init.cs
+++20220506134310_dateAdded.cs
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\migrations\20220506134310_dateadded.cs
+++20220506140339_addedId.cs
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\migrations\20220506140339_addedid.cs
+++RatingPageContextModelSnapshot.cs
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\migrations\ratingpagecontextmodelsnapshot.cs
+++Models
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\models\
+++ErrorViewModel.cs
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\models\errorviewmodel.cs
+++Rating.cs
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\models\rating.cs
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\modles\rating.cs
+++Views
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\views\
+++Home
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\views\home\
+++Index.cshtml
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\views\home\index.cshtml
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\views\ratings\index.cshtml
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\pages\index.cshtml
+++Privacy.cshtml
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\views\home\privacy.cshtml
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\pages\privacy.cshtml
+++Ratings
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\views\ratings\
+++Create.cshtml
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\views\ratings\create.cshtml
+++Delete.cshtml
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\views\ratings\delete.cshtml
+++Details.cshtml
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\views\ratings\details.cshtml
+++Edit.cshtml
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\views\ratings\edit.cshtml
+++Shared
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\views\shared\
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\pages\shared\
+++_ViewImports.cshtml
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\views\_viewimports.cshtml
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\pages\_viewimports.cshtml
+++_ViewStart.cshtml
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\views\_viewstart.cshtml
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\pages\_viewstart.cshtml
+++appsettings.json
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\appsettings.json
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\appsettings.json
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\webapichat\appsettings.json
+++Program.cs
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\program.cs
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\program.cs
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\webapichat\program.cs
+++SQL Server Express LocalDB (Local) (ConnectionStrings:RatingPageContext)
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:>1395
+++Analyzers
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:analyzers
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:analyzers
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:analyzers
+++Frameworks
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:frameworks
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:frameworks
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:frameworks
+++Packages
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:packages
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:packages
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:packages
+++launchSettings.json
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\properties\launchsettings.json
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\properties\launchsettings.json
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\webapichat\properties\launchsettings.json
+++serviceDependencies.json
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\properties\servicedependencies.json
+++site.js
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\js\site.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\js\site.js
+++bootstrap
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\
+++jquery
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\jquery\
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\jquery\
+++jquery-validation
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\jquery-validation\
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\jquery-validation\
+++jquery-validation-unobtrusive
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\jquery-validation-unobtrusive\
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\jquery-validation-unobtrusive\
+++RatingPageContext.cs
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\data\ratingpagecontext.cs
+++20220506115929_Init.Designer.cs
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\migrations\20220506115929_init.designer.cs
+++20220506134310_dateAdded.Designer.cs
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\migrations\20220506134310_dateadded.designer.cs
+++20220506140339_addedId.Designer.cs
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\migrations\20220506140339_addedid.designer.cs
+++_Layout.cshtml
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\views\shared\_layout.cshtml
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\pages\shared\_layout.cshtml
+++_ValidationScriptsPartial.cshtml
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\views\shared\_validationscriptspartial.cshtml
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\pages\shared\_validationscriptspartial.cshtml
+++Error.cshtml
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\views\shared\error.cshtml
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\pages\error.cshtml
+++appsettings.Development.json
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\appsettings.development.json
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\appsettings.development.json
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\webapichat\appsettings.development.json
+++MessagePackAnalyzer
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\.nuget\packages\messagepackanalyzer\2.1.152\analyzers\dotnet\messagepackanalyzer.dll
+++Microsoft.AspNetCore.Analyzers
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
+++Microsoft.AspNetCore.App.Analyzers
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.4\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.4\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.4\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+++Microsoft.AspNetCore.App.CodeFixes
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.4\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.4\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.4\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+++Microsoft.AspNetCore.Components.Analyzers
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
+++Microsoft.AspNetCore.Mvc.Analyzers
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
+++Microsoft.AspNetCore.Razor.SourceGenerator.Tooling.Internal
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.razor\source-generators\microsoft.aspnetcore.razor.sourcegenerator.tooling.internal.dll
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.razor\source-generators\microsoft.aspnetcore.razor.sourcegenerator.tooling.internal.dll
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.razor\source-generators\microsoft.aspnetcore.razor.sourcegenerator.tooling.internal.dll
+++Microsoft.CodeAnalysis.Analyzers
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.analyzers.dll
+++Microsoft.CodeAnalysis.CSharp.Analyzers
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.csharp.analyzers.dll
+++Microsoft.CodeAnalysis.CSharp.NetAnalyzers
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+++Microsoft.CodeAnalysis.NetAnalyzers
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+++Microsoft.EntityFrameworkCore.Analyzers
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.4\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+++Microsoft.Extensions.Logging.Generators
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.4\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.4\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.4\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+++Microsoft.NET.Sdk.Razor.SourceGenerators
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.razor\source-generators\microsoft.net.sdk.razor.sourcegenerators.dll
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.razor\source-generators\microsoft.net.sdk.razor.sourcegenerators.dll
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.razor\source-generators\microsoft.net.sdk.razor.sourcegenerators.dll
+++System.Text.Json.SourceGeneration
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.4\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.4\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.4\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+++Microsoft.AspNetCore.App
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\microsoft.aspnetcore.app
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\microsoft.aspnetcore.app
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\webapichat\microsoft.aspnetcore.app
+++Microsoft.NETCore.App
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\microsoft.netcore.app
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\microsoft.netcore.app
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\webapichat\microsoft.netcore.app
+++Microsoft.EntityFrameworkCore.SqlServer (6.0.4)
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:>1365
+++Microsoft.EntityFrameworkCore.Tools (6.0.4)
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:>1367
+++Microsoft.VisualStudio.Web.CodeGeneration.Design (6.0.3)
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:>1368
+++Swashbuckle.AspNetCore (6.3.0)
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:>1366
+++serviceDependencies.local.json
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\properties\servicedependencies.local.json
+++dist
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\jquery\dist\
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\jquery-validation\dist\
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\jquery\dist\
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\jquery-validation\dist\
+++LICENSE
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\license
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\license
+++LICENSE.txt
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\jquery\license.txt
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\jquery-validation-unobtrusive\license.txt
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\jquery\license.txt
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\jquery-validation-unobtrusive\license.txt
+++LICENSE.md
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\jquery-validation\license.md
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\jquery-validation\license.md
+++jquery.validate.unobtrusive.js
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
+++_Layout.cshtml.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\views\shared\_layout.cshtml.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\pages\shared\_layout.cshtml.css
+++jquery.js
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\jquery\dist\jquery.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\jquery\dist\jquery.js
+++additional-methods.js
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\jquery-validation\dist\additional-methods.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\jquery-validation\dist\additional-methods.js
+++jquery.validate.js
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+++jquery.validate.unobtrusive.min.js
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
+++bootstrap.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap.css
+++bootstrap-grid.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+++bootstrap-reboot.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+++bootstrap-utilities.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
+++bootstrap.js
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\js\bootstrap.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\js\bootstrap.js
+++jquery.min.js
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\jquery\dist\jquery.min.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\jquery\dist\jquery.min.js
+++additional-methods.min.js
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+++jquery.validate.min.js
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+++bootstrap.css.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+++bootstrap.min.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+++bootstrap.rtl.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+++bootstrap-grid.css.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+++bootstrap-grid.min.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+++bootstrap-grid.rtl.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+++bootstrap-reboot.css.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+++bootstrap-reboot.min.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+++bootstrap-reboot.rtl.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
+++bootstrap-utilities.css.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+++bootstrap-utilities.min.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
+++bootstrap-utilities.rtl.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
+++bootstrap.bundle.js
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+++bootstrap.esm.js
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+++bootstrap.js.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+++bootstrap.min.js
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+++jquery.min.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\jquery\dist\jquery.min.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\jquery\dist\jquery.min.map
+++bootstrap.min.css.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+++bootstrap.rtl.css.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+++bootstrap.rtl.min.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+++bootstrap-grid.min.css.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+++bootstrap-grid.rtl.css.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
+++bootstrap-grid.rtl.min.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
+++bootstrap-reboot.min.css.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+++bootstrap-reboot.rtl.css.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
+++bootstrap-reboot.rtl.min.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
+++bootstrap-utilities.min.css.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+++bootstrap-utilities.rtl.css.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
+++bootstrap-utilities.rtl.min.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+++bootstrap.bundle.js.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+++bootstrap.bundle.min.js
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+++bootstrap.esm.js.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+++bootstrap.esm.min.js
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
+++bootstrap.min.js.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+++bootstrap.rtl.min.css.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+++bootstrap-grid.rtl.min.css.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+++bootstrap-reboot.rtl.min.css.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+++bootstrap-utilities.rtl.min.css.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
+++bootstrap.bundle.min.js.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
+++bootstrap.esm.min.js.map
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+++React-Client
+i:{00000000-0000-0000-0000-000000000000}:React-Client
+++Modles
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\modles\
+++Pages
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\pages\
+++No service dependencies discovered
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:>1343
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:>1432
+++static
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\static\
+++asset-manifest.json
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\asset-manifest.json
+++Atest.jpg
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\atest.jpg
+++Capture1.PNG
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\capture1.png
+++favicon.png
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\favicon.png
+++girl.png
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\girl.png
+++index.html
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\index.html
+++large_clearreply.png
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\large_clearreply.png
+++logo192.png
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\logo192.png
+++logo512.png
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\logo512.png
+++manifest.json
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\manifest.json
+++notfound.png
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\notfound.png
+++RickRollAudio.mp3
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\rickrollaudio.mp3
+++robots.txt
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\robots.txt
+++sample.pdf
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\sample.pdf
+++teacher.png
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\teacher.png
+++vid.mp4
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\vid.mp4
+++React.Router (5.2.12)
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:>1354
+++Error.cshtml.cs
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\pages\error.cshtml.cs
+++Index.cshtml.cs
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\pages\index.cshtml.cs
+++Privacy.cshtml.cs
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\pages\privacy.cshtml.cs
+++main.2e1478a7.css
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\static\css\main.2e1478a7.css
+++787.35cea4b2.chunk.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\static\js\787.35cea4b2.chunk.js
+++main.63797792.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\static\js\main.63797792.js
+++main.63797792.js.LICENSE.txt
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\static\js\main.63797792.js.license.txt
+++main.d5845adf.js
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\static\js\main.d5845adf.js
+++main.d5845adf.js.LICENSE.txt
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\static\js\main.d5845adf.js.license.txt
+++main.2e1478a7.css.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\static\css\main.2e1478a7.css.map
+++787.35cea4b2.chunk.js.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\static\js\787.35cea4b2.chunk.js.map
+++main.63797792.js.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\static\js\main.63797792.js.map
+++main.d5845adf.js.map
+i:{19f1e6a3-9d1a-4cd4-9446-724f70e31566}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\react-client\wwwroot\static\js\main.d5845adf.js.map
+++rating.css
+i:{0de4a1f0-3aca-44ef-9b40-6ff2794163aa}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\ratingpage\wwwroot\css\rating.css
+++Solution 'chatReact' ‎(3 of 3 projects)
+i:{00000000-0000-0000-0000-000000000000}:chatReact.sln
+++webApiChat
+i:{00000000-0000-0000-0000-000000000000}:webApiChat
+++WeatherForecast.cs
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\webapichat\weatherforecast.cs
+++WeatherForecastController.cs
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:c:\users\ido\documents\ap2-web-client\serverside\chatreact\webapichat\controllers\weatherforecastcontroller.cs
+++C:\Program Files\dotnet\sdk\6.0.202\Sdks\Microsoft.NET.Sdk.Web\analyzers\cs\Microsoft.AspNetCore.Analyzers.dll
+++C:\Program Files\dotnet\sdk\6.0.202\Sdks\Microsoft.NET.Sdk.Web\analyzers\cs\Microsoft.AspNetCore.Components.Analyzers.dll
+++C:\Program Files\dotnet\sdk\6.0.202\Sdks\Microsoft.NET.Sdk.Web\analyzers\cs\Microsoft.AspNetCore.Mvc.Analyzers.dll
+++C:\Program Files\dotnet\sdk\6.0.202\Sdks\Microsoft.NET.Sdk\targets\..\analyzers\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll
+++C:\Program Files\dotnet\sdk\6.0.202\Sdks\Microsoft.NET.Sdk\targets\..\analyzers\Microsoft.CodeAnalysis.NetAnalyzers.dll
+++Swashbuckle.AspNetCore (6.2.3)
+i:{e7374d8e-c4cf-4ba1-bce2-b3cf3075f438}:>1443

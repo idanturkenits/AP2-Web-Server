@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import UsersList from './usersList';
 import Bar from './topBar';
 import { useRef, useState } from 'react'
@@ -10,11 +10,19 @@ import './Chat.css'
 import Message from '../classes/Message';
 import { Link } from 'react-router-dom'
 import TopUserInfo from './TopChatInfo';
+import User from '../classes/User';
 /*
 disc: Chat is the main window' with all the contacts and their chats
 user: is the obj represent the user data
 */
 function ChatScreen({ user }) {
+    useEffect(async () => {
+        const res = await fetch('https:localhost:7200/api/contacts');
+        const data = res.json();
+        data.forEach(contact => {
+            addCont(new User())
+        });
+    },[]);
     const handler = new LocalDBHandler();
     let chats = handler.getChatsOfUser(user.id);
     

@@ -3,6 +3,10 @@ import chats from '../database/Chats';
 import Chat from '../classes/Chat'
 class LocalDBHandler {
 
+    clearChats() {
+        chats = [];
+    }
+
     getUserByUserName(username) {
         for (let user of users) {
             if (user.username === username) {
