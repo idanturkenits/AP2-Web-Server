@@ -63,3 +63,16 @@ C:\Users\Ido\Documents\AP2-Web-Client\serverSide\chatReact\React-Client\bin\Debu
 C:\Users\Ido\Documents\AP2-Web-Client\serverSide\chatReact\React-Client\bin\Debug\net6.0\ru-ru\JavaScriptEngineSwitcher.Core.resources.dll
 C:\Users\Ido\Documents\AP2-Web-Client\serverSide\chatReact\React-Client\obj\Debug\net6.0\React-Client.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Ido\Documents\AP2-Web-Client\serverSide\chatReact\React-Client\obj\Debug\net6.0\React-Client.csproj.CopyComplete
+C:\Yogev\BIU\Second year\Advanced Programming2\AP2-Web-Client\serverSide\chatReact\React-Client\bin\Debug\net6.0\AdvancedStringBuilder.dll
+C:\Yogev\BIU\Second year\Advanced Programming2\AP2-Web-Client\serverSide\chatReact\React-Client\bin\Debug\net6.0\JavaScriptEngineSwitcher.Core.dll
+C:\Yogev\BIU\Second year\Advanced Programming2\AP2-Web-Client\serverSide\chatReact\React-Client\bin\Debug\net6.0\JSPool.dll
+C:\Yogev\BIU\Second year\Advanced Programming2\AP2-Web-Client\serverSide\chatReact\React-Client\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Yogev\BIU\Second year\Advanced Programming2\AP2-Web-Client\serverSide\chatReact\React-Client\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Yogev\BIU\Second year\Advanced Programming2\AP2-Web-Client\serverSide\chatReact\React-Client\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Yogev\BIU\Second year\Advanced Programming2\AP2-Web-Client\serverSide\chatReact\React-Client\bin\Debug\net6.0\React.AspNet.dll
+C:\Yogev\BIU\Second year\Advanced Programming2\AP2-Web-Client\serverSide\chatReact\React-Client\bin\Debug\net6.0\React.AspNet.Middleware.dll
+C:\Yogev\BIU\Second year\Advanced Programming2\AP2-Web-Client\serverSide\chatReact\React-Client\bin\Debug\net6.0\React.Core.dll
+C:\Yogev\BIU\Second year\Advanced Programming2\AP2-Web-Client\serverSide\chatReact\React-Client\bin\Debug\net6.0\React.Router.dll
+C:\Yogev\BIU\Second year\Advanced Programming2\AP2-Web-Client\serverSide\chatReact\React-Client\bin\Debug\net6.0\ru-ru\JavaScriptEngineSwitcher.Core.resources.dll
+C:\Yogev\BIU\Second year\Advanced Programming2\AP2-Web-Client\serverSide\chatReact\React-Client\obj\Debug\net6.0\React-Client.MvcApplicationPartsAssemblyInfo.cs
+C:\Yogev\BIU\Second year\Advanced Programming2\AP2-Web-Client\serverSide\chatReact\React-Client\obj\Debug\net6.0\React-Client.csproj.CopyComplete
