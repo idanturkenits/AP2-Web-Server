@@ -1,11 +1,15 @@
 ﻿#nullable disable
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using WebApi.Data;
 using WebApi.Models;
 
@@ -70,9 +74,9 @@ namespace WebApi.Controllers
         [HttpPost]
         [Route("Login")]
         /*[ValidateAntiForgeryToken]*/
-        public async Task<IActionResult> Login(string id, string password)
+        public async Task<IActionResult> Login(string Username, string password)
         {
-            User x = _context.User.Where(x => x.Id == id).FirstOrDefault();
+            User x = _context.User.Where(x => x.Username == Username).FirstOrDefault();
             if (x == null)
             {
                 return NotFound();
@@ -81,7 +85,24 @@ namespace WebApi.Controllers
             {
                 return NotFound();
             }
-            return Ok(x.Name);
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, _configuration["JWTParams:Subject"]),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
+                new Claim("UserId", Username)
+            };
+
+            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWTParams:secretKey"]));
+            var mac = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+            var token = new JwtSecurityToken(
+                _configuration ["WTParans:Issuer"],
+                _configuration["JWTParans:Audience"],
+                claims,
+                expires: DateTime.UtcNow.AddMinutes(20),
+                signingCredentials: mac);
+            
+            return Ok(new JwtSecurityTokenHandler().WriteToken(token));
         }
 
         /*// GET: Users/Delete/5

@@ -13,13 +13,13 @@ namespace WebApi.Migrations
                 name: "User",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.Id);
+                    table.PrimaryKey("PK_User", x => x.Username);
                 });
 
             migrationBuilder.CreateTable(
@@ -29,16 +29,16 @@ namespace WebApi.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Server = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    Username = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Contact", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Contact_User_UserId",
-                        column: x => x.UserId,
+                        name: "FK_Contact_User_Username",
+                        column: x => x.Username,
                         principalTable: "User",
-                        principalColumn: "Id");
+                        principalColumn: "Username");
                 });
 
             migrationBuilder.CreateTable(
@@ -47,7 +47,8 @@ namespace WebApi.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ContactId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    Username = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ContactId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -56,7 +57,12 @@ namespace WebApi.Migrations
                         name: "FK_Chat_Contact_ContactId",
                         column: x => x.ContactId,
                         principalTable: "Contact",
-                        principalColumn: "Id",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Chat_User_Username",
+                        column: x => x.Username,
+                        principalTable: "User",
+                        principalColumn: "Username",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -87,9 +93,14 @@ namespace WebApi.Migrations
                 column: "ContactId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Contact_UserId",
+                name: "IX_Chat_Username",
+                table: "Chat",
+                column: "Username");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Contact_Username",
                 table: "Contact",
-                column: "UserId");
+                column: "Username");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Message_ChatId",
