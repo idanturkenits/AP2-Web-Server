@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import users from '../database/Users'
 import User from '../classes/User'
-function SignUpForm() {
+function SignUpForm({setPage}) {
     const [error, setError] = useState('');
-    let navigate = useNavigate();
 
     let usernameRef = useRef(null)
     let nicknameRef = useRef(null)
@@ -66,8 +65,13 @@ function SignUpForm() {
         passwordRef.current.value = ''
         confirmPasswordRef.current.value = ''
 
-        navigate('/login')
+        setPage(1);
     }
+
+    let ChangePage = function() {
+        setPage(1);
+    }
+    
     return (
         <div className="card mt-5 box-shadow" style={{ borderRadius: 2 + '%' }}>
             <div className="card-header text-center">
@@ -94,7 +98,7 @@ function SignUpForm() {
                     <button id="signUp_btn" type="button" className="btn-hover color-1 w-100" onClick={doSignUp}>Sign Up</button>
                 </div>
                 <div className="mt-5 d-flex justify-content-center">
-                    <p className="form-label mt-2 mb-5">Already a member? <Link to="/login" className="text-decoration-none">Login</Link></p>
+                    <p className="form-label mt-2 mb-5 me-2">Already a member?</p> <a className="form-label mt-2 mb-5 me-2" onClick={ChangePage}>Login</a>
                 </div>
             </div>
         </div>
