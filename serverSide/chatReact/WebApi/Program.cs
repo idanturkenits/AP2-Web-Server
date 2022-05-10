@@ -14,17 +14,32 @@ builder.Services.AddDbContext<WebApiContext>(options =>
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+//builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerGen(options =>
 {
-    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    var jwtSecurityScheme = new OpenApiSecurityScheme
     {
-        Description = "Standard Authorization header using the Bearer scheme",
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        Name = "JWT Authentication",
         In = ParameterLocation.Header,
-        Name = "Authorization",
-        Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer"
+        Type = SecuritySchemeType.Http,
+        Description = "Put **_ONLY_** your JWT Bearer token on textbox below!",
+
+        Reference = new OpenApiReference
+        {
+            Id = JwtBearerDefaults.AuthenticationScheme,
+            Type = ReferenceType.SecurityScheme
+        }
+    };
+
+    options.AddSecurityDefinition(jwtSecurityScheme.Reference.Id, jwtSecurityScheme);
+
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        { jwtSecurityScheme, Array.Empty<string>() }
     });
+
 });
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
@@ -35,11 +50,21 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     {
         ValidateIssuer = true,
         ValidateAudience = true,
-        ValidAudience = builder.Configuration["JWTParams:Audience"],
         ValidIssuer = builder.Configuration["JWTParams:Issuer"],
+        ValidAudience = builder.Configuration["JWTParams:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWTParams:SecretKey"]))
     };
+});
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Allow All",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+        });
 });
 
 var app = builder.Build();
@@ -53,8 +78,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("Allow All");
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseHttpsRedirection();
+app.UseAuthorization();
 app.MapControllers();
-
 app.Run();

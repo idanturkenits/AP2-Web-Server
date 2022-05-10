@@ -91,6 +91,8 @@ namespace WebApi.Controllers
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, _configuration["JWTParams:Subject"]),
+                new Claim(JwtRegisteredClaimNames.Aud, _configuration["JWTParams:Audience"]),
+                new Claim(JwtRegisteredClaimNames.Iss, _configuration["JWTParams:Issuer"]),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
                 new Claim("UserId", Username)
@@ -99,10 +101,10 @@ namespace WebApi.Controllers
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWTParams:SecretKey"]));
             var mac = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
-                _configuration ["WTParans:Issuer"],
-                _configuration["JWTParans:Audience"],
+                _configuration["JWTParams:Issuer"],
+                _configuration["JWTParams:Audience"],
                 claims,
-                expires: DateTime.UtcNow.AddMinutes(20),
+                expires: DateTime.UtcNow.AddMinutes(60),
                 signingCredentials: mac);
 
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
@@ -116,9 +118,9 @@ namespace WebApi.Controllers
         [Route("contacts")]
         public async Task<IActionResult> Get()
         {
-            var token = HttpContext.Request.Headers["Authorization"];
+            var jwt = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", string.Empty); ;
             var handler = new JwtSecurityTokenHandler();
-            var jwtSecurityToken = handler.ReadJwtToken(token);
+            var jwtSecurityToken = handler.ReadJwtToken(jwt);
             var username = jwtSecurityToken.Claims.First(claim => claim.Type == "UserId").Value;
 
             /*var user = await _context.User
