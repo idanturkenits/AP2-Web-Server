@@ -7,8 +7,7 @@ namespace WebApi.Models
     {
         [Key]
         [Required]
-        public string Id { get; set; }
-
+        public string Username { get; set; }
 
         [Required]
         public string Name { get; set; }

@@ -1,11 +1,16 @@
 ﻿#nullable disable
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using WebApi.Data;
 using WebApi.Models;
 
@@ -25,7 +30,9 @@ namespace WebApi.Controllers
 
         /*
         // GET: Users/Details/5
-        public async Task<IActionResult> Details(string id)
+        [HttpGet]
+        [Route("Login")]
+        public async Task<IActionResult> Details(string )
         {
             if (id == null)
             {
@@ -41,7 +48,7 @@ namespace WebApi.Controllers
 
             return View(user);
         }
-
+        
         // GET: Users/Create
         public IActionResult Create()
         {
@@ -64,15 +71,15 @@ namespace WebApi.Controllers
             return View(user);
         }*/
 
-        // POST: Users/Edit/5
+        // POST: api/login/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [Route("Login")]
         /*[ValidateAntiForgeryToken]*/
-        public async Task<IActionResult> Login(string id, string password)
+        public async Task<IActionResult> Login(string Username, string password)
         {
-            User x = _context.User.Where(x => x.Id == id).FirstOrDefault();
+            User x = _context.User.Where(x => x.Username == Username).FirstOrDefault();
             if (x == null)
             {
                 return NotFound();
@@ -81,9 +88,48 @@ namespace WebApi.Controllers
             {
                 return NotFound();
             }
-            return Ok(x.Name);
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, _configuration["JWTParams:Subject"]),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
+                new Claim("UserId", Username)
+            };
+
+            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWTParams:SecretKey"]));
+            var mac = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+            var token = new JwtSecurityToken(
+                _configuration ["WTParans:Issuer"],
+                _configuration["JWTParans:Audience"],
+                claims,
+                expires: DateTime.UtcNow.AddMinutes(20),
+                signingCredentials: mac);
+
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+            
+            return Ok(jwt);
         }
 
+        // GET: Users/contacts
+        [HttpGet]
+        [Authorize]
+        [Route("contacts")]
+        public async Task<IActionResult> Get()
+        {
+            var token = HttpContext.Request.Headers["Authorization"];
+            var handler = new JwtSecurityTokenHandler();
+            var jwtSecurityToken = handler.ReadJwtToken(token);
+            var username = jwtSecurityToken.Claims.First(claim => claim.Type == "UserId").Value;
+
+            /*var user = await _context.User
+                .FirstOrDefaultAsync(m => m.Username == username);
+            if (user == null)
+            {
+                return NotFound();
+            }*/
+
+            return Ok(username);
+        }
         /*// GET: Users/Delete/5
         public async Task<IActionResult> Delete(string id)
         {

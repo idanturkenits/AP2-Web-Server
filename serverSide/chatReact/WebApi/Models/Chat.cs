@@ -8,7 +8,7 @@ namespace WebApi.Models
         [Key]
         public int Id { get; set; }
 
-        public string ContactId { get; set; }
+        public User user { get; set; }
 
         public List<Message> Messagges { get; set; }
     }

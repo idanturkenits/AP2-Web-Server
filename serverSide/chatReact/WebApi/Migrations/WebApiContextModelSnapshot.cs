@@ -31,12 +31,17 @@ namespace WebApi.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ContactId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ContactId");
+
+                    b.HasIndex("Username");
 
                     b.ToTable("Chat");
                 });
@@ -46,6 +51,10 @@ namespace WebApi.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ContactUsername")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -54,12 +63,12 @@ namespace WebApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
+                    b.Property<string>("Username")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("Username");
 
                     b.ToTable("Contact");
                 });
@@ -94,7 +103,7 @@ namespace WebApi.Migrations
 
             modelBuilder.Entity("WebApi.Models.User", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("Username")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
@@ -105,7 +114,7 @@ namespace WebApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Username");
 
                     b.ToTable("User");
                 });
@@ -114,16 +123,22 @@ namespace WebApi.Migrations
                 {
                     b.HasOne("WebApi.Models.Contact", null)
                         .WithMany("Chats")
-                        .HasForeignKey("ContactId")
+                        .HasForeignKey("ContactId");
+
+                    b.HasOne("WebApi.Models.User", "user")
+                        .WithMany()
+                        .HasForeignKey("Username")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("user");
                 });
 
             modelBuilder.Entity("WebApi.Models.Contact", b =>
                 {
                     b.HasOne("WebApi.Models.User", null)
                         .WithMany("Contacts")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("Username");
                 });
 
             modelBuilder.Entity("WebApi.Models.Message", b =>
