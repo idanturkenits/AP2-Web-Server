@@ -8,21 +8,14 @@ import ChatArea from "./messaging/ChatArea"
 import LocalDBHandler from '../db_handlers/LocalDBHandler';
 import './Chat.css'
 import Message from '../classes/Message';
-import { Link } from 'react-router-dom'
 import TopUserInfo from './TopChatInfo';
-import User from '../classes/User';
+
 /*
 disc: Chat is the main window' with all the contacts and their chats
 user: is the obj represent the user data
 */
-function ChatScreen({ user }) {
-    useEffect(async () => {
-        const res = await fetch('https:localhost:7200/api/contacts');
-        const data = res.json();
-        data.forEach(contact => {
-            addCont(new User())
-        });
-    },[]);
+function ChatScreen({ user , setPage }) {
+    
     const handler = new LocalDBHandler();
     let chats = handler.getChatsOfUser(user.id);
     
@@ -56,7 +49,7 @@ function ChatScreen({ user }) {
             <div className="card">
                 <div className="row">
                     <div className="col-3 col-lg-3 col-xl-3 pe-0">
-                        <Bar addContact={addCont} currentUser={user} updateCont={updateCont} />
+                        <Bar addContact={addCont} currentUser={user} updateCont={updateCont} setPage={setPage}/>
                         <UsersList currentUser={user} chats={chatList} displayChat={displayChat} />
                     </div>
                     <div className="col-9 col-lg-9 col-xl-9 border-start">

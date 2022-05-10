@@ -5,10 +5,9 @@ import { useState } from 'react'
 import users from '../database/Users'
 import LocalDBHandler from '../db_handlers/LocalDBHandler'
 
-function LoginForm({ setConnectedUser }) {
+function LoginForm(props) {
     const [error, setError] = useState('');
 
-    let navigate = useNavigate();
     let usernameRef = useRef(null)
     let passwordRef = useRef(null)
 
@@ -27,14 +26,19 @@ function LoginForm({ setConnectedUser }) {
         let passwordInput = passwordRef.current.value;
         for (const user of users) {
             if (user.username === usernameInput && user.password === passwordInput) {
-                setConnectedUser(handler.getUserByUserName(usernameInput))
-                navigate('/chat');
+                props.setConnectedUser(handler.getUserByUserName(usernameInput))
+                props.setPage(3);
             }
             else {
                 setError('Invalid username or password');
             }
         }
     }
+
+    let ChangePage = function(event){
+        props.setPage(2);
+    }
+    
     return (
         <div className="card mt-5 box-shadow" style={{borderRadius: 2 + '%'}}>
             <div className="card-header text-center">
@@ -53,7 +57,7 @@ function LoginForm({ setConnectedUser }) {
                 </div>
 
                 <div className="mt-5 d-flex justify-content-center">
-                    <p className="form-label mt-2 mb-5">Not a member? <Link to="/signup" className="text-decoration-none">SignUp</Link></p>
+                    <p className="form-label mt-2 mb-5 me-2"> Not a member? </p> <a className="form-label mt-2 mb-5" onClick={ChangePage}> Sign Up</a>
                 </div>
             </div>
         </div>
