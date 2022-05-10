@@ -8,7 +8,6 @@ namespace WebApi.Models
         [Required]
         public string Id { get; set; }
 
-
         public string ContactUsername { get; set; }
 
         [Required]
