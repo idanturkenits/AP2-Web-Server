@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using WebApi.Data;
 using WebApi.Models;
+using WebApi.Services;
 
 namespace WebApi.Controllers
 {
@@ -20,56 +21,13 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly WebApiContext _context;
+        private readonly IUsersService service;
         public IConfiguration _configuration;
-        public UsersController(WebApiContext context, IConfiguration config)
+        public UsersController(IUsersService service, IConfiguration config)
         {
-            _context = context;
+            this.service = service;
             _configuration = config;
         }
-
-        /*
-        // GET: Users/Details/5
-        [HttpGet]
-        [Route("Login")]
-        public async Task<IActionResult> Details(string )
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var user = await _context.User
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return View(user);
-        }
-        
-        // GET: Users/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Users/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Server,Password")] User user)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(user);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(user);
-        }*/
 
         // POST: api/login/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -79,7 +37,7 @@ namespace WebApi.Controllers
         /*[ValidateAntiForgeryToken]*/
         public async Task<IActionResult> Login(string Username, string password)
         {
-            User x = _context.User.Where(x => x.Username == Username).FirstOrDefault();
+            User x = await service.getUserById(Username);
             if (x == null)
             {
                 return NotFound();
@@ -112,6 +70,14 @@ namespace WebApi.Controllers
             return Ok(jwt);
         }
 
+        [HttpPost]
+        [Route("Register")]
+        public async Task<IActionResult> Register([Bind("Username,Name,Password")] User user)
+        {
+            await service.addNewUser(user);
+            return Ok();
+        }
+
         // GET: Users/contacts
         [HttpGet]
         [Authorize]
@@ -123,47 +89,7 @@ namespace WebApi.Controllers
             var jwtSecurityToken = handler.ReadJwtToken(jwt);
             var username = jwtSecurityToken.Claims.First(claim => claim.Type == "UserId").Value;
 
-            /*var user = await _context.User
-                .FirstOrDefaultAsync(m => m.Username == username);
-            if (user == null)
-            {
-                return NotFound();
-            }*/
-
-            return Ok(username);
+            return Ok(await service.GetAllUsers());
         }
-        /*// GET: Users/Delete/5
-        public async Task<IActionResult> Delete(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var user = await _context.User
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return View(user);
-        }
-
-        // POST: Users/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
-        {
-            var user = await _context.User.FindAsync(id);
-            _context.User.Remove(user);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool UserExists(string id)
-        {
-            return _context.User.Any(e => e.Id == id);
-        }*/
     }
 }
