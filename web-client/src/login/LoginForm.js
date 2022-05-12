@@ -55,6 +55,10 @@ function LoginForm({ setConnectedUser }) {
                 <div className="mt-5 d-flex justify-content-center">
                     <p className="form-label mt-2 mb-5">Not a member? <Link to="/signup" className="text-decoration-none">SignUp</Link></p>
                 </div>
+
+                <div className="d-flex justify-content-center">
+                    <p className="form-label mb-5">click <a href="http://localhost:5197"> here </a> for rating page </p>
+                </div>
             </div>
         </div>
     );
