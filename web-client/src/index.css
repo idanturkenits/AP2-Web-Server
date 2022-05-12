@@ -132,7 +132,3 @@ code {
   background-image: linear-gradient(to right, #49e4b0, #19baf0);
   box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
 }
-
-a:hover{
-  cursor: pointer;
-}

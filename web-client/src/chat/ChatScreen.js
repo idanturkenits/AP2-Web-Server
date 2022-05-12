@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import UsersList from './usersList';
 import Bar from './topBar';
 import { useRef, useState } from 'react'
@@ -8,14 +8,13 @@ import ChatArea from "./messaging/ChatArea"
 import LocalDBHandler from '../db_handlers/LocalDBHandler';
 import './Chat.css'
 import Message from '../classes/Message';
+import { Link } from 'react-router-dom'
 import TopUserInfo from './TopChatInfo';
-
 /*
 disc: Chat is the main window' with all the contacts and their chats
 user: is the obj represent the user data
 */
-function ChatScreen({ user , setPage }) {
-    
+function ChatScreen({ user }) {
     const handler = new LocalDBHandler();
     let chats = handler.getChatsOfUser(user.id);
     
@@ -49,7 +48,7 @@ function ChatScreen({ user , setPage }) {
             <div className="card">
                 <div className="row">
                     <div className="col-3 col-lg-3 col-xl-3 pe-0">
-                        <Bar addContact={addCont} currentUser={user} updateCont={updateCont} setPage={setPage}/>
+                        <Bar addContact={addCont} currentUser={user} updateCont={updateCont} />
                         <UsersList currentUser={user} chats={chatList} displayChat={displayChat} />
                     </div>
                     <div className="col-9 col-lg-9 col-xl-9 border-start">
