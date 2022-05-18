@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ido\\Documents\\AP2-Web-Client\\serverSide\\chatReact\\WebApi\\WebApi.csproj": {}
+    "C:\\Yogev\\BIU\\Second year\\Advanced Programming2\\AP2-Web-Client\\serverSide\\chatReact\\WebApi\\WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ido\\Documents\\AP2-Web-Client\\serverSide\\chatReact\\WebApi\\WebApi.csproj": {
+    "C:\\Yogev\\BIU\\Second year\\Advanced Programming2\\AP2-Web-Client\\serverSide\\chatReact\\WebApi\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ido\\Documents\\AP2-Web-Client\\serverSide\\chatReact\\WebApi\\WebApi.csproj",
+        "projectUniqueName": "C:\\Yogev\\BIU\\Second year\\Advanced Programming2\\AP2-Web-Client\\serverSide\\chatReact\\WebApi\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "C:\\Users\\Ido\\Documents\\AP2-Web-Client\\serverSide\\chatReact\\WebApi\\WebApi.csproj",
-        "packagesPath": "C:\\Users\\Ido\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ido\\Documents\\AP2-Web-Client\\serverSide\\chatReact\\WebApi\\obj\\",
+        "projectPath": "C:\\Yogev\\BIU\\Second year\\Advanced Programming2\\AP2-Web-Client\\serverSide\\chatReact\\WebApi\\WebApi.csproj",
+        "packagesPath": "C:\\Users\\yogev_a\\.nuget\\packages\\",
+        "outputPath": "C:\\Yogev\\BIU\\Second year\\Advanced Programming2\\AP2-Web-Client\\serverSide\\chatReact\\WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ido\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\yogev_a\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
