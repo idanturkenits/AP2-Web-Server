@@ -15,12 +15,12 @@ using WebApi.Data;
 using WebApi.Models;
 using WebApi.Services;
 using WebApi.Controllers;
-
+using System.Text.Json;
 
 namespace WebApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/contacts")]
     public class UsersController : ControllerBase
     {
         private readonly IService _service;
@@ -72,12 +72,13 @@ namespace WebApi.Controllers
             return Ok(jwt);
         }
 
+        // [Bind("Username,Name,Password")]
         [HttpPost]
         [Route("Register")]
-        public async Task<IActionResult> Register([Bind("Username,Name,Password")] User user)
+        public async Task<IActionResult> Register([FromBody] JsonElement body)
         {
-            await _service.AddNewUser(user);
-            User x = await _service.GetUserById(user.Username);
+            await _service.AddNewUser(new Models.User() { Username=body.GetProperty("username").ToString(), Name= body.GetProperty("name").ToString(), Password= body.GetProperty("password").ToString() });
+            /*User x = await _service.GetUserById((body.GetProperty("username").ToString()));
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, _configuration["JWTParams:Subject"]),
@@ -85,7 +86,7 @@ namespace WebApi.Controllers
                 new Claim(JwtRegisteredClaimNames.Iss, _configuration["JWTParams:Issuer"]),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
-                new Claim("UserId", user.Username)
+                new Claim("UserId", body.GetProperty("username").ToString())
             };
 
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWTParams:SecretKey"]));
@@ -97,25 +98,10 @@ namespace WebApi.Controllers
                 expires: DateTime.UtcNow.AddMinutes(60),
                 signingCredentials: mac);
 
-            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);*/
 
-            return Ok(jwt);
+            return Ok();
         }
-
-        // GET: Users/contacts
-        [HttpGet]
-        [Authorize]
-        [Route("contacts")]
-        public async Task<IActionResult> Get()
-        {
-            var username = _service.GetUsernameFromJWT(HttpContext);
-            var contactList = new List<ContactJson>();
-            foreach (var c in await _service.GetAllContacts(username))
-            {
-                var j = await _service.ToJsonContact(c, username);
-                contactList.Add(j);
-            }
-            return Ok(contactList);
-        }
+       
     }
 }

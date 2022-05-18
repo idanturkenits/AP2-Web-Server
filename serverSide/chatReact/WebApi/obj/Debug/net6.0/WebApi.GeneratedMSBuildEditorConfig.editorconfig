@@ -8,13 +8,13 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebApi
 build_property.RootNamespace = WebApi
-build_property.ProjectDir = C:\Yogev\BIU\Second year\Advanced Programming2\AP2-Web-Client\serverSide\chatReact\WebApi\
+build_property.ProjectDir = C:\Users\Ido\Documents\AP2-Web-Client\serverSide\chatReact\WebApi\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Yogev\BIU\Second year\Advanced Programming2\AP2-Web-Client\serverSide\chatReact\WebApi
+build_property.MSBuildProjectDirectory = C:\Users\Ido\Documents\AP2-Web-Client\serverSide\chatReact\WebApi
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Yogev/BIU/Second year/Advanced Programming2/AP2-Web-Client/serverSide/chatReact/WebApi/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Ido/Documents/AP2-Web-Client/serverSide/chatReact/WebApi/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

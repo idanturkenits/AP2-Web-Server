@@ -20,7 +20,7 @@ using System.Net;
 namespace WebApi.Controllers
 {
     [ApiController]
-    [Route("api/:id/messages")]
+    [Route("api/contacts")]
     public class ChatController : ControllerBase
     {
         private IService _service;
@@ -32,23 +32,23 @@ namespace WebApi.Controllers
         }
 
         // GET: Users/contacts/contactsName
-        [HttpGet]
+        [HttpGet("{id}/messages")]
         [Authorize]
-        public async Task<IActionResult> Get(string contactUsername)
+        public async Task<IActionResult> Get(string id)
         {
             var username = _service.GetUsernameFromJWT(HttpContext);
-            var chatJson = await _service.ToJsonChat(await _service.GetChat(username, contactUsername));
+            var chatJson = await _service.ToJsonChat(await _service.GetChat(username, id));
 
             return Ok(chatJson);
         }
 
         // GET: Users/contacts
-        [HttpPost]
+        [HttpPost("{id}/messages")]
         [Authorize]
-        public async Task<IActionResult> Post(string contactUsername, string content)
+        public async Task<IActionResult> Post(string id)
         {
             var username = _service.GetUsernameFromJWT(HttpContext);
-            await _service.AddNewMessage(await _service.GetChat(username, contactUsername), content, true);
+            //await _service.AddNewMessage(await _service.GetChat(username, id), content, true);
 
             return StatusCode((int)HttpStatusCode.Created);
         }
