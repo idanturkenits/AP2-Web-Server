@@ -6,106 +6,75 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using WebApi.Data;
 using WebApi.Models;
+using WebApi.Services;
+using WebApi.Controllers;
+using System.Net;
 
 namespace WebApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/contacts")]
     public class ContactsController : ControllerBase
     {
-        private readonly WebApiContext _context;
+        private IService _service;
         public IConfiguration _configuration;
-        public ContactsController(WebApiContext context, IConfiguration config)
+        public ContactsController(IService service, IConfiguration config)
         {
-            _context = context;
+            _service = service;
             _configuration = config;
         }
 
-
-        /*// GET: Users/contacts/5
+        // GET: Users/contacts/contactsName
         [HttpGet]
-        [Route("contacts")]
+        [Authorize]
         public async Task<IActionResult> Get(string contactUsername)
         {
-            var handler = new JwtSecurityTokenHandler();
-            var jwtSecurityToken = handler.ReadJwtToken(jwt);
-            var username = jwtSecurityToken.Claims.First(claim => claim.Type == "UserId").Value;
-
-            if (contactUsername == null)
-            {
-                return NotFound();
-            }
-
-            var user = await _context.User
-                .FirstOrDefaultAsync(m => m.Username == username);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return View(user);
+            var username = _service.GetUsernameFromJWT(HttpContext);
+            var c = await _service.GetContact(username, contactUsername);
+            var j = await _service.ToJsonContact(c, username);
+            return Ok(j);
         }
-        /*
-        // GET: Users/Create
-        public IActionResult Create()
+
+        // GET: Users/contacts/contactsUsername
+        [HttpPut]
+        [Authorize]
+        public async Task<IActionResult> Put(string contactUsername, string name, string server)
         {
-            return View();
+            var username = _service.GetUsernameFromJWT(HttpContext);
+            await _service.UpdateContact(username, contactUsername, name, server);
+            return StatusCode((int)HttpStatusCode.NoContent);
         }
 
-        // POST: Users/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // GET: Users/contacts/contactsUsername
+        [HttpDelete]
+        [Authorize]
+        public async Task<IActionResult> Delete(string contactUsername)
+        {
+            var username = _service.GetUsernameFromJWT(HttpContext);
+            await _service.DeleteContact(username, contactUsername);
+            return StatusCode((int)HttpStatusCode.NoContent);
+        }
+
+
+        // GET: Users/contacts
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Server,Password")] User user)
+        [Authorize]
+        public async Task<IActionResult> Post(string id, string name, string server)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(user);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(user);
-        }*/
+            var username = _service.GetUsernameFromJWT(HttpContext);
+            if (!_service.ContactExists(id))
+                await _service.AddNewContact(username, id, name, server);
 
-        /*// GET: Users/Delete/5
-        public async Task<IActionResult> Delete(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            await _service.AddNewChat(username, id);
 
-            var user = await _context.User
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return View(user);
+            return StatusCode((int)HttpStatusCode.Created);
         }
-
-        // POST: Users/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
-        {
-            var user = await _context.User.FindAsync(id);
-            _context.User.Remove(user);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool UserExists(string id)
-        {
-            return _context.User.Any(e => e.Id == id);
-        }*/
     }
 }
