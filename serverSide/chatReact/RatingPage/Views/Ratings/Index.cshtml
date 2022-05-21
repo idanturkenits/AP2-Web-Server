@@ -4,34 +4,37 @@
     ViewData["Title"] = "Index";
 }
 
-<link href="~/css/rating.css" rel="stylesheet" />
-<h1>Index</h1>
+<h1>Rating Page</h1>
 
 <p>
     <a asp-action="Create" class="btn btn-block btn-primary btn-warning">Create New</a>
 </p>
 
+<div class="row">
 @foreach (var item in Model)
 {
-    <div class="container d-flex justify-content-center mt-5">
-        <div class="card text-center mb-5">
-            <span class="name mb-1 fw-500">@item.RaterName</span>
-            <small class="text-black-50">@item.SubmissionDate</small>
-            <p>@item.Explanation</p>
-            <div class="rate bg-success py-3 text-white mt-3">
-                <h6 class="mb-0">Rating Scale</h6>
-                <div class="rating">
-                    @for(int i=0;i<@item.Rate;i++)
-                    {
-                        <label>★</label>
-                    }
-                </div>
-                <div class="buttons px-4 mt-0">
-                    <a class="btn btn-secondary btn-block rating-submit" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                    <a class="btn btn-secondary btn-block rating-submit" asp-action="Details" asp-route-id="@item.Id">Details</a>
-                    <a class="btn btn-secondary btn-block rating-submit" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+    <div class="col-4">
+        <div class="container d-flex justify-content-center mt-5">
+            <div class="card text-center mb-5 d-inline-block" style="word-break:break-word">
+                <p class="name mt-0 mb-1 fw-500">@item.RaterName</p>
+                <small class="text-black-50">@item.SubmissionDate</small>
+                <p>@item.Explanation</p>
+                <div class="rate bg-success py-3 text-white mt-3">
+                    <h6 class="mb-0">Rating Scale</h6>
+                    <div class="rating">
+                        @for(int i=0;i<@item.Rate;i++)
+                        {
+                            <label>★</label>
+                        }
+                    </div>
+                    <div class="buttons px-4 mt-0">
+                        <a class="btn btn-secondary btn-block rating-submit" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a class="btn btn-secondary btn-block rating-submit" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a class="btn btn-secondary btn-block rating-submit" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+   </div>
 }
+</div>
