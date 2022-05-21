@@ -74,8 +74,15 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [Route("Register")]
-        public async Task<IActionResult> Register([Bind("Username,Name,Password")] User user)
+        public async Task<IActionResult> Register(string username,string name, string password)//[Bind("Username,Name,Password")] User user)
         {
+            var user = new User
+            {
+                Username = username,
+                Name = name,
+                Password = password,
+                Contacts = new List<Contact>()
+            };
             await _service.AddNewUser(user);
             User x = await _service.GetUserById(user.Username);
             var claims = new[]
