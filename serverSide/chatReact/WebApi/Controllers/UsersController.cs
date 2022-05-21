@@ -15,12 +15,12 @@ using WebApi.Data;
 using WebApi.Models;
 using WebApi.Services;
 using WebApi.Controllers;
-
+using System.Text.Json;
 
 namespace WebApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/contacts")]
     public class UsersController : ControllerBase
     {
         private readonly IService _service;
@@ -108,21 +108,6 @@ namespace WebApi.Controllers
 
             return Ok(jwt);
         }
-
-        // GET: Users/contacts
-        [HttpGet]
-        [Authorize]
-        [Route("contacts")]
-        public async Task<IActionResult> Get()
-        {
-            var username = _service.GetUsernameFromJWT(HttpContext);
-            var contactList = new List<ContactJson>();
-            foreach (var c in await _service.GetAllContacts(username))
-            {
-                var j = await _service.ToJsonContact(c, username);
-                contactList.Add(j);
-            }
-            return Ok(contactList);
-        }
+       
     }
 }

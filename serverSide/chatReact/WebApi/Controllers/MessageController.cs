@@ -20,7 +20,7 @@ using System.Net;
 namespace WebApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]/:id/messages")]
+    [Route("api/contacts")]
     public class MessageController : ControllerBase
     {
         private IService _service;
@@ -32,29 +32,29 @@ namespace WebApi.Controllers
         }
 
         // GET: Users/contacts/contactsName
-        [HttpGet]
+        [HttpGet("{id}/messages/{id2}")]
         [Authorize]
-        public async Task<IActionResult> Get(string contactUsername, int messageId)
+        public async Task<IActionResult> GetMessage(string id,int id2)
         {
-            var msgJson = _service.ToJsonMessage(await _service.GetMessageById(messageId));
+            var msgJson = _service.ToJsonMessage(await _service.GetMessageById(id2));
             return Ok(msgJson);
         }
 
         // GET: Users/contacts/contactsUsername
-        [HttpPut]
+        [HttpPut("{id}/messages/{id2}")]
         [Authorize]
-        public async Task<IActionResult> Put(string contactUsername, int messageId, string content)
+        public async Task<IActionResult> Put(string id, int id2)
         {
-            await _service.UpdateMessage(await _service.GetMessageById(messageId), content);
+            await _service.UpdateMessage(await _service.GetMessageById(id2), id);
             return StatusCode((int)HttpStatusCode.NoContent);
         }
 
         // GET: Users/contacts/contactsUsername
-        [HttpDelete]
+        [HttpDelete("{id}/messages/{id2}")]
         [Authorize]
-        public async Task<IActionResult> Delete(string contactUsername, int messageId)
+        public async Task<IActionResult> Delete(string id, int id2)
         {
-            await _service.DeleteMessage(await _service.GetMessageById(messageId));
+            await _service.DeleteMessage(await _service.GetMessageById(id2));
             return StatusCode((int)HttpStatusCode.NoContent);
         }
     }

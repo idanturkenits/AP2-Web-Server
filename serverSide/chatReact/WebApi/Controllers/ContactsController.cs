@@ -31,34 +31,50 @@ namespace WebApi.Controllers
             _configuration = config;
         }
 
-        // GET: Users/contacts/contactsName
+        // GET: Users/contacts
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> Get(string contactUsername)
+        public async Task<IActionResult> GetAll()
         {
             var username = _service.GetUsernameFromJWT(HttpContext);
-            var c = await _service.GetContact(username, contactUsername);
+            var contactList = new List<ContactJson>();
+            foreach (var c in await _service.GetAllContacts(username))
+            {
+                var j = await _service.ToJsonContact(c, username);
+                contactList.Add(j);
+            }
+            return Ok(contactList);
+        }
+
+        // GET: Users/contacts/contactsName
+        [HttpGet("{id}")]
+        [Authorize]
+        public async Task<IActionResult> Get(string id)
+        {
+            var username = _service.GetUsernameFromJWT(HttpContext);
+            var c = await _service.GetContact(username, id);
             var j = await _service.ToJsonContact(c, username);
             return Ok(j);
         }
 
         // GET: Users/contacts/contactsUsername
-        [HttpPut]
+        [HttpPut("{id}")]
         [Authorize]
-        public async Task<IActionResult> Put(string contactUsername, string name, string server)
+        public async Task<IActionResult> Put(string id)
         {
             var username = _service.GetUsernameFromJWT(HttpContext);
-            await _service.UpdateContact(username, contactUsername, name, server);
+            //await _service.UpdateContact(username, id, name, server);
+            //Update!!!
             return StatusCode((int)HttpStatusCode.NoContent);
         }
 
         // GET: Users/contacts/contactsUsername
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [Authorize]
-        public async Task<IActionResult> Delete(string contactUsername)
+        public async Task<IActionResult> Delete(string id)
         {
             var username = _service.GetUsernameFromJWT(HttpContext);
-            await _service.DeleteContact(username, contactUsername);
+            await _service.DeleteContact(username, id);
             return StatusCode((int)HttpStatusCode.NoContent);
         }
 
@@ -66,11 +82,12 @@ namespace WebApi.Controllers
         // GET: Users/contacts
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Post(string id, string name, string server)
+        public async Task<IActionResult> Post([FromBody] string id)
         {
             var username = _service.GetUsernameFromJWT(HttpContext);
             if (!_service.ContactExists(id))
-                await _service.AddNewContact(username, id, name, server);
+                //await _service.AddNewContact(username, id, name, server);
+                //change
 
             await _service.AddNewChat(username, id);
 
