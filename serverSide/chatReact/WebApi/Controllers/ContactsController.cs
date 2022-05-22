@@ -90,5 +90,22 @@ namespace WebApi.Controllers
             await _service.AddNewChat(username, id);
             return StatusCode((int)HttpStatusCode.Created);
         }
+
+        // Post: api/invitations
+        [HttpPost]
+        [Authorize]
+        [Route("api/invitations")]
+        public async Task<IActionResult> Invitations(string from, string to, string server)
+        {
+            await _service.AddNewContact(to, from, from, server);
+
+            await _service.AddNewChat(to, from);
+            return StatusCode((int)HttpStatusCode.Created);
+        }
+
+        private async Task SendInvite(string from, string to, string server)
+        {
+
+        }
     }
 }
