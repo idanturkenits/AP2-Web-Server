@@ -42,15 +42,17 @@ namespace WebApi.Services
             return _context.User.Any(e => e.Username == username);
         }
 
-        public async Task<List<User>> GetAllUsers()
+        public async Task<ICollection<User>> GetAllUsers()
         {
-            List<User> users = await _context.User.ToListAsync();
+            ICollection<User> users = await _context.User.ToListAsync();
             return users;
         }
 
         public async Task<User> GetUserById(string id)
         {
-            User user = await Task.Run(() => _context.User.Where(x => x.Username == id).FirstOrDefault());
+            var user =await Task.Run(() => _context.User.Where(u => u.Username == id)
+                                    .Include(c => c.Contacts)
+                                    .FirstOrDefault());
             return user;
         }
 
@@ -61,14 +63,16 @@ namespace WebApi.Services
             await DeleteUser(user);
         }
 
-        public async Task<List<Contact>> GetAllContacts(string username)
+        public async Task<ICollection<Contact>> GetAllContacts(string username)
         {
-            var contacts = from contact in _context.Contact
-                           where contact.Chats != null
-                           && contact.Chats.Find(chat => chat.user.Username == username) != null
-                           select contact;
-
-            return (await contacts.ToListAsync());
+            var user = await GetUserById(username);
+            var contacts = user.Contacts;
+            if (contacts == null) return new List<Contact>();
+            foreach (var con in contacts) 
+            {
+                _context.Entry(con).Collection(c => c.Chats).Load();
+            }
+            return (contacts.ToList());
         }
 
         public bool ContactExists(string contactUsername)
@@ -78,32 +82,35 @@ namespace WebApi.Services
 
         public async Task<Contact> GetContact(string username, string contactUsername)
         {
-            var contact = await Task.Run(() => _context.Contact.Where(
-                           contact => contact.ContactUsername == contactUsername
-                           && contact.Chats.Any(chat => chat.user.Username == username)).FirstOrDefault());
-
+            var user = await GetUserById(username);
+            if (user == null || user.Contacts == null) return null;
+            var contact = await Task.Run(() => user.Contacts.Where(contact => contact.ContactUsername == contactUsername).FirstOrDefault());
+            _context.Entry(contact).Collection(c => c.Chats).Load();
             return contact;
         }
 
         public async Task<Contact> GetContactById(int id)
         {
-            var c = await Task.Run(() => _context.Contact.Where(x => x.Id == id).FirstOrDefault());
+            var c = await Task.Run(() => _context.Contact.Where(x => x.Id == id).Include(c => c.Chats).FirstOrDefault());
             return (c);
         }
 
         public async Task AddNewContact(string username, string contactUsername, string name, string server)
         {
-
-            var lastId = await _context.Contact.LastAsync();
             var contact = new Contact()
             {
-                Id = lastId.Id,
                 ContactUsername = contactUsername,
                 Name = name,
                 Server = server,
                 Chats = new List<Chat>()
             };
             _context.Contact.Add(contact);
+
+            var user = await GetUserById(username);
+            if (user.Contacts == null)
+                user.Contacts = new List<Contact>();
+            
+            user.Contacts.Add(contact);
             await _context.SaveChangesAsync();
         }
 
@@ -115,6 +122,8 @@ namespace WebApi.Services
                                        ch => ch.user.Username == username
                                        ).FirstOrDefault());
             if (chat == null) return null;
+            _context.Entry(chat).Collection(msg => msg.Messagges).Load();
+            if (!chat.Messagges.Any()) return null;
 
             var message = await Task.Run(() => chat.Messagges.Last());
             return message;
@@ -129,6 +138,7 @@ namespace WebApi.Services
                 _context.Message.Remove(msg);
             }
             _context.Chat.Remove(delChat);
+            _context.Contact.Remove(await GetContact(username, contactUsername));
             await _context.SaveChangesAsync();
         }
 
@@ -138,6 +148,8 @@ namespace WebApi.Services
             if (contact == null) return;
             contact.Name = newName;
             contact.Server = newServer;
+
+            await _context.SaveChangesAsync();
         }
 
         public async Task<ContactJson> ToJsonContact(Contact contact, string username)
@@ -167,8 +179,8 @@ namespace WebApi.Services
             var contact = await GetContact(username, contactUsername);
             if (contact == null) return null;
             var chat = await Task.Run(() => contact.Chats.Where(
-                                       ch => ch.user.Username == username
-                                       ).FirstOrDefault());
+                                       ch => ch.user.Username == username).FirstOrDefault());
+            _context.Entry(chat).Collection(msg => msg.Messagges).Load();
             return chat;
         }
 
@@ -178,13 +190,9 @@ namespace WebApi.Services
             var contact = await GetContact(username, contactUsername);
             if (user == null || contact == null) return;
 
-
-            var lastId = await _context.Chat.LastAsync();
             var chat = new Chat
             {
-                Id = lastId.Id+1,
                 user = user,
-                Messagges = new List<Message>()
             };
 
             contact.Chats.Add(chat);
@@ -192,7 +200,7 @@ namespace WebApi.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<MessageJson>> ToJsonChat(Chat chat)
+        public async Task<ICollection<MessageJson>> ToJsonChat(Chat chat)
         {
             var chatJson = new List<MessageJson>();
             foreach (var msg in chat.Messagges)
@@ -213,16 +221,14 @@ namespace WebApi.Services
             DateTime time = DateTime.Now;
             string format = "MMM ddd d HH:mm yyyy";
 
-            var lastId = await _context.Message.LastAsync();
             var message = new Message
             {
-                Id = lastId.Id + 1,
                 Content = content,
                 Created = time.ToString(format),
                 Sent = sent
             };
             chat.Messagges.Add(message);
-            await _context.Message.AddAsync(message);
+            _context.Message.Add(message);
             await _context.SaveChangesAsync();
         }
 

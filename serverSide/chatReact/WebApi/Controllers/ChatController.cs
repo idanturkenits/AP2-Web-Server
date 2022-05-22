@@ -45,10 +45,10 @@ namespace WebApi.Controllers
         // GET: Users/contacts
         [HttpPost("{id}/messages")]
         [Authorize]
-        public async Task<IActionResult> Post(string id)
+        public async Task<IActionResult> Post(string id, string content)
         {
             var username = _service.GetUsernameFromJWT(HttpContext);
-            //await _service.AddNewMessage(await _service.GetChat(username, id), content, true);
+            await _service.AddNewMessage(await _service.GetChat(username, id), content, true);
 
             return StatusCode((int)HttpStatusCode.Created);
         }

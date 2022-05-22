@@ -43,9 +43,9 @@ namespace WebApi.Controllers
         // GET: Users/contacts/contactsUsername
         [HttpPut("{id}/messages/{id2}")]
         [Authorize]
-        public async Task<IActionResult> Put(string id, int id2)
+        public async Task<IActionResult> Put(string id, int id2, string content)
         {
-            await _service.UpdateMessage(await _service.GetMessageById(id2), id);
+            await _service.UpdateMessage(await _service.GetMessageById(id2), content);
             return StatusCode((int)HttpStatusCode.NoContent);
         }
 

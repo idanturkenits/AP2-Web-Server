@@ -38,7 +38,8 @@ namespace WebApi.Controllers
         {
             var username = _service.GetUsernameFromJWT(HttpContext);
             var contactList = new List<ContactJson>();
-            foreach (var c in await _service.GetAllContacts(username))
+            var contacts = await _service.GetAllContacts(username);
+            foreach (var c in contacts)
             {
                 var j = await _service.ToJsonContact(c, username);
                 contactList.Add(j);
@@ -60,11 +61,10 @@ namespace WebApi.Controllers
         // GET: Users/contacts/contactsUsername
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<IActionResult> Put(string id)
+        public async Task<IActionResult> Put(string id, string name, string server)
         {
             var username = _service.GetUsernameFromJWT(HttpContext);
-            //await _service.UpdateContact(username, id, name, server);
-            //Update!!!
+            await _service.UpdateContact(username, id, name, server);
             return StatusCode((int)HttpStatusCode.NoContent);
         }
 
@@ -79,18 +79,15 @@ namespace WebApi.Controllers
         }
 
 
-        // GET: Users/contacts
+        // Post: Users/contacts
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Post([FromBody] string id)
+        public async Task<IActionResult> Post(string id, string name, string server)
         {
             var username = _service.GetUsernameFromJWT(HttpContext);
-            if (!_service.ContactExists(id))
-                //await _service.AddNewContact(username, id, name, server);
-                //change
-
+            await _service.AddNewContact(username, id, name, server);
+                
             await _service.AddNewChat(username, id);
-
             return StatusCode((int)HttpStatusCode.Created);
         }
     }
