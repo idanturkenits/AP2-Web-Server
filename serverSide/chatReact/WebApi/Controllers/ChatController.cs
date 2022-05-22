@@ -60,15 +60,5 @@ namespace WebApi.Controllers
             return StatusCode((int)HttpStatusCode.Created);
         }
 
-
-        // Post: api/invitations
-        [HttpPost]
-        [Route("transfer")]
-        public async Task<IActionResult> Transfer(string from, string to, string content)
-        {
-            await _service.AddNewMessage(await _service.GetChat(to, from), content, false);
-
-            return StatusCode((int)HttpStatusCode.Created);
-        }
     }
 }
