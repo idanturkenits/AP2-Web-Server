@@ -25,10 +25,12 @@ namespace WebApi.Controllers
     {
         private IService _service;
         public IConfiguration _configuration;
+        private HTTPService _httpService;
         public ChatController(IService service, IConfiguration config)
         {
             _service = service;
             _configuration = config;
+            _httpService = new HTTPService();
         }
 
         // GET: Users/contacts/contactsName
@@ -48,7 +50,12 @@ namespace WebApi.Controllers
         public async Task<IActionResult> Post(string id, string content)
         {
             var username = _service.GetUsernameFromJWT(HttpContext);
-            await _service.AddNewMessage(await _service.GetChat(username, id), content, true);
+            var chat = await _service.GetChat(username, id);
+            await _service.AddNewMessage(chat,content,true);
+
+            // adding contact invitation
+            var contact = await _service.GetContact(username, id);
+            await _httpService.sendTransfer(contact.Server, username, id, content);
 
             return StatusCode((int)HttpStatusCode.Created);
         }
@@ -56,8 +63,7 @@ namespace WebApi.Controllers
 
         // Post: api/invitations
         [HttpPost]
-        [Authorize]
-        [Route("api/transfer")]
+        [Route("transfer")]
         public async Task<IActionResult> Transfer(string from, string to, string content)
         {
             await _service.AddNewMessage(await _service.GetChat(to, from), content, false);
