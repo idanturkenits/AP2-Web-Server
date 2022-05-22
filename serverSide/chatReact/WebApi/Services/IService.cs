@@ -4,12 +4,12 @@ namespace WebApi.Services
 {
     public interface IService
     {
-        Task<List<User>> GetAllUsers();
+        Task<ICollection<User>> GetAllUsers();
         Task<User> GetUserById(string id);
         Task DeleteUserById(string id);
         Task AddNewUser(User user);
         bool UserExists(string username);
-        Task<List<Contact>> GetAllContacts(string username);
+        Task<ICollection<Contact>> GetAllContacts(string username);
         Task<Contact> GetContact(string username, string contactUsername);
 
         Task DeleteContact(string username, string contactUsername);
@@ -26,7 +26,7 @@ namespace WebApi.Services
 
         Task AddNewChat(string username, string contactUsername);
 
-        Task<List<MessageJson>> ToJsonChat(Chat chat);
+        Task<ICollection<MessageJson>> ToJsonChat(Chat chat);
 
         Task<Message> GetMessageById(int id);
 
