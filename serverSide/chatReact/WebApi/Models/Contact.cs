@@ -6,7 +6,7 @@ namespace WebApi.Models
     {
         [Key]
         [Required]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public string ContactUsername { get; set; }
 
@@ -17,5 +17,18 @@ namespace WebApi.Models
         public string Server { get; set; }
 
         public List<Chat> Chats { get; set; }
+    }
+
+    public class ContactJson
+    {
+        public string id { get; set; }
+
+        public string name { get; set; }
+
+        public string server { get; set; }
+
+        public string last { get; set; }
+
+        public string lastdate { get; set; }
     }
 }

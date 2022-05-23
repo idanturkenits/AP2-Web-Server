@@ -14,18 +14,20 @@ using Microsoft.IdentityModel.Tokens;
 using WebApi.Data;
 using WebApi.Models;
 using WebApi.Services;
+using WebApi.Controllers;
+using System.Text.Json;
 
 namespace WebApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/contacts")]
     public class UsersController : ControllerBase
     {
-        private readonly IUsersService service;
+        private readonly IService _service;
         public IConfiguration _configuration;
-        public UsersController(IUsersService service, IConfiguration config)
+        public UsersController(IService service, IConfiguration config)
         {
-            this.service = service;
+            this._service = service;
             _configuration = config;
         }
 
@@ -37,7 +39,7 @@ namespace WebApi.Controllers
         /*[ValidateAntiForgeryToken]*/
         public async Task<IActionResult> Login(string Username, string password)
         {
-            User x = await service.getUserById(Username);
+            User x = await _service.GetUserById(Username);
             if (x == null)
             {
                 return NotFound();
@@ -72,24 +74,40 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [Route("Register")]
-        public async Task<IActionResult> Register([Bind("Username,Name,Password")] User user)
+        public async Task<IActionResult> Register(string username,string name, string password)//[Bind("Username,Name,Password")] User user)
         {
-            await service.addNewUser(user);
-            return Ok();
-        }
+            var user = new User
+            {
+                Username = username,
+                Name = name,
+                Password = password,
+                Contacts = new List<Contact>()
+            };
+            await _service.AddNewUser(user);
+            User x = await _service.GetUserById(user.Username);
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, _configuration["JWTParams:Subject"]),
+                new Claim(JwtRegisteredClaimNames.Aud, _configuration["JWTParams:Audience"]),
+                new Claim(JwtRegisteredClaimNames.Iss, _configuration["JWTParams:Issuer"]),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
+                new Claim("UserId", user.Username)
+            };
 
-        // GET: Users/contacts
-        [HttpGet]
-        [Authorize]
-        [Route("contacts")]
-        public async Task<IActionResult> Get()
-        {
-            var jwt = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", string.Empty); ;
-            var handler = new JwtSecurityTokenHandler();
-            var jwtSecurityToken = handler.ReadJwtToken(jwt);
-            var username = jwtSecurityToken.Claims.First(claim => claim.Type == "UserId").Value;
+            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWTParams:SecretKey"]));
+            var mac = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+            var token = new JwtSecurityToken(
+                _configuration["JWTParams:Issuer"],
+                _configuration["JWTParams:Audience"],
+                claims,
+                expires: DateTime.UtcNow.AddMinutes(60),
+                signingCredentials: mac);
 
-            return Ok(await service.GetAllUsers());
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+
+            return Ok(jwt);
         }
+       
     }
 }

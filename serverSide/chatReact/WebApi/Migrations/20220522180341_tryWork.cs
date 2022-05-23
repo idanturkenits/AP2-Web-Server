@@ -4,7 +4,7 @@
 
 namespace WebApi.Migrations
 {
-    public partial class _10thMayDB : Migration
+    public partial class tryWork : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
