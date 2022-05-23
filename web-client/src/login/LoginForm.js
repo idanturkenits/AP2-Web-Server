@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import users from '../database/Users'
 import LocalDBHandler from '../db_handlers/LocalDBHandler'
+import RemoteDBHandler from '../db_handlers/RemoteDBHandler'
 
 function LoginForm({ setConnectedUser }) {
     const [error, setError] = useState('');
@@ -22,7 +23,7 @@ function LoginForm({ setConnectedUser }) {
     }
 
     let doLogin = function () {
-        const handler = new LocalDBHandler();
+        const handler = new RemoteDBHandler('http://localhost:5112');
         let usernameInput = usernameRef.current.value;
         let passwordInput = passwordRef.current.value;
         for (const user of users) {

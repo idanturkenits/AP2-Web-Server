@@ -1,9 +1,14 @@
 import { useRef, useState } from 'react'
+import User from '../classes/User';
 import LocalDBHandler from '../db_handlers/LocalDBHandler'
+import RemoteDBHandler from '../db_handlers/RemoteDBHandler';
 
 function AddContact({addContact, currentUser}) {
     let [error, setError] = useState('');
     let usernameRef = useRef(null);
+    let nicknameRef = useRef(null);
+    let serverRef = useRef(null);
+
     let sendByEnter = function(event) {
         if (event.keyCode === 13) {
             // Cancel the default action, if needed
@@ -14,42 +19,18 @@ function AddContact({addContact, currentUser}) {
     }
 
     let addUser = function() {
-        if (usernameRef.current.value=="") {
-            setError('username is required');
+        
+        let handler = new RemoteDBHandler(currentUser.server);
+        let otherHandler = new RemoteDBHandler(serverRef.current.value);
+        let username = usernameRef.current.value;
+        let nickname = nicknameRef.current.value;
+        if (usernameRef.current.value == "" || nicknameRef.current.value == "" || serverRef.current.value == "") {
+            setError('please fill all the fields');
             return
         }
+        handler.addContact({username: username, nickname: nickname, server: otherHandler.server});
+        otherHandler.addContact({username: currentUser.username, nickname: currentUser.nickname, server: currentUser.server});
 
-        let handler = new LocalDBHandler();
-        // get the username whos username is the same as input
-        let user = handler.getUserByUserName(usernameRef.current.value);
-        // if the user is not found
-        if (user === null) {
-            setError('username does not exists');
-            return
-        }
-        // if the user tries to add himself
-        if(user.username === currentUser.username) {
-            setError('you cannot add yourself');
-            return
-        }
-
-        // check if the user is already in the contact list
-        let directContacts = handler.getDirectsOfUser(currentUser.id);
-        let isInContactList = false;
-        directContacts.forEach(function(contact) {
-            if (contact.id === user.id) {
-                isInContactList = true;
-            }
-        });
-        if(isInContactList) {
-            setError('user is already in your contact list');
-            return
-        }
-
-        // if the user is not in the contact list
-        addContact(user);
-
-        // empty the input
         usernameRef.current.value = ''
         document.getElementById("closeAddContact").click();
     }
@@ -71,7 +52,19 @@ function AddContact({addContact, currentUser}) {
                             <div id="addContactForm">
                                 <div className="form-row">
                                     <div className="form-group mb-2">
+                                        <input type="text" onKeyUp={sendByEnter} className="form-control" ref={nicknameRef} placeholder="Nickname"></input>
+                                    </div>
+                                </div>
+
+                                <div className="form-row">
+                                    <div className="form-group mb-2">
                                         <input type="text" onKeyUp={sendByEnter} className="form-control" ref={usernameRef} placeholder="Username"></input>
+                                    </div>
+                                </div>
+
+                                <div className="form-row">
+                                    <div className="form-group mb-2">
+                                        <input type="text" onKeyUp={sendByEnter} className="form-control" ref={serverRef} placeholder="Server"></input>
                                     </div>
                                 </div>
                             </div>

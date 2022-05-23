@@ -6,7 +6,7 @@ import FileMessage from './FileMessage';
 import AudioMessage from './AudioMessage';
 
 function Message({ msg, currentUser }) {
-  if (currentUser.id === msg.sender.id) {
+  if (currentUser.username === msg.sender.username) {
     return (
       <div className="chat-messages ms-4">
         <div className="chat-message-left pt-2 pb-2">

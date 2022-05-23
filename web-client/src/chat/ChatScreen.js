@@ -5,19 +5,19 @@ import { useRef, useState } from 'react'
 import ChatCard from "./ChatCard"
 import InputToolBar from "./InputToolBar"
 import ChatArea from "./messaging/ChatArea"
-import LocalDBHandler from '../db_handlers/LocalDBHandler';
 import './Chat.css'
 import Message from '../classes/Message';
 import { Link } from 'react-router-dom'
 import TopUserInfo from './TopChatInfo';
+import RemoteDBHandler from '../db_handlers/RemoteDBHandler';
 /*
 disc: Chat is the main window' with all the contacts and their chats
 user: is the obj represent the user data
 */
 function ChatScreen({ user }) {
-    const handler = new LocalDBHandler();
-    let chats = handler.getChatsOfUser(user.id);
-    
+    const handler = new RemoteDBHandler(user.server);
+    let chats = handler.getChatsOfCurrentUser(user);
+
     const [chatList, setChatList] = useState(chats);
     const [activeChat, setActiveChat] = useState(null);
 
@@ -29,17 +29,17 @@ function ChatScreen({ user }) {
         let filter = document.getElementById("searchBoxInput").value;
         let message = new Message(type, content, user, new Date(), name);
         handler.addMessageToChat(activeChat, message);
-        setChatList(handler.getChatsOfUserFiltered(user.id,filter));
+        setChatList(handler.getChatsOfUserFiltered(user.username,filter));
     }
 
     const addCont = function (added_user) {
         let filter = document.getElementById("searchBoxInput").value;
         handler.addChat([user, added_user]);
-        setChatList(handler.getChatsOfUserFiltered(user.id,filter));
+        setChatList(handler.getChatsOfUserFiltered(user.username,filter));
     }
 
     const updateCont = function(filter) {
-        setChatList(handler.getChatsOfUserFiltered(user.id,filter));
+        setChatList(handler.getChatsOfUserFiltered(user.username,filter));
     }
     
     return (
