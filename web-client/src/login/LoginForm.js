@@ -23,18 +23,18 @@ function LoginForm({ setConnectedUser }) {
     }
 
     let doLogin = function () {
-        const handler = new RemoteDBHandler('http://localhost:5112');
+        const handler = new RemoteDBHandler('localhost:5112');
         let usernameInput = usernameRef.current.value;
         let passwordInput = passwordRef.current.value;
-        for (const user of users) {
-            if (user.username === usernameInput && user.password === passwordInput) {
-                setConnectedUser(handler.getUserByUserName(usernameInput))
-                navigate('/chat');
-            }
-            else {
-                setError('Invalid username or password');
-            }
+        var res = handler.login(usernameInput,passwordInput);
+        console.log(res);
+        /*if (user.username === usernameInput && user.password === passwordInput) {
+            setConnectedUser(handler.getUserByUserName(usernameInput))
+            navigate('/chat');
         }
+        else {
+            setError('Invalid username or password');
+        }*/
     }
     return (
         <div className="card mt-5 box-shadow" style={{borderRadius: 2 + '%'}}>

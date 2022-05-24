@@ -25,6 +25,20 @@ class RemoteDBHandler {
         })
     }
 
+    async login(username,password){
+        var res = await fetch('http://' + this.url + '/api/contacts/Login/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                'username':username,
+                'password':password,
+            }),
+        }).then(data => {return data;})
+
+    }
+
     async getChatsOfUserFiltered(userId, filter) {
         // returns a list with the users that has a chat with the given user
         let user_chats = this.getChatsOfCurrentUser()        
