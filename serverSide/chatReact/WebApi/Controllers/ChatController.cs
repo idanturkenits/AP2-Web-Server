@@ -16,6 +16,7 @@ using WebApi.Models;
 using WebApi.Services;
 using WebApi.Controllers;
 using System.Net;
+using System.Text.Json;
 
 namespace WebApi.Controllers
 {
@@ -47,8 +48,9 @@ namespace WebApi.Controllers
         // GET: Users/contacts
         [HttpPost("{id}/messages")]
         [Authorize]
-        public async Task<IActionResult> Post(string id, string content)
+        public async Task<IActionResult> Post(string id, [FromBody] JsonElement body)
         {
+            var content = body.GetProperty("content").ToString();
             var username = _service.GetUsernameFromJWT(HttpContext);
             var chat = await _service.GetChat(username, id);
             await _service.AddNewMessage(chat,content,true);

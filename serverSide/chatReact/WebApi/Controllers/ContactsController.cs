@@ -16,6 +16,7 @@ using WebApi.Models;
 using WebApi.Services;
 using WebApi.Controllers;
 using System.Net;
+using System.Text.Json;
 
 namespace WebApi.Controllers
 {
@@ -63,8 +64,11 @@ namespace WebApi.Controllers
         // GET: Users/contacts/contactsUsername
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<IActionResult> Put(string id, string name, string server)
+        public async Task<IActionResult> Put(string id, [FromBody] JsonElement body)
         {
+            var name = body.GetProperty("name").ToString();
+            var server = body.GetProperty("server").ToString();
+
             var username = _service.GetUsernameFromJWT(HttpContext);
             await _service.UpdateContact(username, id, name, server);
             return StatusCode((int)HttpStatusCode.NoContent);
@@ -84,8 +88,12 @@ namespace WebApi.Controllers
         // Post: Users/contacts
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Post(string id, string name, string server)
+        public async Task<IActionResult> Post([FromBody] JsonElement body)
         {
+            var id = body.GetProperty("id").ToString();
+            var name = body.GetProperty("name").ToString();
+            var server = body.GetProperty("server").ToString();
+
             var username = _service.GetUsernameFromJWT(HttpContext);
             await _service.AddNewContact(username, id, name, server);
                 

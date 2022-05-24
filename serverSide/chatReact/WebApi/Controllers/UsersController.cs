@@ -37,9 +37,12 @@ namespace WebApi.Controllers
         [HttpPost]
         [Route("Login")]
         /*[ValidateAntiForgeryToken]*/
-        public async Task<IActionResult> Login(string Username, string password)
+        public async Task<IActionResult> Login([FromBody] JsonElement body)
         {
-            User x = await _service.GetUserById(Username);
+            var username = body.GetProperty("username").ToString();
+            var password = body.GetProperty("password").ToString();
+
+            User x = await _service.GetUserById(username);
             if (x == null)
             {
                 return NotFound();
@@ -55,7 +58,7 @@ namespace WebApi.Controllers
                 new Claim(JwtRegisteredClaimNames.Iss, _configuration["JWTParams:Issuer"]),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
-                new Claim("UserId", Username)
+                new Claim("UserId", username)
             };
 
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWTParams:SecretKey"]));
@@ -74,8 +77,12 @@ namespace WebApi.Controllers
 
         [HttpPost]
         [Route("Register")]
-        public async Task<IActionResult> Register(string username,string name, string password)//[Bind("Username,Name,Password")] User user)
+        public async Task<IActionResult> Register([FromBody] JsonElement body)//[Bind("Username,Name,Password")] User user)
         {
+            var username = body.GetProperty("username").ToString();
+            var name = body.GetProperty("name").ToString();
+            var password = body.GetProperty("password").ToString();
+
             var user = new User
             {
                 Username = username,
