@@ -5,6 +5,7 @@ import { useState } from 'react'
 import users from '../database/Users'
 import LocalDBHandler from '../db_handlers/LocalDBHandler'
 import RemoteDBHandler from '../db_handlers/RemoteDBHandler'
+import User from '../classes/User'
 
 function LoginForm({ setConnectedUser }) {
     const [error, setError] = useState('');
@@ -26,15 +27,21 @@ function LoginForm({ setConnectedUser }) {
         const handler = new RemoteDBHandler('localhost:5112');
         let usernameInput = usernameRef.current.value;
         let passwordInput = passwordRef.current.value;
-        var res = handler.login(usernameInput,passwordInput);
-        console.log(res);
-        /*if (user.username === usernameInput && user.password === passwordInput) {
-            setConnectedUser(handler.getUserByUserName(usernameInput))
-            navigate('/chat');
-        }
-        else {
-            setError('Invalid username or password');
-        }*/
+        var res = handler.login(usernameInput,passwordInput)
+        res.then(data => {
+            if (data[0]=='{') {
+                setError('Invalid username or password');
+            }
+            else {
+                var curUser;
+                var curRes = handler.curUser(data).then(info => {
+                    curUser = new User(info["username"],info["nickname"],data);
+                }).then( ()=> {
+                    setConnectedUser(curUser);
+                    navigate('/chat');
+                })
+            }
+        })
     }
     return (
         <div className="card mt-5 box-shadow" style={{borderRadius: 2 + '%'}}>

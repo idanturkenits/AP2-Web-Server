@@ -39,5 +39,7 @@ namespace WebApi.Services
         MessageJson ToJsonMessage(Message message);
 
         string GetUsernameFromJWT(HttpContext httpContext);
+
+        Task<Object> GetUserInfoById(string id);
     }
 }

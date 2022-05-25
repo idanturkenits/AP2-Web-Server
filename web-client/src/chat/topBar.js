@@ -3,7 +3,6 @@ import CurrentUserInfo from "./CurrentUserInfo";
 import TopUserInfo from "./TopChatInfo";
 import { Link, useNavigate } from "react-router-dom";
 function Bar({ addContact, currentUser, updateCont}) {
-
     let updateSearch = function() {
         let filter = document.getElementById("searchBoxInput").value;
         updateCont(filter);

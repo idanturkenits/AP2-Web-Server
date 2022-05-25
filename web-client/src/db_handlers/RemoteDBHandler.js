@@ -7,8 +7,9 @@ import chats from '../database/Chats';
 
 class RemoteDBHandler {
 
-    constructor(url) {
+    constructor(url,jwt) {
         this.url = url;
+        this.jwt = jwt;
     }
 
     async addContact(user){
@@ -16,6 +17,7 @@ class RemoteDBHandler {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+this.jwt,
             },
             body: JSON.stringify({
                 'id':user.username,
@@ -26,6 +28,7 @@ class RemoteDBHandler {
     }
 
     async login(username,password){
+        var token = "";
         var res = await fetch('http://' + this.url + '/api/contacts/Login/', {
             method: 'POST',
             headers: {
@@ -35,8 +38,20 @@ class RemoteDBHandler {
                 'username':username,
                 'password':password,
             }),
-        }).then(data => {return data;})
+        }).then(response=>response.text())
+        return res;
+    }
 
+    async curUser(jwt){
+        var token = "";
+        var res = await fetch('http://' + this.url + '/api/contacts/currentUser/', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+ jwt,
+            },
+        }).then(response=>response.json())
+        return res;
     }
 
     async getChatsOfUserFiltered(userId, filter) {
@@ -67,6 +82,7 @@ class RemoteDBHandler {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+this.jwt,
             },
             body: JSON.stringify({
                 'content': message.content,
@@ -75,24 +91,27 @@ class RemoteDBHandler {
     }
 
     async getContactsOfUser() {
-        let r = await fetch('http://' + this.url + '/api/contacts');
-        let data = r.json();
-        return data;
+        var res = await fetch('http://' + this.url + '/api/contacts', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+this.jwt,
+            },
+        }).then(response=>response.json())
+        return await res.json();
     }
 
-    async getChatsOfCurrentUser(user) {
-        let contacts = this.getContactsOfUser();
+    getChatsOfCurrentUser(user) {
         let chats = [];
-        for (let c of contacts) {
-            let otherUser = new User(c['id'], c['name'], '', '');
-            // get messages
-            let r = await fetch('http://' + this.url + '/messages/' + otherUser.id + 'messages');
-            let data = r.json();
-            let messages = data.map(m => new Message('text', m['content'], m['sent'] ? user : otherUser, m['created']));
-            chats.push(new Chat([user, otherUser], messages));
+        let contactsArray=[];
+        let data = this.getContactsOfUser()
+        for (let c of contactsArray) {
+                let otherUser = new User(c["id"], c["name"],"",c["server"]);
+                chats.push(new Chat([user, otherUser], []));
         }
+        console.log("asas"+chats);
         return chats;
     }
 }
 
-export default RemoteDBHandler
+export default RemoteDBHandler;

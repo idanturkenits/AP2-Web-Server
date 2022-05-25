@@ -1,11 +1,11 @@
  
 class User {
-    constructor(username, nickname, password, image, server="localhost:5122"){
+    constructor(username, nickname,jwt, server="localhost:5112"){
         this.username = username;
         this.nickname = nickname;
-        this.password = password;
-        this.image = image;
+        this.jwt = jwt;
         this.server = server;
+        this.image = "notfound.png"
     }
 }
 

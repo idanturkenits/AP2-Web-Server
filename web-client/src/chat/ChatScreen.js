@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import UsersList from './usersList';
 import Bar from './topBar';
 import { useRef, useState } from 'react'
@@ -10,16 +10,30 @@ import Message from '../classes/Message';
 import { Link } from 'react-router-dom'
 import TopUserInfo from './TopChatInfo';
 import RemoteDBHandler from '../db_handlers/RemoteDBHandler';
+import Chat from '../classes/Chat';
+import User from '../classes/User';
 /*
 disc: Chat is the main window' with all the contacts and their chats
 user: is the obj represent the user data
 */
 function ChatScreen({ user }) {
-    const handler = new RemoteDBHandler(user.server);
-    let chats = handler.getChatsOfCurrentUser(user);
+    const [render,setRender] = useState(null);
+    setRender([]);
 
-    const [chatList, setChatList] = useState(chats);
+    useEffect(async ()=>{
+        let res = await fetch('http://localhost:5112/api/contacts', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + user.jwt,
+        },
+    });
+    },[render]);
+
     const [activeChat, setActiveChat] = useState(null);
+    const handler = new RemoteDBHandler(user.server,user.jwt);
+
+    const [chatList, setChatList] = useState([]);
 
     const displayChat = function (chat) {
         setActiveChat(chat);
@@ -41,7 +55,7 @@ function ChatScreen({ user }) {
     const updateCont = function(filter) {
         setChatList(handler.getChatsOfUserFiltered(user.username,filter));
     }
-    
+    console.log(chatList);
     return (
         /*the entire page*/
         <div id="chatScreen" className="container box-shadow">

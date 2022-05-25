@@ -1,6 +1,8 @@
 import React from 'react'
 
 function ChatCard({ currentUser, chat, displayChat }) {
+    console.log("1212212");
+    console.log(chat);
     // the chat might be a group chat, if it is not a group chat we need to set the name of the chat to the name of the other user (same as the picture)
     if (chat === null) {
         return;

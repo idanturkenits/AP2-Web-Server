@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<Login setConnectedUser={setConnectedUser} />} />
         <Route path="login" element={<Login setConnectedUser={setConnectedUser} />} />
         <Route path="signup" element={<SignUp />} />
-        <Route path="chat" element={<ChatScreen user={connectedUser}/>} />
+        <Route path="chat" element={<ChatScreen user={connectedUser} key="chatScreen"/>} />
         <Route path="*" element={notFound} />
       </Routes>
     </BrowserRouter>

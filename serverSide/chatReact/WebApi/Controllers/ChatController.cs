@@ -62,5 +62,13 @@ namespace WebApi.Controllers
             return StatusCode((int)HttpStatusCode.Created);
         }
 
+
+        [HttpGet("currentUser")]
+        [Authorize]
+        public async Task<IActionResult> GetUser()
+        {
+            var username = _service.GetUsernameFromJWT(HttpContext);
+            return Ok(await _service.GetUserInfoById(username));
+        }
     }
 }

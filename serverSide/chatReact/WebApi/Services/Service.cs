@@ -56,6 +56,14 @@ namespace WebApi.Services
             return user;
         }
 
+        public async Task<Object> GetUserInfoById(string id)
+        {
+            var user = await Task.Run(() => _context.User.Where(u => u.Username == id)
+                                     .Include(c => c.Contacts)
+                                     .FirstOrDefault());
+            return new {username=user.Username,nickname=user.Name };
+        }
+
         public async Task DeleteUserById(string id)
         {
             var user = await _context.User.FindAsync(id);
