@@ -17,18 +17,7 @@ disc: Chat is the main window' with all the contacts and their chats
 user: is the obj represent the user data
 */
 function ChatScreen({ user }) {
-    const [render,setRender] = useState(null);
-    setRender([]);
-
-    useEffect(async ()=>{
-        let res = await fetch('http://localhost:5112/api/contacts', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + user.jwt,
-        },
-    });
-    },[render]);
+    const [render,setRender] = useState(1);
 
     const [activeChat, setActiveChat] = useState(null);
     const handler = new RemoteDBHandler(user.server,user.jwt);
@@ -55,7 +44,11 @@ function ChatScreen({ user }) {
     const updateCont = function(filter) {
         setChatList(handler.getChatsOfUserFiltered(user.username,filter));
     }
-    console.log(chatList);
+    
+    useEffect(()=> {
+        handler.getChatsOfCurrentUser(user).then(chats => setChatList([...chats]))
+    },[]);
+
     return (
         /*the entire page*/
         <div id="chatScreen" className="container box-shadow">

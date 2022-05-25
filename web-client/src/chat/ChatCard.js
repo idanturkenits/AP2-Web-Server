@@ -9,10 +9,11 @@ function ChatCard({ currentUser, chat, displayChat }) {
     }
     if (chat.users.length == 2) {
         // find the user who is not me
-        let other_user = chat.users.find(temp => currentUser.id != temp.id)
+        let other_user = chat.users.find(temp => currentUser.username != temp.username)
         chat.name = other_user.nickname
         chat.image = other_user.image
     }
+    
     let lastMessageDate = "";
     let nickName = "";
     let content = "";

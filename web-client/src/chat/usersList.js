@@ -24,7 +24,7 @@ function UsersList({currentUser, chats, displayChat}){
     return (
         <div>
             <div id="user-list" className='xlist-group'>
-            <ChatCard currentUser={currentUser} chat={chats[0]} displayChat={displayChat}/>
+                {usersList}
             </div>
         </div>
     );

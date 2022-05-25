@@ -98,18 +98,18 @@ class RemoteDBHandler {
                 'Authorization': 'Bearer '+this.jwt,
             },
         }).then(response=>response.json())
-        return await res.json();
+        return res;
     }
 
-    getChatsOfCurrentUser(user) {
+    async getChatsOfCurrentUser(user) {
         let chats = [];
         let contactsArray=[];
-        let data = this.getContactsOfUser()
-        for (let c of contactsArray) {
+        let data = await this.getContactsOfUser().then(data => {
+            for (let c of data) {
                 let otherUser = new User(c["id"], c["name"],"",c["server"]);
                 chats.push(new Chat([user, otherUser], []));
-        }
-        console.log("asas"+chats);
+            }
+        })
         return chats;
     }
 }
