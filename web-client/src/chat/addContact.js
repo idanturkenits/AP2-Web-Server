@@ -20,16 +20,16 @@ function AddContact({addContact, currentUser}) {
 
     let addUser = function() {
         
-        let handler = new RemoteDBHandler(currentUser.server);
-        let otherHandler = new RemoteDBHandler(serverRef.current.value);
+        let handler = new RemoteDBHandler(currentUser.server,currentUser.jwt);
         let username = usernameRef.current.value;
         let nickname = nicknameRef.current.value;
-        if (usernameRef.current.value == "" || nicknameRef.current.value == "" || serverRef.current.value == "") {
+        let server = serverRef.current.value;
+        if (username == "" || nickname == "" || server == "") {
             setError('please fill all the fields');
             return
         }
-        handler.addContact({username: username, nickname: nickname, server: otherHandler.server});
-        otherHandler.addContact({username: currentUser.username, nickname: currentUser.nickname, server: currentUser.server});
+        handler.addContact({username: username, nickname: nickname, server: server});
+        addContact();
 
         usernameRef.current.value = ''
         document.getElementById("closeAddContact").click();

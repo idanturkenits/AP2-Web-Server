@@ -105,7 +105,7 @@ function InputToolBar({ addMessage }) {
             </span>
             <span className="input-group">
                 <input type="text" className="form-control" onKeyUp={sendByEnter} ref={messageInputRef} placeholder="Type your message"></input>
-                <button className="btn btn-primary" id="sendBtn" onClick={() => { addMessage('text', messageInputRef.current.value); messageInputRef.current.value = ''; }}>Send</button>
+                <button className="btn btn-primary" id="sendBtn" onClick={() => { addMessage(messageInputRef.current.value); messageInputRef.current.value = ''; }}>Send</button>
             </span>
 
             {/* This is the recording pop-up*/}

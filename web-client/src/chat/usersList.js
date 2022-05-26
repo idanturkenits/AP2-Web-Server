@@ -4,7 +4,6 @@ import ChatCard from "./ChatCard"
 
 function UsersList({currentUser, chats, displayChat}){
     let sortFunc = function(a,b) {
-        return 1;
         if (b.messages.length==0)
             return -1;
         if (a.messages.length==0)

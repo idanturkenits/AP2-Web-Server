@@ -1,8 +1,9 @@
 import React from 'react'
+import chats from '../database/Chats';
+import RemoteDBHandler from '../db_handlers/RemoteDBHandler';
+import Message from '../classes/Message'
 
 function ChatCard({ currentUser, chat, displayChat }) {
-    console.log("1212212");
-    console.log(chat);
     // the chat might be a group chat, if it is not a group chat we need to set the name of the chat to the name of the other user (same as the picture)
     if (chat === null) {
         return;
@@ -19,7 +20,8 @@ function ChatCard({ currentUser, chat, displayChat }) {
     let content = "";
     let lastMessage = chat.messages[chat.messages.length - 1];
     if (chat.messages.length>0) {
-        lastMessageDate = lastMessage.dateToString();
+        lastMessageDate = lastMessage.date;
+        console.log(lastMessage);
         nickName = lastMessage.sender.nickname;
         if(lastMessage.type === 'text'){
             content = lastMessage.content;
@@ -27,11 +29,23 @@ function ChatCard({ currentUser, chat, displayChat }) {
             content = lastMessage.name;
         }
     }
+
+    let handler = new RemoteDBHandler(currentUser.server,currentUser.jwt);
+    let display = function(chat) {
+        let messages = handler.getMessagesOfContact(chat.users[1].username).then(messagesArray => {
+            chat.messages = [];
+            for (let message of messagesArray) {
+                let sender = (message["sent"]===true? currentUser:chat.users[1]);
+                chat.messages.push(new Message('text',message["content"],sender,message["created"]))
+            }
+            displayChat(chat);
+        });
+    }
     
     return (
 
         <div className="list-group-item list-group-item-action flex-column align-items-start"
-            onClick={() => displayChat(chat)}>
+            onClick={() => display(chat)}>
             <div className="d-flex w-100 justify-content-between">
                 <img id="userImage" src={chat.image} className="card-img mr-1" alt="..."></img>
                 <h5 className="mb-1">{chat.name}</h5>

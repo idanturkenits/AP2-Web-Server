@@ -13,7 +13,7 @@ class RemoteDBHandler {
     }
 
     async addContact(user){
-        fetch('http://' + this.url + '/api/contacts/' + user.username, {
+        fetch('http://' + this.url + '/api/contacts/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -73,25 +73,32 @@ class RemoteDBHandler {
         return user_chats
     }
 
-    addChat(users) {
-        chats.push(new Chat(users, []));
-    }
-
     async addMessageToChat(otherUsername, message) {
-        await fetch('https://' + this.url + '/api/contacts/' + otherUsername + '/messages', {
+        await fetch('http://' + this.url + '/api/contacts/' + otherUsername + '/messages', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer '+this.jwt,
             },
             body: JSON.stringify({
-                'content': message.content,
+                'content': message,
             }),
         })
     }
 
     async getContactsOfUser() {
         var res = await fetch('http://' + this.url + '/api/contacts', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+this.jwt,
+            },
+        }).then(response=>response.json())
+        return res;
+    }
+
+    async getMessagesOfContact(id) {
+        var res = await fetch('http://' + this.url + '/api/contacts/'+id+'/messages',{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

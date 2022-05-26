@@ -20,6 +20,7 @@ function ChatScreen({ user }) {
     const [render,setRender] = useState(1);
 
     const [activeChat, setActiveChat] = useState(null);
+
     const handler = new RemoteDBHandler(user.server,user.jwt);
 
     const [chatList, setChatList] = useState([]);
@@ -28,17 +29,23 @@ function ChatScreen({ user }) {
         setActiveChat(chat);
     }
 
-    const addMessage = function (type, content, name='') {
-        let filter = document.getElementById("searchBoxInput").value;
-        let message = new Message(type, content, user, new Date(), name);
-        handler.addMessageToChat(activeChat, message);
-        setChatList(handler.getChatsOfUserFiltered(user.username,filter));
+    const addMessage = function (message) {
+        let chat = activeChat;
+        handler.addMessageToChat(chat.users[1].username, message).then(() => {
+            let messages = handler.getMessagesOfContact(chat.users[1].username).then(messagesArray => {
+                chat.messages = [];
+                for (let message of messagesArray) {
+                    console.log(message);
+                    let sender = message["sent"]? user:chat.users[1];
+                    chat.messages.push(new Message('text',message["content"],sender,message["created"]))
+                }
+                setActiveChat({...chat});
+            })
+        });
     }
 
-    const addCont = function (added_user) {
-        let filter = document.getElementById("searchBoxInput").value;
-        handler.addChat([user, added_user]);
-        setChatList(handler.getChatsOfUserFiltered(user.username,filter));
+    const addCont = function () {
+        handler.getChatsOfCurrentUser(user).then(chats => setChatList([...chats]))
     }
 
     const updateCont = function(filter) {
