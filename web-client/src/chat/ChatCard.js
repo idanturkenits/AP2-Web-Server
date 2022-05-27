@@ -46,15 +46,15 @@ function ChatCard({ currentUser, chat, displayChat }) {
 
         <div className="list-group-item list-group-item-action flex-column align-items-start"
             onClick={() => display(chat)}>
-            <div className="d-flex w-100 justify-content-between">
+            <div className="d-flex">
                 <img id="userImage" src={chat.image} className="card-img mr-1" alt="..."></img>
-                <h5 className="mb-1">{chat.name}</h5>
-                <small>{lastMessageDate}</small>
+                <div className="d-block justify-content-between">
+                    <h5 className="ms-3">{chat.name}</h5>
+                    <p className="ms-3">{chat.users[1].lastMessage}</p>
+                </div>
             </div>
-            <p className="mb-1">{nickName + (nickName!=""?": ":"") + content}</p>
         </div>
     );
-
 }
 
 export default ChatCard;

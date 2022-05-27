@@ -54,23 +54,16 @@ class RemoteDBHandler {
         return res;
     }
 
-    async getChatsOfUserFiltered(userId, filter) {
+    async getChatById(contactId) {
         // returns a list with the users that has a chat with the given user
-        let user_chats = this.getChatsOfCurrentUser()        
-        for (let chat of user_chats) {
-            let isIn = false;
-            for (let user_in_chat of chat.users) {
-                if (user_in_chat.nickname.toLowerCase().includes(filter.toLowerCase()) && user_in_chat.id != userId)
-                    isIn = true;
-                if (user_in_chat.username === userId) {
-                    user_chats.push(chat)
-                }
-            }
-            if (!isIn) {
-                user_chats.pop();
-            }
-        }
-        return user_chats
+        var res = await fetch('http://' + this.url + '/api/contacts/'+contactId, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+ this.jwt,
+            },
+        }).then(response=>response.json())
+        return res;
     }
 
     async addMessageToChat(otherUsername, message) {
@@ -113,7 +106,7 @@ class RemoteDBHandler {
         let contactsArray=[];
         let data = await this.getContactsOfUser().then(data => {
             for (let c of data) {
-                let otherUser = new User(c["id"], c["name"],"",c["server"]);
+                let otherUser = new User(c["id"], c["name"],"",c["server"],c["last"],c["lastdate"]);
                 chats.push(new Chat([user, otherUser], []));
             }
         })

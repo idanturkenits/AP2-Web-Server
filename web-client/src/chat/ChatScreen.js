@@ -40,6 +40,12 @@ function ChatScreen({ user }) {
                     chat.messages.push(new Message('text',message["content"],sender,message["created"]))
                 }
                 setActiveChat({...chat});
+                handler.getChatById(chat.users[1].username).then(data => {
+                    var thisChat = chatList.find(ch => ch.users[1].username==chat.users[1].username);
+                    thisChat.users[1].lastMessage = data["last"];
+                    thisChat.users[1].lastDate = data["lastdate"];
+                    setChatList([...chatList])
+                })
             })
         });
     }
