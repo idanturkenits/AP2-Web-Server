@@ -94,12 +94,14 @@ app.UseCors("Allow All");
 app.UseCors("ClientPermission");
 
 app.UseRouting();
+app.UseStaticFiles();
+app.UseFileServer();
 app.UseAuthentication();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapHub<ChatHub>("/hub/chat");
+    endpoints.MapHub<ChatHub>("/chathub");
 });
 app.Run();

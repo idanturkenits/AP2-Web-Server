@@ -42,6 +42,22 @@ class RemoteDBHandler {
         return res;
     }
 
+    async signUp(username,nickname,password){
+        var token = "";
+        var res = await fetch('http://' + this.url + '/api/contacts/Register/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                'username':username,
+                'name' : nickname,
+                'password':password,
+            }),
+        }).then(response=>response.text())
+        return res;
+    }
+
     async curUser(jwt){
         var token = "";
         var res = await fetch('http://' + this.url + '/api/contacts/currentUser/', {

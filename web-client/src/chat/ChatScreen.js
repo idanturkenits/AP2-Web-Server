@@ -21,22 +21,6 @@ user: is the obj represent the user data
 function ChatScreen({ user }) {
     const [ connection, setConnection ] = useState(null);
 
-    useEffect(() => {
-        if (connection) {
-            connection.start()
-                .then(result => {
-                    connection.on('invitations',() => {
-                        addCont();
-                    });
-                    connection.on('transfer',() => {
-                        console.log("hi");
-                        addMessage("");
-                    });
-                })
-                .catch(e => console.log('Connection failed: ', e));
-        }
-    }, [connection]);
-
     const [render,setRender] = useState(1);
 
     const [activeChat, setActiveChat] = useState(null);
@@ -47,6 +31,23 @@ function ChatScreen({ user }) {
 
     const displayChat = function (chat) {
         setActiveChat(chat);
+    }
+
+    const updateChat = function () {
+        handler.getMessagesOfContact(activeChat.users[1].username).then(messagesArray => {
+            activeChat.messages = [];
+            for (let message of messagesArray) {
+                let sender = message["sent"]? user:activeChat.users[1];
+                activeChat.messages.push(new Message('text',message["content"],sender,message["created"]))
+            }
+            setActiveChat({...activeChat});
+            handler.getChatById(activeChat.users[1].username).then(data => {
+                var thisChat = chatList.find(ch => ch.users[1].username==activeChat.users[1].username);
+                thisChat.users[1].lastMessage = data["last"];
+                thisChat.users[1].lastDate = data["lastdate"];
+                setChatList([...chatList])
+            })
+        });
     }
 
     const addMessage = function (message) {
@@ -73,20 +74,29 @@ function ChatScreen({ user }) {
         handler.getChatsOfCurrentUser(user).then(chats => setChatList([...chats]))
     }
 
-    const updateCont = function(filter) {
-        setChatList(handler.getChatsOfUserFiltered(user.username,filter));
+    const updateCont = async function(filter) {
+        await handler.getChatsOfCurrentUser(user).then(chats => {
+            setChatList(chats.filter(chat => chat.users[1].nickname.toLowerCase().includes(filter)));
+        })
     }
     
     useEffect(()=> {
         handler.getChatsOfCurrentUser(user).then(chats => setChatList([...chats]));
         const newConnection = new HubConnectionBuilder()
-            .withUrl('http://localhost:5112/hub/chat', {
+            .withUrl('http://localhost:5112/chathub', {
                 skipNegotiation: true,
                 transport: HttpTransportType.WebSockets
             })
             .build();
-        newConnection.start();
-
+        newConnection.start().then(() => {
+            newConnection.on('invitations',() => {
+                addCont();
+            });
+            newConnection.on("transfer",() => {
+                console.log("hi");
+                updateChat();
+            });
+        });
         setConnection(newConnection);
     },[]);
 
@@ -96,7 +106,7 @@ function ChatScreen({ user }) {
             <div className="card">
                 <div className="row">
                     <div className="col-3 col-lg-3 col-xl-3 pe-0">
-                        <Bar addContact={addCont} currentUser={user} updateCont={updateCont} />
+                        <Bar addContact={addCont} currentUser={user} updateCont={updateCont}/>
                         <UsersList currentUser={user} chats={chatList} displayChat={displayChat} />
                     </div>
                     <div className="col-9 col-lg-9 col-xl-9 border-start">
