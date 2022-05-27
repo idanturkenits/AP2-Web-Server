@@ -7,14 +7,12 @@ function UsersList({currentUser, chats, displayChat}){
         return Date.parse(a.users[1].lastDate)>=(Date.parse(b.users[1].lastDate))?-1:1;
     }
 
-    console.log(chats);
     const usersList = chats.sort(sortFunc).map((chat,key) => {
         return (
             <ChatCard currentUser={currentUser} chat={chat} displayChat={displayChat}/>
         );
     });
 
-    console.log(usersList);
     return (
         <div>
             <div id="user-list" className='xlist-group'>

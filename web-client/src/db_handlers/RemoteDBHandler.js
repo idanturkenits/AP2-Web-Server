@@ -67,6 +67,8 @@ class RemoteDBHandler {
     }
 
     async addMessageToChat(otherUsername, message) {
+        if (message=="")
+            return;
         await fetch('http://' + this.url + '/api/contacts/' + otherUsername + '/messages', {
             method: 'POST',
             headers: {

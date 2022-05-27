@@ -12,11 +12,31 @@ import TopUserInfo from './TopChatInfo';
 import RemoteDBHandler from '../db_handlers/RemoteDBHandler';
 import Chat from '../classes/Chat';
 import User from '../classes/User';
+import { HubConnectionBuilder, HttpTransportType } from '@microsoft/signalr';
+
 /*
 disc: Chat is the main window' with all the contacts and their chats
 user: is the obj represent the user data
 */
 function ChatScreen({ user }) {
+    const [ connection, setConnection ] = useState(null);
+
+    useEffect(() => {
+        if (connection) {
+            connection.start()
+                .then(result => {
+                    connection.on('invitations',() => {
+                        addCont();
+                    });
+                    connection.on('transfer',() => {
+                        console.log("hi");
+                        addMessage("");
+                    });
+                })
+                .catch(e => console.log('Connection failed: ', e));
+        }
+    }, [connection]);
+
     const [render,setRender] = useState(1);
 
     const [activeChat, setActiveChat] = useState(null);
@@ -35,7 +55,6 @@ function ChatScreen({ user }) {
             let messages = handler.getMessagesOfContact(chat.users[1].username).then(messagesArray => {
                 chat.messages = [];
                 for (let message of messagesArray) {
-                    console.log(message);
                     let sender = message["sent"]? user:chat.users[1];
                     chat.messages.push(new Message('text',message["content"],sender,message["created"]))
                 }
@@ -59,7 +78,16 @@ function ChatScreen({ user }) {
     }
     
     useEffect(()=> {
-        handler.getChatsOfCurrentUser(user).then(chats => setChatList([...chats]))
+        handler.getChatsOfCurrentUser(user).then(chats => setChatList([...chats]));
+        const newConnection = new HubConnectionBuilder()
+            .withUrl('http://localhost:5112/hub/chat', {
+                skipNegotiation: true,
+                transport: HttpTransportType.WebSockets
+            })
+            .build();
+        newConnection.start();
+
+        setConnection(newConnection);
     },[]);
 
     return (

@@ -21,7 +21,6 @@ function ChatCard({ currentUser, chat, displayChat }) {
     let lastMessage = chat.messages[chat.messages.length - 1];
     if (chat.messages.length>0) {
         lastMessageDate = lastMessage.date;
-        console.log(lastMessage);
         nickName = lastMessage.sender.nickname;
         if(lastMessage.type === 'text'){
             content = lastMessage.content;

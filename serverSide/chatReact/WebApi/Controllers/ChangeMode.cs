@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System.Net;
 using System.Text.Json;
+using WebApi.Hubs;
 using WebApi.Services;
 
 namespace WebApi.Controllers
@@ -10,10 +12,12 @@ namespace WebApi.Controllers
     public class ChangeMode : ControllerBase
     {
         private IService _service;
+        private IHubContext<ChatHub> _hub;
 
-        public ChangeMode(IService service)
+        public ChangeMode(IService service, IHubContext<ChatHub> hubcontext)
         {
             _service = service;
+            _hub = hubcontext;
         }
 
         // Post: api/invitations
@@ -25,7 +29,7 @@ namespace WebApi.Controllers
             var to = body.GetProperty("to").ToString();
             var content = body.GetProperty("content").ToString();
             await _service.AddNewMessage(await _service.GetChat(to, from), content, false);
-
+            await _hub.Clients.All.SendAsync("transfer");
             return StatusCode((int)HttpStatusCode.Created);
         }
 
@@ -42,8 +46,12 @@ namespace WebApi.Controllers
             await _service.AddNewContact(to, from, from, server);
 
             await _service.AddNewChat(to, from);
+
+            await _hub.Clients.All.SendAsync("invitations");
+
             return StatusCode((int)HttpStatusCode.Created);
         }
 
     }
+
 }
