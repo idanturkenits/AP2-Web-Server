@@ -33,26 +33,29 @@ function ChatScreen({ user }) {
         setActiveChat(chat);
     }
 
-    const updateChat = function () {
-        handler.getMessagesOfContact(activeChat.users[1].username).then(messagesArray => {
-            activeChat.messages = [];
-            for (let message of messagesArray) {
-                let sender = message["sent"]? user:activeChat.users[1];
-                activeChat.messages.push(new Message('text',message["content"],sender,message["created"]))
-            }
+    const updateChat = async function () {
+        for (let chat of chatList) {
+            await handler.getMessagesOfContact(chat.users[1].username).then(messagesArray => {
+                chat.messages = [];
+                for (let message of messagesArray) {
+                    let sender = message["sent"]? user:chat.users[1];
+                    chat.messages.push(new Message('text',message["content"],sender,message["created"]))
+                }
+                handler.getChatById(chat.users[1].username).then(data => {
+                    var thisChat = chatList.find(ch => ch.users[1].username==chat.users[1].username);
+                    thisChat.users[1].lastMessage = data["last"];
+                    thisChat.users[1].lastDate = data["lastdate"];
+                })
+            });
+        }
+        if (activeChat != null)
             setActiveChat({...activeChat});
-            handler.getChatById(activeChat.users[1].username).then(data => {
-                var thisChat = chatList.find(ch => ch.users[1].username==activeChat.users[1].username);
-                thisChat.users[1].lastMessage = data["last"];
-                thisChat.users[1].lastDate = data["lastdate"];
-                setChatList([...chatList])
-            })
-        });
+        setChatList([...chatList])
     }
 
-    const addMessage = function (message) {
+    const addMessage = async function (message) {
         let chat = activeChat;
-        handler.addMessageToChat(chat.users[1].username, message).then(() => {
+        handler.addMessageToChat(chat.users[1].username, message).then(async () => {
             let messages = handler.getMessagesOfContact(chat.users[1].username).then(messagesArray => {
                 chat.messages = [];
                 for (let message of messagesArray) {
@@ -70,8 +73,8 @@ function ChatScreen({ user }) {
         });
     }
 
-    const addCont = function () {
-        handler.getChatsOfCurrentUser(user).then(chats => setChatList([...chats]))
+    const addCont = async function () {
+        await handler.getChatsOfCurrentUser(user).then(chats => setChatList([...chats]))
     }
 
     const updateCont = async function(filter) {

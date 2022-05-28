@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\idant\\Source\\Repos\\AP2-Web-Client\\serverSide\\chatReact\\RatingPage\\RatingPage.csproj": {}
+    "C:\\Users\\Ido\\Documents\\AP2-Web-Client\\serverSide\\chatReact\\RatingPage\\RatingPage.csproj": {}
   },
   "projects": {
-    "C:\\Users\\idant\\Source\\Repos\\AP2-Web-Client\\serverSide\\chatReact\\RatingPage\\RatingPage.csproj": {
+    "C:\\Users\\Ido\\Documents\\AP2-Web-Client\\serverSide\\chatReact\\RatingPage\\RatingPage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\idant\\Source\\Repos\\AP2-Web-Client\\serverSide\\chatReact\\RatingPage\\RatingPage.csproj",
+        "projectUniqueName": "C:\\Users\\Ido\\Documents\\AP2-Web-Client\\serverSide\\chatReact\\RatingPage\\RatingPage.csproj",
         "projectName": "RatingPage",
-        "projectPath": "C:\\Users\\idant\\Source\\Repos\\AP2-Web-Client\\serverSide\\chatReact\\RatingPage\\RatingPage.csproj",
-        "packagesPath": "C:\\Users\\idant\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\idant\\Source\\Repos\\AP2-Web-Client\\serverSide\\chatReact\\RatingPage\\obj\\",
+        "projectPath": "C:\\Users\\Ido\\Documents\\AP2-Web-Client\\serverSide\\chatReact\\RatingPage\\RatingPage.csproj",
+        "packagesPath": "C:\\Users\\Ido\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ido\\Documents\\AP2-Web-Client\\serverSide\\chatReact\\RatingPage\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\idant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ido\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -77,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
