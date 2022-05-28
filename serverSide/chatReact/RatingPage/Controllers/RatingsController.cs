@@ -156,5 +156,19 @@ namespace RatingPage.Controllers
         {
             return _context.Rating.Any(e => e.Id == id);
         }
+
+        public async Task<IActionResult> Search()
+        {
+            return View(await _context.Rating.ToListAsync());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Search(string query)
+        {
+            var q = from rating in _context.Rating
+                    where rating.RaterName.Contains(query) || rating.Explanation.Contains(query)
+                    select rating;
+            return View(await q.ToListAsync());
+        }
     }
 }
