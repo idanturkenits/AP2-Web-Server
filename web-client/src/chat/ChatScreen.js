@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import UsersList from './usersList';
 import Bar from './topBar';
 import { useRef, useState } from 'react'
@@ -13,6 +13,7 @@ import RemoteDBHandler from '../db_handlers/RemoteDBHandler';
 import Chat from '../classes/Chat';
 import User from '../classes/User';
 import { HubConnectionBuilder, HttpTransportType } from '@microsoft/signalr';
+import chats from '../database/Chats';
 
 /*
 disc: Chat is the main window' with all the contacts and their chats
@@ -20,8 +21,6 @@ user: is the obj represent the user data
 */
 function ChatScreen({ user }) {
     const [ connection, setConnection ] = useState(null);
-
-    const [render,setRender] = useState(1);
 
     const [activeChat, setActiveChat] = useState(null);
 
@@ -31,26 +30,6 @@ function ChatScreen({ user }) {
 
     const displayChat = function (chat) {
         setActiveChat(chat);
-    }
-
-    const updateChat = async function () {
-        for (let chat of chatList) {
-            await handler.getMessagesOfContact(chat.users[1].username).then(messagesArray => {
-                chat.messages = [];
-                for (let message of messagesArray) {
-                    let sender = message["sent"]? user:chat.users[1];
-                    chat.messages.push(new Message('text',message["content"],sender,message["created"]))
-                }
-                handler.getChatById(chat.users[1].username).then(data => {
-                    var thisChat = chatList.find(ch => ch.users[1].username==chat.users[1].username);
-                    thisChat.users[1].lastMessage = data["last"];
-                    thisChat.users[1].lastDate = data["lastdate"];
-                })
-            });
-        }
-        if (activeChat != null)
-            setActiveChat({...activeChat});
-        setChatList([...chatList])
     }
 
     const addMessage = async function (message) {
@@ -83,6 +62,37 @@ function ChatScreen({ user }) {
         })
     }
     
+
+    useEffect(()=> {
+        if (activeChat!=null) {
+            var thisChat = chatList.find(ch => ch.users[1].username==activeChat.users[1].username);
+            handler.getMessagesOfContact(thisChat.users[1].username).then(messagesArray => {
+                thisChat.messages = [];
+                for (let message of messagesArray) {
+                    let sender = message["sent"]? user:thisChat.users[1];
+                    thisChat.messages.push(new Message('text',message["content"],sender,message["created"]))
+                }
+                setActiveChat({...thisChat});
+            });
+        }
+    },[chatList])
+
+    useEffect(() => {
+        if (connection!=null) {
+            connection.start().then(() => {
+                connection.on('invitations',() => {
+                    addCont();
+                });
+                connection.on("transfer",async () => {
+                    await handler.getChatsOfCurrentUser(user).then((chats) => {
+                        setChatList([...chats]);
+                    });
+                    //updateChat();
+                });
+        }
+    )}
+    },[connection]);
+
     useEffect(()=> {
         handler.getChatsOfCurrentUser(user).then(chats => setChatList([...chats]));
         const newConnection = new HubConnectionBuilder()
@@ -90,16 +100,8 @@ function ChatScreen({ user }) {
                 skipNegotiation: true,
                 transport: HttpTransportType.WebSockets
             })
+            .withAutomaticReconnect()
             .build();
-        newConnection.start().then(() => {
-            newConnection.on('invitations',() => {
-                addCont();
-            });
-            newConnection.on("transfer",() => {
-                console.log("hi");
-                updateChat();
-            });
-        });
         setConnection(newConnection);
     },[]);
 
