@@ -6,7 +6,7 @@ import FileMessage from './FileMessage';
 import AudioMessage from './AudioMessage';
 
 function Message({ msg, currentUser }) {
-  if (currentUser.id === msg.sender.id) {
+  if (currentUser.username === msg.sender.username) {
     return (
       <div className="chat-messages ms-4">
         <div className="chat-message-left pt-2 pb-2">
@@ -15,7 +15,7 @@ function Message({ msg, currentUser }) {
           </div>
           <div className="flex-shrink-1 msg-green rounded py-1 px-3 mr-3">
             {toComponent({message:msg})}
-            <div className="text-muted small text-nowrap mt-2">{msg.dateToString()}</div>
+            <div className="text-muted small text-nowrap mt-2">{msg.date}</div>
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@ function Message({ msg, currentUser }) {
         <div className="flex-shrink-1 bg-light rounded py-1 px-3 mr-3">
           <div className="text-muted small text-nowrap pb-1">{msg.sender.nickname}</div>
           {toComponent({message:msg})}
-          <div className="text-muted small text-nowrap mt-2">{msg.dateToString()}</div>
+          <div className="text-muted small text-nowrap mt-2">{msg.date}</div>
         </div>
       </div>
     </div>

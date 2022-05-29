@@ -1,11 +1,13 @@
  
 class User {
-    constructor(username, nickname, password, image){
+    constructor(username, nickname,jwt, server="localhost:5112",lastMessage,lastDate){
         this.username = username;
         this.nickname = nickname;
-        this.password = password;
-        this.image = image;
-        this.id = Math.random().toString(36).slice(2);
+        this.jwt = jwt;
+        this.server = server;
+        this.image = "notfound.png"
+        this.lastMessage = lastMessage;
+        this.lastDate = lastDate;
     }
 }
 

@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import users from '../database/Users'
 import LocalDBHandler from '../db_handlers/LocalDBHandler'
+import RemoteDBHandler from '../db_handlers/RemoteDBHandler'
+import User from '../classes/User'
 
 function LoginForm({ setConnectedUser }) {
     const [error, setError] = useState('');
@@ -22,18 +24,24 @@ function LoginForm({ setConnectedUser }) {
     }
 
     let doLogin = function () {
-        const handler = new LocalDBHandler();
+        const handler = new RemoteDBHandler('localhost:5112');
         let usernameInput = usernameRef.current.value;
         let passwordInput = passwordRef.current.value;
-        for (const user of users) {
-            if (user.username === usernameInput && user.password === passwordInput) {
-                setConnectedUser(handler.getUserByUserName(usernameInput))
-                navigate('/chat');
-            }
-            else {
+        var res = handler.login(usernameInput,passwordInput)
+        res.then(data => {
+            if (data[0]=='{') {
                 setError('Invalid username or password');
             }
-        }
+            else {
+                var curUser;
+                var curRes = handler.curUser(data).then(info => {
+                    curUser = new User(info["username"],info["nickname"],data);
+                }).then( ()=> {
+                    setConnectedUser(curUser);
+                    navigate('/chat');
+                })
+            }
+        })
     }
     return (
         <div className="card mt-5 box-shadow" style={{borderRadius: 2 + '%'}}>
@@ -54,6 +62,10 @@ function LoginForm({ setConnectedUser }) {
 
                 <div className="mt-5 d-flex justify-content-center">
                     <p className="form-label mt-2 mb-5">Not a member? <Link to="/signup" className="text-decoration-none">SignUp</Link></p>
+                </div>
+
+                <div className="d-flex justify-content-center">
+                    <p className="form-label mb-5">click <a href="http://localhost:5197"> here </a> for rating page </p>
                 </div>
             </div>
         </div>

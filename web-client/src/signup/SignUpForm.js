@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import users from '../database/Users'
 import User from '../classes/User'
+import RemoteDBHandler from '../db_handlers/RemoteDBHandler'
 function SignUpForm() {
     const [error, setError] = useState('');
     let navigate = useNavigate();
@@ -22,13 +23,13 @@ function SignUpForm() {
           }
     }
 
-    let doSignUp = function () {
+    let doSignUp = async function () {
         // get data from boxes
         let usernameInput = usernameRef.current.value
         let nicknameInput = nicknameRef.current.value
         let passwordInput = passwordRef.current.value
         let confirmPasswordInput = confirmPasswordRef.current.value
-        let imageInput = imageRef.current;
+        //let imageInput = imageRef.current;
 
         // check if one of the fields is empty
         if (usernameInput === '' || passwordInput === '' || nicknameInput === '') {
@@ -47,10 +48,10 @@ function SignUpForm() {
             setError('Passwords do not match')
             return
         }
-        if (imageInput.files.length==0) {
+        /*if (imageInput.files.length==0) {
             setError('Image is required')
             return
-        }
+        }*/
         // check if password is at least 6 characters long and contains at least one number anad one Capital letter
         if (passwordInput.length < 6 || !/\d/.test(passwordInput) || !/[A-Z]/.test(passwordInput)) {
             setError('Password must be at least 6 characters long, contain at least one number and one capital letter')
@@ -58,7 +59,9 @@ function SignUpForm() {
         }
 
         // add the user to the user list
-        users.push(new User(usernameInput, nicknameInput, passwordInput, getImgData()))
+        //users.push(new User(usernameInput, nicknameInput, passwordInput, getImgData()))
+        let handler = new RemoteDBHandler('localhost:5112');
+        await handler.signUp(usernameInput, nicknameInput, passwordInput);
 
         // clear the text boxes
         usernameRef.current.value = ''
@@ -85,9 +88,6 @@ function SignUpForm() {
                 </div>
                 <div className="form-group mt-4">
                     <input type="password" onKeyUp={sendByEnter} className="form-control" id="Repassword" ref={confirmPasswordRef} placeholder="confirm password" required/>
-                </div>
-                <div className="form-group mt-4">
-                    <input type="file" className="form-control" ref={imageRef} id="imgInp" placeholder="upload image" accept='image/*' required/>
                 </div>
                 <p className="form-label mt-2 mb-5 text-danger">{error}</p>
                 <div className="mt-5 d-flex justify-content-center">

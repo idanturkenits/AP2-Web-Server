@@ -1,0 +1,39 @@
+﻿@model RatingPage.Models.Rating
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row mt-3">
+    <div class="col-md-4">
+        <form asp-action="Edit" class="card">
+            <h5 class="card-header bg-warning">Edit Rating</h5>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id"/>
+            <input type="hidden" asp-for="RaterName"/>
+            <div class="form-label">
+                <label asp-for="Explanation" class="control-label"></label>
+                <input asp-for="Explanation" class="form-control" />
+                <span asp-validation-for="Explanation" class="text-danger"></span>
+            </div>
+            <div class="form-label">
+                <label asp-for="Rate" class="control-label"></label>
+                <input asp-for="Rate" class="form-control" />
+                <span asp-validation-for="Rate" class="text-danger"></span>
+            </div>
+            <div class="form-label">
+                <input type="submit" value="Save" class="btn btn-warning" />
+            </div>
+
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

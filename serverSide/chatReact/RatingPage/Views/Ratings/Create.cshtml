@@ -1,0 +1,41 @@
+﻿@model RatingPage.Models.Rating
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row mt-3">
+    <div class="align-items-center">
+        <form class="col-md-4 card" asp-action="Create">
+            <h5 class="card-header bg-info">Add Rating</h5>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-label">
+                <label asp-for="RaterName" class="control-label"></label>
+                <input asp-for="RaterName" class="form-control" />
+                <span asp-validation-for="RaterName" class="text-danger"></span>
+            </div>
+            <div class="form-label">
+                <label asp-for="Explanation" class="control-label"></label>
+                <input asp-for="Explanation" class="form-control" />
+                <span asp-validation-for="Explanation" class="text-danger"></span>
+            </div>
+            <div class="form-label">
+                <label asp-for="Rate" class="control-label"></label>
+                <input asp-for="Rate" class="form-control" />
+                <span asp-validation-for="Rate" class="text-danger"></span>
+            </div>
+            <div class="form-label">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

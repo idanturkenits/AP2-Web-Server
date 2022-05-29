@@ -4,11 +4,7 @@ import ChatCard from "./ChatCard"
 
 function UsersList({currentUser, chats, displayChat}){
     let sortFunc = function(a,b) {
-        if (b.messages.length==0)
-            return -1;
-        if (a.messages.length==0)
-            return 1;
-        return a.messages[a.messages.length-1].date>=b.messages[b.messages.length-1].date?-1:1;
+        return Date.parse(a.users[1].lastDate)>=(Date.parse(b.users[1].lastDate))?-1:1;
     }
 
     const usersList = chats.sort(sortFunc).map((chat,key) => {

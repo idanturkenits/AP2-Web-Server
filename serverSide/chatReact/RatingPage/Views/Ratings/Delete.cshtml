@@ -1,0 +1,32 @@
+﻿@model RatingPage.Models.Rating
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="card mt-3">
+    <h4 class="card-header bg-danger">Delete rating</h4>
+    <dl class="row">
+        <dt>
+            @Html.DisplayNameFor(model => model.Explanation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Explanation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rate)
+        </dt>
+        <dd>
+            @for(int i=0;i<Model.Rate;i++)
+            {
+                <label>★</label>
+            }
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
