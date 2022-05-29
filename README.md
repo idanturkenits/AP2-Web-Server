@@ -5,7 +5,6 @@
 This project requires NodeJS (version 8 or later) and NPM.
 
 ## Getting Started
-
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 The project contains 3 diffrent servers, which all can run on your local machine on diffrent ports 
