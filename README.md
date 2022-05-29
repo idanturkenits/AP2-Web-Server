@@ -1,5 +1,5 @@
-# AP2 Web Client 
-Second exercise in course "Advanced Programming 2" - Web Client
+# First Part - Web Client 
+First exercise in course "Advanced Programming 2" - Web Client
 <img src="https://user-images.githubusercontent.com/84286628/165817467-77ee218e-da91-4d19-9544-a1626b1c6aec.png" width="100" height="100">
 
 ## Prerequisites
