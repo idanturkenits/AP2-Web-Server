@@ -24,7 +24,7 @@ Start with cloning this repo on your local machine:
 $ git clone https://github.com/idanturkenits/AP2-Web-Client.git
 ```
 
-### Web API & Reating Page
+### Web API & Rating Page
 Both of them were written using the .Net framework.
 Its best to run them using a trusted software, for example Visual Studio which supports .NET.
 
