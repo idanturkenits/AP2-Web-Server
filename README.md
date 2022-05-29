@@ -29,7 +29,7 @@ Its best to run them using a trusted software, for example Visual Studio which s
 
 
 ### React Application
-To install and set up the library, run:
+To install and set up the application, run:
 
 ```sh
 $ cd web-client
@@ -40,7 +40,7 @@ $ npm start
 ## Features
 - **Live Communication** - If you sign out and then sign back in as another user, you will see the new messages.
 - **Search** - Search for a chat involving a specific user using the serachbox.
-- **Online Updates** - The user list will be updated in real time as new notifications are received.
+- **Online Updates (using SignlR)** - The user list will be updated in real time as new notifications are received.
 
 ## Sample Pictures
 ![login](https://user-images.githubusercontent.com/84286628/165820445-188c76c6-b226-41b4-8595-3d131abbbaa3.jpg)
