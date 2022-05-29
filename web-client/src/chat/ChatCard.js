@@ -37,7 +37,7 @@ function ChatCard({ currentUser, chat, displayChat }) {
                 let sender = (message["sent"]===true? currentUser:chat.users[1]);
                 chat.messages.push(new Message('text',message["content"],sender,message["created"]))
             }
-            displayChat(chat);
+            displayChat({...chat});
         });
     }
     
