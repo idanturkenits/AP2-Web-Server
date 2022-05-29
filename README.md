@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 The project contains 3 diffrent servers, which all can run on your local machine on diffrent ports 
  - localhost:5112 - web api
- - localhost:5000 - rating page
+ - localhost:5197 - rating page
  - localhost:3000 - react application
 
 ## Running Instructions
