@@ -25,6 +25,8 @@ $ git clone https://github.com/idanturkenits/AP2-Web-Client.git
 ### Web API & Rating Page
 Both of them were written using the .Net framework.
 Its best to run them using a trusted software, for example Visual Studio which supports .NET.
+Open the Solution named 'chatReact.sln' that is in ```serverSide\chatReact``` in Visual Studio and you will find the 2 projects (Web API & Rating Page)
+From there you can choose each one and run it.
 
 
 ### React Application
