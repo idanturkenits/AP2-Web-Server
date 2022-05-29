@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 The project contains 3 diffrent servers, which all can run on your local machine on diffrent ports 
  - localhost:5112 - web api
- - localhost:5000 - rating page
+ - localhost:5197 - rating page
  - localhost:3000 - react application
 
 ## Running Instructions
@@ -24,7 +24,7 @@ Start with cloning this repo on your local machine:
 $ git clone https://github.com/idanturkenits/AP2-Web-Client.git
 ```
 
-### Web API & Reating Page
+### Web API & Rating Page
 Both of them were written using the .Net framework.
 Its best to run them using a trusted software, for example Visual Studio which supports .NET.
 
